@@ -1,0 +1,1184 @@
+<!doctype html>
+<html lang="en">
+  <meta charset="UTF-8">
+  <head>
+    <!-- font-face rule needed here not in css file to avoid CORS block? -->
+    <style>
+@font-face {
+  font-family: 'Titillium';
+  font-style: normal;
+  font-weight: 400;
+  src: local('TitilliumWeb'),
+    url('fonts/TitilliumWeb/TitilliumWeb-Regular.WOFF')
+    format('woff');
+}
+    </style>
+    <link rel="stylesheet" href="css/index.css" />
+    <link rel="stylesheet" href="css/print.css" />
+    <link rel="stylesheet" href="highlight/styles/idea-hjo.css">
+    <link rel="stylesheet" href="mermaid/mermaid.forest.css">
+  </head>
+  <body>
+
+    <!--PRESENTATION-->
+    <div id="impress" data-transition-duration="1000">
+
+      <!--TITLE-->
+      <div id="title" style="background:white" class="step image" data-x="0" data-y="0" data-scale="3">
+        <div style="position:absolute; top:3%; left:3%">
+          <img src="img/cylc-logo-small.png" width="300px"></img>
+        </div>
+        <h2 style="margin-left:35%; margin-bottom:0">
+          <span style="color:#ff5966">Features,</span>
+          <span style="color:#ffcc00">Benefits,</span>
+          &amp;
+          <span style="color:#00c798">Adoption</span>
+          <span style="color:#00b4fd">Worldwide</span>
+        </h2>
+        <p style="margin-left:3%; margin-top:0">Hilary Oliver - NIWA - 15 Nov 2018, Dallas Texas</p>
+
+        <div style="position:absolute; bottom:0">
+          <img src="img/esiwace-cylc-altair-logos.png" style="width:100%; height:60px;">
+          <img src="img/umc-partner-logos-2018.jpg" style="width:100%">
+          <img src="img/umc-associate-logos-2018.jpg" style="width:100%">
+          <div style="margin-left:3%; margin-bottom:30px">
+            <span style="font-size:55%">
+              <a href="http://cylc.github.io/cylc/">Cylc</a> Development is
+              supported by the <a
+                 href="https://www.metoffice.gov.uk/research/collaboration/um-partnership">Unified Model Consortium</a>; and
+               <a href="https://www.esiwace.eu">ESiWACE</a>; and 
+               <a href="https://www.altair.com">Altair Engineering</a></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Intro -->
+      <div id="Intro" class="step" data-rel-x="-1000" data-rel-y="2000">
+        <img src="img/Wellington-New-Zealand.jpg"/>
+        <img src="img/nz-globe.png" style="position:absolute; top:0; right:0"/>
+        <div class="person">
+          <img src="img/hilary.jpg" style="margin-top:20px" />
+          <span class="name">Hilary Oliver</span><br/>
+            <span class="description">NIWA (National Institute
+              of Water and Atmospheric Research)<br/> New Zealand</span>
+        </div>
+      </div>
+
+      <!--FEATURES-->
+      <div id="features" style="background:white" class="step image"
+        data-rel-x="2500" data-rel-y="-3000" data-rel-to="title"
+        data-scale="1.5">
+        <div style="position:absolute; top:3%; left:3%">
+          <img src="img/cylc-logo-small.png" width="300px"/>
+        </div>
+        <h2 style="margin-left:35%; margin-bottom:0"><span style="color:#ff5966; font-weight:bold">Features</span>, Benefits, &amp; Adoption Worldwide</h2>
+
+        <div style="position:absolute; bottom:0">
+          <img src="img/esiwace-cylc-altair-logos.png" style="width:100%; height:60px;">
+          <img src="img/umc-partner-logos-2018.jpg" style="width:100%">
+          <img src="img/umc-associate-logos-2018.jpg" style="width:100%">
+          <div style="margin-left:3%; margin-bottom:30px">
+            <span style="font-size:55%">
+              <a href="http://cylc.github.io/cylc/">Cylc</a> Development is
+              supported by the <a
+              href="https://www.metoffice.gov.uk/research/collaboration/um-partnership">Unified Model Consortium</a>; and
+            <a href="https://www.esiwace.eu">ESiWACE</a>; and 
+            <a href="https://www.altair.com">Altair Engineering</a></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="step image" id="features-cycling-def" data-rel-x="1500" data-rel-y="0" data-rotate="20">
+        <img src="img/cycling-workflow-layer8.png" 
+             style="position:absolute; height:100%; left:60px"
+             alt="" 
+             class=""/>
+
+        <img src="img/cycling-workflow-layer7.png" 
+             style="position:absolute;height:100%; left:60px"
+             alt="" 
+             class="substep"/>
+
+        <img src="img/cycling-workflow-layer6.png" 
+             style="position:absolute; height:100%; left:60px"
+             alt="" 
+             class="substep"/>
+
+        <img src="img/cycling-workflow-layer5.png" 
+             style="position:absolute; height:100%; left:60px"
+             alt="" 
+             class="substep"/>
+
+        <img src="img/cycling-workflow-layer4.png" 
+             style="position:absolute; height:100%; left:60px"
+             alt="" 
+             class="substep"/>
+
+        <img src="img/cycling-workflow-layer3.png" 
+             style="position:absolute; height:100%; left:60px"
+             alt="" 
+             class="substep"/>
+
+        <img src="img/cycling-workflow-layer2.png" 
+             style="position:absolute; height:100%; left:60px"
+             alt="" 
+             class="substep"/>
+
+        <img src="img/cycling-workflow-layer1.png" 
+             style="position:absolute; height:100%; left:60px"
+             alt="" 
+             class="substep"/>
+
+        <div class="notes">
+          <ul>
+            <li>repeat cycles...</li>
+            <li>...there's inter-cycle dependence between some task...</li>
+            <li>...which is technically no different to intra-cycle
+              dependence...</li>
+            <li>...no need to label cycle points (boxes) as if they have global
+              relevance...</li>
+            <li>... so you can see this is actually an infinite single workflow
+              that happens to be composed of repeating tasks </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="step image" id="features-cycling-vid-key" data-rel-x="1200" data-rotate="30">
+        <img src="img/animation-key-1.png" style="height:100%; margin-left:18%"
+                                           alt="animation key" 
+                                           class="center"/>
+        <div class="notes">
+          The key to an animation of how cylc manages such an infinite workflow.
+        </div>
+      </div>
+
+      <div class="step image" id="features-cycling-vid" data-rotate="40">
+        <video controls onclick="this.paused ? this.play() : this.pause();"
+               style="width:100%; margin-top:20px">
+          <source src="img/cycling-workflow-10-retries.webm">
+            Your browser does not support webm video
+        </video>
+        <div class="notes">
+          Cylc's <i>dynamic cycling</i> mode.
+        </div>
+      </div>
+
+      <div id="features-cycling-why" class="step" data-rotate="30">
+        <h2>What's cycling needed for?</h2>
+        <ul>
+          <li> clock-limited real time forecasting</li>
+          <li> splitting a long simulation into short chunks</li>
+          <li> iterative workflows (e.g. optimize model params)</li>
+          <li> processing datasets as concurrently as possible</li>
+          <li> classic pipelines!</li>
+          <li> (and ... other kinds of repetitive processing)
+        </ul>
+        <div class="notes">
+          <ul>
+            <li> dynamic cycling is not strictly needed for small, short
+              workflows.</li>
+            <li> historically achieved (NWP) with sequential whole cycles.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="step image" data-rotate="100" id="features-cycling-catchup">
+        <img src="img/dep-two-cycles.svg" 
+             style="position:absolute; width:100%; top:10%"
+             alt="" 
+             class=""/>
+        <img src="img/timeline-three-a.svg" 
+             style="position:absolute; top:60%; width:100%"
+             alt="" 
+             class="substep"/>
+        <img src="img/timeline-three.svg"
+             style="position:absolute; top:60%; width:100%"
+             alt="" 
+             class="substep"/>
+        <div class="notes">
+          Catch-up from delays much faster if inter-cycle dependence is
+          explicitly managed.
+        </div>
+      </div>
+
+      <div class="step" id="features-what-cylc-is-like">
+        <h3>What Cylc Is Like</h3>
+        <ul>
+          <li>complex cycling model(*) workflows in HPC</li>
+          <li>text config file (with programmatic templating)
+            <ul>
+              <li>treat workflow definitions like source code</li>
+              <li>economy of workflow definition: inheritance, cycling graph
+                notation, templating</li>
+            </ul>
+            <li>light-weight, flexible, and general
+              <ul>
+                <li>application agnostic: any script, or program</li>
+                <li>move data around however you like</li>
+                <li>ANY date-time or integer cycling sequences</li>
+              </ul>
+            </li>
+            <li> ETC...</li>
+        </ul>
+        <div class="notes">
+          <p>Not currently well suited to "data-intensive" workflows</p>
+          <p>no magic sauce to obscure "what the scientist does"</p>
+          <p>A workflow is primarily a configuration of the workflow engine,
+          and a config file is easier <i>for most users</i> and <i>most use
+            cases</i> than programming to a Python API. However, ...!</p>
+          <p>ETC.: event handling, checkpointing, extreme restart, ...</p>
+        </div>
+      </div>
+
+      <div class="step image" id="features-cylc-arch">
+        <img src="img/cylc-arch.png" style="width:100%; margin-top:40px" alt=""/>
+        <div class="notes">
+          distributed architecture: ad hoc server per workflow
+        </div>
+    </div>
+
+    <div class="step" id="features-cylc-cli">
+      <p>A powerful "unified" CLI</p>
+      <pre><code>$ cylc --help</code></pre>
+
+      <p>e.g. to re-trigger all <code>failed</code> tasks with name
+      <code>get_*</code> and cycle point <code>2020*</code>, in suite
+      <code>expt1</code> (leaving others alone):</p>
+      <pre><code>$ cylc trigger expt1 2020*/get_*:failed</code> </pre>
+        <div class="notes">
+        </div>
+    </div>
+
+    <div class="step image" id="features-cylc-gui">
+        <img src="img/gcylc-1.png" 
+             style="position:absolute; width:100%; top:25px"
+             alt="" 
+             class=""/>
+        <img src="img/gcylc-3.png" 
+             style="position:absolute; width:100%; top:25px"
+             alt="" 
+             class="substep"/>
+        <img src="img/cylc-gscan.png" 
+             style="position:absolute; width:100%; height:100%; top:25px"
+             alt="" 
+             class="substep"/>
+        <div class="notes">
+          <p>note dynamic filtering vs static SMS GUI</p> 
+        </div>
+    </div>
+    
+    <div class="step image" id="features-cylc-review" data-rel-x="500"
+      data-rel-y="1200" data-rel-to="features">
+        <img src="img/cylc-review-1.png" 
+             style="position:absolute; width:100%; top:25px"
+             alt="" 
+             class=""/>
+        <img src="img/cylc-review-2.png" 
+             style="position:absolute; width:100%; top:25px"
+             alt="" 
+             class="substep"/>
+        <img src="img/cylc-review-3.png" 
+             style="position:absolute; width:100%; top:25px"
+             alt="" 
+             class="substep"/>
+        <img src="img/cylc-review-4.png" 
+             style="position:absolute; width:100%; top:25px"
+             alt="" 
+             class="substep"/>
+        <img src="img/cylc-review-5.png" 
+             style="position:absolute; width:100%; top:25px"
+             alt="" 
+             class="substep"/>
+        <div class="notes">
+        </div>
+    </div>
+ 
+    <div class="step" style="font-size:36px" id="features-cylc-hello-world" data-rotate="30" data-rel-x="1200" data-rel-y="0">
+      <img src="img/hello.svg" 
+           style="width:35%; position:absolute; top:35%; right:0"
+           alt=""/>
+
+      <pre><code class="ini" style="position:absolute; top:0">
+# Hello World! Plus
+[scheduling]
+   [[dependencies]]
+       graph = "hello => farewell & goodbye"
+      </code></pre>
+
+      <pre class="substep"><code class="ini" style="position:absolute; top:0">
+# Hello World! Plus
+[scheduling]
+   [[dependencies]]
+       graph = "hello => farewell & goodbye"
+[runtime]
+   [[hello]]
+       script = echo "Hello World!"
+      </code></pre>
+      <pre class="substep"><code class="ini" style="position:absolute; top:0">
+# Hello World! Plus
+[scheduling]
+   [[dependencies]]
+       graph = "hello => farewell & goodbye"
+[runtime]
+   [[hello]]
+       script = echo "Hello World!"
+       [[[environment]]]
+           # ...
+       [[[remote]]]
+           host = hpc1.niwa.co.nz
+       [[[job]]]
+           batch system = PBS
+           # ...
+       # ...
+   # ...
+      </code></pre>
+
+      <div class="notes">
+        Plus:
+        <ul>
+          <li>[runtime] is a multiple inheritance heirarchy for efficient
+            sharing of all common settings
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="step" id="features-hello-world-2" data-rotate="30">
+
+      <div style="position:absolute; bottom:0; width:100%">
+      <img src="img/hello-0.svg" 
+           style="width:35%; display:block; position:absolute; right:10%"
+           alt=""/>
+
+      <pre><code class="ini">
+ #!Jinja2
+ {% set SAY_BYE = false %}
+ [scheduling]
+    [[dependencies]]
+       graph = """hello
+ {% if SAY_BYE %} 
+         => goodbye & farewell
+ {% endif %}
+               """
+[runtime]
+    # ...
+      </code></pre>
+      </div>
+
+      <div class="substep" style="position:absolute; bottom:0; width:100%;">
+      <img src="img/hello.svg" 
+           style="width:35%; display:block; position:absolute; right:10%"
+           alt=""/>
+
+      <pre><code class="ini">
+ #!Jinja2
+ {% set SAY_BYE = true  %}
+ [scheduling]
+    [[dependencies]]
+       graph = """hello
+ {% if SAY_BYE %} 
+         => goodbye & farewell
+ {% endif %}
+               """
+[runtime]
+    # ...
+      </code></pre>
+      </div>
+      <div class="notes">
+      </div>
+    </div>
+
+    <div class="step image" id="features-families">
+      <img src="img/ensemble1.svg" 
+           style="position:absolute; top:20%; width:30%"
+           alt=""/>
+      <img src="img/ensemble2.svg" 
+           style="position:absolute; top:5%; right:0; width:55%"
+           alt=""
+           class="substep"/>
+      <img src="img/ens_plain.svg" 
+           style="position:absolute; bottom:0; right:0; width:60%"
+           alt=""
+           class="substep"/>
+      <div class="notes">
+      </div>
+    </div>
+
+    <div class="step" id="features-params-1" data-rotate="40">
+      <img src="img/param-simple.svg" 
+           style="width:50%; margin-left:25%"
+           alt="" class=""/>
+      <div style="height:30%">
+      <pre style="margin-top:0"><code class="ini">[[dependencies]]
+   graph = "pre =&gt; sim =&gt; post =&gt; done"
+   
+      </code></pre>
+      </div>
+      <div style="position:relative; top:-30%; height:30%; background:#d7d7d7" class="substep">
+      <pre style="margin-top:0"><code class="ini">[[dependencies]]
+   graph = "pre =&gt; sim&lt;M&gt; =&gt; post&lt;M&gt; =&gt; done"
+   # with M = 1..5
+      </code></pre>
+      </div>
+      <div style="position:relative; top:-30%;" class="substep">
+      <img src="img/params-5.svg" 
+           style="width:50%; margin-left:25%; position:relative; top:-30%"
+           alt="" class=""/>
+      </div>
+    </div>
+
+    <div class="step" id="features-params-2" data-rotate="30">
+      <img src="img/param-simple-2.svg" 
+           style="width:70%; margin-left:15%"
+           alt="" class=""/>
+      <div style="height:30%">
+        <pre style="margin-top:0"><code class="ini" style="font-size:20px">[[dependencies]]
+   graph = "prep =&gt; init =&gt; sim =&gt; post =&gt; close =&gt; done"
+   
+      </code></pre>
+      </div>
+      <div style="position:relative; top:-30%; height:30%; background:#d7d7d7" class="substep">
+      <pre style="margin-top:0"><code class="ini" style="font-size:20px">[[dependencies]]
+   graph = "prep =&gt; init&lt;R&gt; =&gt; sim&lt;R,M&gt; =&gt; post&lt;R,M&gt; =&gt; close&lt;R&gt; =&gt; done"
+   # with M = a,b,c; and R = 1..3</code></pre>
+      </div>
+      <div style="position:relative; top:-34%;" class="substep">
+        <img src="img/params-5-2.svg" 
+             style="width:86%; margin-left:7%"
+             alt="" class=""/>
+      </div>
+    </div>
+
+    <div class="step" style="font-size:36px" id="features-cycling-suiterc" data-rotate="30">
+      <div style="display:block; position:absolute; top:0">
+        <pre><code class="ini">
+[cylc]
+   cycle point format = %Y-%m
+[scheduling]
+   initial cycle point = 2010-01
+   [[dependencies]]
+      [[[R1]]]  # R1/^/P1M
+         graph = "prep =&gt; foo"
+        </code></pre>
+        <div class="notes">
+        </div>
+      </div>
+
+      <div class="substep" style="display:block; position:absolute; top:0">
+        <pre><code class="ini">
+[cylc]
+   cycle point format = %Y-%m
+[scheduling]
+   initial cycle point = 2010-01
+   [[dependencies]]
+      [[[R1]]]
+         graph = "prep =&gt; foo"
+      [[[P1M]]]  # R/^/P1M
+         graph = """
+            foo[-P1M] =&gt; foo
+            foo =&gt; bar &amp; baz =&gt; qux
+                 """
+        </code></pre>
+      </div>
+
+      <div class="substep" style="display:block; position:absolute; top:0;">
+        <pre><code class="ini">
+[cylc]
+   cycle point format = %Y-%m
+[scheduling]
+   initial cycle point = 2010-01
+   [[dependencies]]
+      [[[R1]]]
+         graph = "prep => foo"
+      [[[P1M]]]
+         graph = """
+            foo[-P1M] => foo
+            foo => bar & baz => qux
+                 """
+      [[[R2/^+P2M/P1M]]]
+         graph = "baz & qux[-P2M] => boo"
+        </code></pre>
+      </div>
+      <div class="notes">
+      </div>
+    </div>
+
+    <div class="step image" id="features-cycling-def-image" data-rotate="90">
+      <img src="img/cycling-suiterc-example.svg" 
+           style="height:100%; margin-left:10%"
+           alt="">
+      <div class="notes">
+      </div>
+    </div>
+
+    <div class="step" id="features-runtime" data-rotate="30">
+      <h2>other features</h2>
+      <ul>
+        <li>optimal catch-up from delays</li>
+        <li>robust inter-workflow triggering</li>
+        <li>state checkpointing and magic restart</li>
+        <li>general event handling</li>
+        <li>external event triggers <span style="background:yellow">(NEW)</span></li>
+        <li>suite auto-migration! <span style="background:yellow">(NEW)</span></li>
+        <li><code>cylc review</code> - job log viewer <span style="background:yellow">(NEW)</span></li>
+        <li>production tested!</li>
+        <li>...</li>
+      </ul>
+      <div class="notes">
+        <p>event handling: includes built-in aggregated emails</p>
+        <p>robust inter-workflow triggering: via suite DB not server (important
+        for transient distributed suites)</p>
+        <p>production tested: recovery from hall failures</p>
+      </div>
+    </div>
+
+      <!--BENEFITS-->
+      <div id="benefits" style="background:white" class="step image" data-rel-x="0" data-rel-y="2500" data-rel-to="features" data-scale="1.5">
+        <div style="position:absolute; top:3%; left:3%">
+          <img src="img/cylc-logo-small.png" width="300px"></img>
+        </div>
+        <h2 style="margin-left:35%; margin-bottom:0">Features, <span style="color:#ff5966; font-weight:bold">Benefits</span>, &amp; Adoption Worldwide</h2>
+
+        <div style="position:absolute; bottom:0">
+          <img src="img/esiwace-cylc-altair-logos.png" style="width:100%; height:60px;">
+          <img src="img/umc-partner-logos-2018.jpg" style="width:100%">
+          <img src="img/umc-associate-logos-2018.jpg" style="width:100%">
+          <div style="margin-left:3%; margin-bottom:30px">
+            <span style="font-size:50%">
+              <a href="http://cylc.github.io/cylc/">Cylc</a> Development is
+              supported by the <a
+              href="https://www.metoffice.gov.uk/research/collaboration/um-partnership">Unified Model Consortium</a>; and
+            <a href="https://www.esiwace.eu">ESiWACE</a>; and 
+            <a href="https://www.altair.com">Altair Engineering</a></span>
+          </div>
+        </div>
+      </div>
+
+    <div class="step" id="benefits-1" data-rotate="90" data-rel-x="1200" data-rel-y="0" data-rel-to="benefits"> 
+      <h2 style="margin-top:30%; margin-left:20%">(See FEATURES!)</h2>
+    </div>
+
+    <div class="step" id="benefits-list-1"> 
+      <h3>no central server (distributed workflows)</h3>
+      <ul>
+        <li> scales sideways (pool of Cylc servers/VMs)</li>
+        <li> easy system upgrades (once suite at a time)</li>
+        <li> light-weight, low admin</li>
+        <li> easy for research teams and individuals</li>
+      </ul>
+    </div>
+
+    <div class="step" id="benefits-list-1-5" data-rotate="0" data-rel-x="1200" data-rel-y="0"> 
+      <h3><strong>correct</strong> handling of cycling</h3>
+      <ul>
+        <li> seamless transition from behind-the-clock, to clock-limited
+          operation (and vice versa)</li>
+        <li> seamless research-production transition</li>
+        <li> very fast catch-up from delays (depending)</li>
+        <li> job failures don't affect upstream tasks at all </li>
+      </ul>
+      <div class="notes">
+        <p>research - production: also involves other aspects: configurable
+        workflow definitions (switch bits on and off) - but primarily, don't
+        need to run clock-limited in research.</p>
+      </div>
+    </div>
+
+    <div class="step" id="benefits-list-2" data-rotate="0"> 
+      <h3>economy of workflow definition</h3>
+      <ul>
+        <li>cycling graph notation - infinite graphs</li>
+        <li>multiple inheritance through task families
+          <ul>
+            <li> share ALL common configuration</li>
+          </ul>
+        </li>
+        <li>mass triggering of task families</li>
+        <li>Jinja2 templating</li>
+        <li>parameterized tasks</li>
+      </ul>
+      <div class="notes">
+        <p> (duplicated config is a maintenance risk)</p>
+      </div>
+    </div>
+
+    <div class="step" id="benefits-list-2-5"> 
+      <h3>ease of use</h3>
+      <ul>
+        <li>download cylc(*) to your laptop, run it</li>
+        <li>Cylc makes moderate workflows EASY
+          <ul>
+            <li>to write</li>
+            <li>to understand at a glance
+              <ul>
+                <li>intuitive graph notation</li>
+                <li>workflow graph visualization</li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li>...and large complex workflows possible</li>
+      </ul>
+      <div class="notes">
+        <p>(*) caveat: software dependencies and PyGTK; proper pip and conda
+        packaging soon</p>
+        <p>ease of use: note academic community and ESiWACE support</p>
+      </div>
+    </div>
+
+    <div class="step" id="benefits-list-3"> 
+      <h3>production support</h3>
+      <ul>
+        <li>general event handling (incl. aggregate emails)</li>
+        <li>robust inter-workflow triggering(*)</li>
+        <li>robust checkpoint restart</li>
+        <li>automigration! <span
+            style="background-color:yellow">(NEW)</span></li>
+        <li>multi-suite monitoring</li>
+        <li><strong>products of the Altair BOM project!</strong></li>
+      </ul>
+      <div class="notes">
+        (*) Kafka
+      </div>
+    </div>
+
+    <div class="step" id="benefits-list-4"> 
+      <h3>and finally ...</h3>
+      <ul>
+        <li><a href="https://github.com/cylc/cylc/pulls">active</a> Open Source
+          project </li>
+        <li>commercial support and packaging from Altair!</li>
+      </ul>
+    </div>
+
+      <!--ADOPTION-->
+      <div id="adoption" style="background:white" class="step image" data-rel-x="0" data-rel-y="1500" data-rel-to="benefits" data-scale="1.5">
+        <div style="position:absolute; top:3%; left:3%">
+          <img src="img/cylc-logo-small.png" width="300px"></img>
+        </div>
+        <h2 style="margin-left:35%; margin-bottom:0">Features, Benefits, &amp; <span style="color:#ff5966; font-weight:bold">Adoption</span> Worldwide</h2>
+
+        <div style="position:absolute; bottom:0">
+          <img src="img/esiwace-cylc-altair-logos.png" style="width:100%; height:60px;">
+          <img src="img/umc-partner-logos-2018.jpg" style="width:100%">
+          <img src="img/umc-associate-logos-2018.jpg" style="width:100%">
+          <div style="margin-left:3%; margin-bottom:30px">
+            <span style="font-size:50%">
+              <a href="http://cylc.github.io/cylc/">Cylc</a> Development is
+              supported by the <a
+              href="https://www.metoffice.gov.uk/research/collaboration/um-partnership">Unified Model Consortium</a>; and
+            <a href="https://www.esiwace.eu">ESiWACE</a>; and 
+            <a href="https://www.altair.com">Altair Engineering</a></span>
+          </div>
+        </div>
+      </div>
+
+    <div class="step image" id="adoption-niwa" data-rotate="30" data-rel-x="1500" data-rel-y="0" data-rel-to="adoption"> 
+        <img style="width:250px; position:absolute; top:0; left:0" src="img/niwa-2018-horizontal-final-400_0.png" 
+             alt="" 
+             class=""/>
+        <video autoplay loop="loop" style="width:100%">
+          <source src="img/nwpsfc_2018110700-utc_nzcsm-sfc_rh.webm"> 
+            Your browser does not support webm video
+        </video>
+ 
+        <div class="notes">
+          <p>lights-out operation since 2011; 25 inter-dependent model suites (X 2)</p>
+        </div>
+    </div>
+
+    <div class="step image" id="adoption-nzlam-1" data-rel-x="1200">
+      <div style="position:absolute; top 0; left:0 width:100%; height:100%;
+      background:#d7d7d7">
+        <img src="img/nzlam-ungrouped-2.svg" 
+             style="margin-top:10%; width:100%;" alt=""/>
+      </div>
+      <div class="substep" style="position:absolute; top 0; left:0; width:100%;
+      height:100%; background:#d7d7d7">
+        <img src="img/nzlam-m10.svg" 
+             style="margin-left:35%; height:100%" alt=""/>
+      </div>
+      <div class="substep" style="position:absolute; top 0; left:0; width:100%;
+      height:100%; background:#d7d7d7">
+        <img src="img/nzlam-m30.png" 
+             style="margin-top:0px; margin-left:40%; height:100%" alt=""/>
+      </div>
+      <div class="substep" style="position:absolute; top 0; left:0; width:100%;
+      height:100%; background:#d7d7d7">
+        <img src="img/nzlam-m30-zoom.png" 
+             style="position:absolute; top 0; left:20px; height:100%" alt=""/>
+      </div>
+      <div class="notes">
+        <ul>
+          <li> 3 cycles of a small deterministic regional NWP suite. Obs
+            processing tasks in yellow. Atmospheric model red, plus DA and
+            other pre and post-processing tasks A few tasks ... generates
+            thousands of products from a few large model output files.</li>
+          <li> ... ~45 tasks (3 cycles)</li>
+          <li> ... as a 10-member ensemble, ~450 tasks (3 cycles)</li>
+          <li> ... as a 30-member ensemble, ~1300 tasks (3 cycles)</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="step image" id="adoption-hydro-1">
+      <div style="position:absolute; top 0; left:0 width:100%;
+        height:100%;">
+        <img src="img/cylc-tn-si.png" 
+             style="height:100%; margin-left:50%" alt=""/>
+      </div>
+    </div>
+ 
+    <div class="step image" id="adoption-mo" data-rotate="60"> 
+        <img src="img/metoffice-logo-black.jpg" 
+             style="position:absolute; top:0; width:200px"
+             alt="" 
+             class=""/>
+ 
+        <img src="img/metoffice.jpg" 
+             style="width:100%"
+             alt="" 
+             class=""/>
+
+        <div style="position:absolute; bottom:10%; width:30%; left:2%;
+        color:#c8ff22; font-size:90%">460,000 core HPC, entirely managed with
+        Cylc and PBS</div>
+
+    </div>
+
+    <div class="step image" id="adoption-mo-usage" data-rotate="10">
+        <img src="img/metoffice-usage.png" 
+             alt="Met Office Usage" 
+             style="width:100%"/>
+        <div class="notes">
+        </div>
+    </div>
+
+
+    <div class="step image" id="adoption-worfklow" data-rotate="10">
+        <img src="img/complex-0.png" 
+             alt="complex 1" style="position:absolute; top:0; width:100%"/>
+        <img src="img/complex-1.png" class="substep"
+             style="position:absolute; top:0; width:100%" 
+             alt="complex 2"/>
+         <img src="img/complex-2.png" class="substep"
+             style="position:absolute; top:0; width:100%" 
+             alt="complex 3"/>
+         <img src="img/complex-3.png" class="substep"
+              style="position:absolute; top:0; right:0;width:100%" 
+             alt="complex 4"/>
+        <div class="notes">
+        </div>
+    </div>
+
+
+    <div class="step image" id="adoption-map" data-rotate="40">
+      <div style="position:absolute; top:20%; left:20%; color:black">
+        <a href="http://cylc.github.io/cylc/users.html">(click to see list)</a>
+     </div>
+      <div id=map style="width:100%; height:100%;; border:2px solid black">
+      </div>
+    </div>
+
+      <!--ROADMAP-->
+      <div id="roadmap" style="background:white" class="step image" data-rel-x="0" data-rel-y="1500" data-rel-to="adoption" data-scale="1.5">
+        <div style="position:absolute; top:3%; left:3%">
+          <img src="img/cylc-logo-small.png" width="300px"></img>
+        </div>
+        <h2 style="margin-left:35%; margin-bottom:0; font-size:110%">Features,
+          Benefits, and Adoption Worldwide <span style="color:#ff5966;
+            font-weight:bold">=====ROADMAP=====</span></h2>
+
+        <div style="position:absolute; bottom:0">
+          <img src="img/esiwace-cylc-altair-logos.png" style="width:100%; height:60px;">
+          <img src="img/umc-partner-logos-2018.jpg" style="width:100%">
+          <img src="img/umc-associate-logos-2018.jpg" style="width:100%">
+          <div style="margin-left:3%; margin-bottom:30px">
+            <span style="font-size:50%">
+              <a href="http://cylc.github.io/cylc/">Cylc</a> Development is
+              supported by the <a
+              href="https://www.metoffice.gov.uk/research/collaboration/um-partnership">Unified Model Consortium</a>; and
+            <a href="https://www.esiwace.eu">ESiWACE</a>; and 
+            <a href="https://www.altair.com">Altair Engineering</a></span>
+          </div>
+        </div>
+      </div>
+
+    <div id="roadmap-metoffice" class="step image" data-rotate="30" data-rel-x="1400" data-rel-y="0">
+      <h3>UK Met Office Exascale Program</h3>
+        <img src="img/mo-exascale-prog-scope.png" style="width:100%;" alt="MO Exascale Scope" class="right"/>
+        <div class="notes">
+          (Credit Keir Bovis: Met Office exascale programme scope)
+        </div>
+    </div>
+
+    <div class="step image" id="adoption-gui-1" data-rel-x="1500" data-rel-y="0">
+        <img src="img/gcylc-3.png" 
+             style="width:100%; margin-top:25px"
+             alt="" 
+             class=""/>
+        <div class="notes">
+          <p>This is a technical necessity, to survive into the exascale
+          era!</p>
+        </div>
+    </div>
+ 
+    <div class="step" id="adoption-gui-2" data-rotate="30">
+      <h2>Python 3, Web GUI</h2>
+      <img src="img/cylc-web-arch.png" 
+           style="position:absolute; right:0; top:25%"
+           alt=""/>
+      <div style="position:absolute; width:60%">
+      <ul>
+        <li>top priority</li>
+        <li>Python 2 and PyGTK near end-of-life</li>
+      </ul>
+      <ul>
+        <li> web GUI work starting
+          <ul> 
+            <li>need new architecture!</li>
+          </ul>
+        </li>
+      </ul>
+      </div>
+      <div class="notes">
+      </div>
+    </div>
+
+      <div id="exa2" class="step">
+        <h1>Meeting Exascale Challenges</h1>
+        <p><i>An outline of some potential pathways for future development</i></p>
+        <div class="person">
+          <img src="img/oliver.jpg" />
+          <span class="name">Slides Credit: Oliver Sanders</span>
+          <br />
+          <span class="description">Met Office (UK)</span>
+        </div>
+      </div>
+
+      <div id="exa2-outline" class="step" data-rel-x="1000" data-rel-y="200">
+        <!--object data="img/bigger.svg" type="image.svg+xml" height="1800px">
+        </object-->
+         <img src="img/bigger.svg" />
+      </div>
+
+      <div id="exa2-outline-bigger" class="step" data-rel-x="1000" data-rel-y="0">
+      </div>
+
+      <div id="exa2-outline-bigger2" class="step" data-rel-x="1000" data-rel-y="0">
+      </div>
+
+      <div id="exa2-vis-new-gui" class="step" data-rel-x="2200" data-rel-y="-240" data-scale="0.10" data-rel-to="exa2-outline">
+      <!--  <h2>The Visualisation Problem</h2>-->
+      <!--  <center>-->
+      <!--    <object id="graph" data="img/global.svg" type="image/svg+xml">-->
+      <!--    </object>-->
+      <!--    [><object id="graph" data="img/nzlam-m30.svg" type="image/svg+xml"<]-->
+      <!--    [>  width="1000px" height="600px"><]-->
+      <!--    </object>-->
+      <!--  </center>-->
+      <!--  <span class="substep" id="graph-zoom-1"></span>-->
+      <!--  <span class="substep" id="graph-zoom-2"></span>-->
+      <!--  <span class="substep" id="graph-zoom-3"></span>-->
+      <!--</div>-->
+
+      <!--<div id="exa2-vis1" class="step" data-rel-x="150" data-rel-y="0"-->
+      <!--     data-scale="0.10">-->
+        <h2>New Cylc GUI</h2>
+        <img width="250px" height="250px" src="img/html5.png">
+        <img width="180px" height="250px" src="img/css3.png">
+      </div>
+
+      <div id="exa2-vis-gscan-gcylc" class="step" data-rel-x="75"
+           data-rel-y="0" data-scale="0.10">
+        <h3>Combine <i>gscan</i> & <i>gcylc</i></h3>
+        <img class="full" src="img/gui-gscan-gcylc.png"/>
+      </div>
+
+      <div id="exa2-vis-graph-n-edges" class="step" data-rel-x="75"
+           data-rel-y="0" data-scale="0.10">
+        <h3>View N Edges To Selected Node</h3>
+        <img class="full"
+             src="img/gui-graph-limited-nodes-1.svg"
+             style="position:absolute;" />
+        <img class="full substep"
+             src="img/gui-graph-limited-nodes-2.svg"
+             style="position:absolute; background:#d7d7d7" />
+        <!-- TODO - export on a computer with better font support -->
+      </div>
+
+      <div id="exa2-vis-alternative-views" class="step" data-rel-x="80"
+           data-rel-y="0" data-scale="0.10">
+        <h3>Alternative Views</h3>
+        <img style="float:left;" class="full" src="img/gant.png" />
+        <ul style="float:left;">
+          <li>Gant chart</li>
+          <li>Adjacency matrix</li>
+          <li>Other?</li>
+      </div>
+
+      <!--<div id="exa2-vis5" class="step" data-rel-x="60" data-rel-y="0"-->
+      <!--     data-scale="0.10">-->
+      <!--  <h3>Selecting Tasks Between Views</h3>-->
+      <!--  [> TODO - remove image background <]-->
+      <!--  <img height="380px" src="img/gui-matrix.png" />-->
+      <!--</div>-->
+
+      <div id="exa2-writ-pre" class="step" data-rel-x="-1000" data-rel-y="150"> <!-- data-rel-to="exa2-bigger"-->
+      </div>
+
+      <div id="exa2-writ-modularity-1" class="step" data-rel-x="2200"
+           data-rel-y="-110" data-scale="0.10" data-rel-to="exa2-outline">
+        <h2>The Modularity Problem</h2>
+        <ul>
+          <li>We can split the suite.rc into multiple files but...</li>
+          <li>Suites are monolithic</li>
+          <li>Developing components in isolation is difficult</li>
+        </ul>
+      </div>
+
+      <div id="exa2-writ-modularity-2" class="step" data-rel-x="110"
+           data-rel-y="0" data-scale="0.10">
+        <p>It's hard to incorporate a module into a workflow</p>
+        <img width="1000px" src="img/sub-workflow-current.png" />
+      </div>
+
+      <div id="exa2-writ-modularity-3" class="step" data-rel-x="110"
+           data-rel-y="0" data-scale="0.10">
+        <p>Ideally we would write dependencies to/from the module itself
+        rather than the tasks within it</p>
+        <img width="1000px" src="img/sub-workflow.png" />
+      </div>
+
+      <div id="exa2-writ-modularity-4" class="step" data-rel-x="110"
+           data-rel-y="0" data-scale="0.10">
+        <p>Workflows could be represented as tasks</p>
+        <img width="500px" src="img/sub-workflow-collapsed.png" />
+
+        <pre>
+foo =&gt; baz =&gt; module&lt;p&gt; =&gt; pub
+        </pre>
+      </div>
+
+      <!--<div id="exa2-writ4" class="step" data-rel-x="110" data-rel-y="0"-->
+      <!--     data-scale="0.10">-->
+      <!--  <p>Advantages of workflow modules:</p>-->
+      <!--  <ul>-->
+      <!--    <li>Re-usable workflow components</li>-->
+      <!--    <li>The parent workflow remains simple</li>-->
+      <!--    <li>Programmatic logic at the correct level (workflow/module)</li>-->
+      <!--  </ul>-->
+      <!--</div>-->
+
+      <div id="exa2-writ-python-1" class="step" data-rel-x="110" data-rel-y="0"
+           data-scale="0.10">
+        <h3>Python API</h3>
+        <!--<p>For truly programmatic problems Jinja2 doesn't quite cut it!</p>-->
+        <p>Python &gt; Jinja2</p>
+
+        <p class="emph">Illustrative examples Python <i>could</i>
+        provide Cylc:</p>
+
+        <pre><code class="python">bar = cylc.Task('myscript')
+
+cylc.run(
+    foo &gt;&gt; bar &gt;&gt; baz
+)</code></pre>
+      </div>
+
+      <div id="exa2-writ-python-2" class="step" data-rel-x="110" data-rel-y="0"
+           data-scale="0.10">
+        <p>Use Python data structures as Cylc parameters:</p>
+        <pre><code class="python">animal = cylc.Parameter({
+    'cat': {'lives': 9, 'memory': 2},
+    'dog': {'lives': 1, 'memory': 10}
+})
+
+baz = cylc.TaskArray('run-baz',
+    args=('--animal', animal),
+    env={'N_LIVES': animal['lives']}),
+    directives={'--mem': animal['memory']}
+)</code></pre>
+      </div>
+
+      <div id="exa2-writ-python-3" class="step" data-rel-x="110" data-rel-y="0"
+           data-scale="0.10">
+        <p>Use Python to write Cylc modules:</p>
+        <pre><code>import my_component
+graph = cylc.graph(
+    foo &gt;&gt; bar &gt;&gt; my_component &gt;&gt; baz,
+    my_component.pub &gt;&gt; qux
+)</code></pre>
+      </div>
+
+      <div id="exa2-writ-scheduling-paradigms" class="step" data-rel-x="110"
+           data-rel-y="0" data-scale="0.10">
+        <h3>Alternative Scheduling Paradigms</h3>
+        <div style="float: left; margin: 0 50px 0 0;">
+          <div class="bubble">Abstract dependency</div>
+          <code style="opacity: 0.7"><pre>foo => bar => baz</pre></code>
+        </div>
+        <div style="float: left; margin: 0 50px 0 0;">
+          <div class="bubble">Data dependency</div>
+          <code style="opacity: 0.7"><pre>foo:
+  out: a
+bar:
+  in: a
+  out: b
+baz:
+  in: a, b
+  out: c</pre></code>
+        </div>
+        <ul>
+          <li>Compute resource dependency?</li>
+          <li>Others?</li>
+        </ul>
+      </div>
+
+      <!--div id="exa2-writ-pre" class="step" data-rel-x="-1000"
+           data-rel-y="150" data-rel-to="exa2-bigger">
+      </div-->
+
+      <!-- TODO insert slides with profiling results -->
+
+      <div id="exa2-run-scaling" class="step" data-rel-x="2200" data-rel-y="40"
+           data-scale="0.10" data-rel-to="exa2-outline">
+        <h3>Scaling With Dependencies</h3>
+        <p>Cylc can currently scale to tens of thousands of tasks and
+        dependencies</p>
+        <p>But there are limitations, for example:</p>
+      </div>
+
+      <div id="exa2-run-many-many-1" class="step" data-rel-x="110"
+           data-rel-y="0" data-scale="0.10">
+        <img height="60%" src="img/many-to-many.png" />
+        <p>Many to many triggers result in NxM dependencies</p>
+      </div>
+
+      <div id="exa2-run-many-many-2" class="step" data-rel-x="110"
+           data-rel-y="0" data-scale="0.10">
+        <img height="60%" src="img/many-many-as-one.png" />
+        <p>Cylc should be able to represent this as a single dependency</p>
+      </div>
+
+      <div id="exa2-run-many-many-3" class="step" data-rel-x="110"
+           data-rel-y="0" data-scale="0.10">
+        <p>The scheduling algorithm currently <i class="emph">iterates</i> over
+        a "pool" of tasks.</p>
+
+        <p>We plan to re-write the scheduler using an <i class="emph">event
+        driven</i> approach.</p>
+
+        <p>This should make Cylc more
+        <i class="emph">efficient</i> and <i class="emph">flexible</i> model
+        solving problems like this.</p>
+      </div>
+
+      <div id="exa2-run-kernel-shell" class="step" data-rel-x="110"
+           data-rel-y="0" data-scale="0.10">
+        <h3>Kernel - Shell Architecture</h3>
+        <center>
+          <p>Working towards a leaner Cylc we plan to separate the codebase into
+          a Kernel - Shell model</p>
+          <table>
+            <tr>
+              <td><div class="bubble">Shell</div></td>
+              <td><div class="bubble">Kernel</div></td>
+            </tr>
+            <tr>
+              <td class="emph">User Commands</td>
+              <td class="emph1">Scheduler</td>
+            </tr>
+            <tr>
+              <td class="emph">Suite Configuration</td>
+              <td class="emph1">Job Submission</td>
+            </tr>
+          </table>
+        </center>
+      </div>
+
+      <div id="exa2-run-batching-1" class="step" data-rel-x="110"
+           data-rel-y="0" data-scale="0.10">
+        <h3>Batching Jobs</h3>
+        <p>Combining multiple jobs to run in a single job submission.</p>
+        <img height="380px" src="img/batched-jobs-2.png" />
+      </div>
+
+      <div id="exa2-run-batching-2" class="step" data-rel-x="110"
+           data-rel-y="0" data-scale="0.10">
+        <h3>Arbitrary Batching</h3>
+        <p>A lightweight Cylc kernel could be used to execute a workflow within
+        a job submission.</p>
+        <div style="float:left;width:50%;">
+          <img height="380px" src="img/batched-jobs-3.png" />
+        </div>
+        <div style="float:left;width:50%;">
+          <ul>
+            <li class="small">The same Cylc scheduling algorithm</li>
+            <li class="small">No need for job submission</li>
+            <li class="small">Different approach to log / output files</li>
+          </ul>
+        </div>
+      </div>
+
+      <div id="exa2-summary" class="step" data-rel-x="3700" data-rel-y="0"
+           data-rel-to="exa2-outline">
+        <h2>Future Challenges</h2>
+        <ul>
+          <li>Container technology</li>
+          <li>Computing in the cloud</li>
+          <li>File system usage</li>
+        </ul>
+      </div>
+
+      <!--
+    <div class="step" id="features-scaling" data-rotate="60">
+      <h3>scaling</h3>
+      scales to 10k's of tasks/cycle (with caveats)
+      <ul>
+        <li> Tested sans GUI at 50k tasks (lots of RAM)</li>
+        <li> graphviz is unusable for huge suites </li>
+      </ul>
+
+      <p>nested cycling currently parameterized (or sub-suites)</p>
+      <ul>
+        <li> <b>huge</b> workflows require "bunching" of jobs</li>
+        <li> we plan to improve scaling further, in future</li>
+      </ul>
+
+      <div class="notes">
+        <p> Fine for "normal" large NWP ensemble suites</p>
+        (caveats: amount of config per task; amount of runahead; server
+        resources; GUI, esp. graph view)
+        <ul>
+          <li>nested: sub-cycle over model forecast hour</li>
+          <li>Met Office IMPROVER: 100k <i>jobs</i> per cycle.</li>
+          <li> (so many job logs also tax the filesystem)</li>
+        </ul>
+        Handling this kind of suite better leads to applicability in other
+        domains: massive numbers of small tasks PLUS complex workflow
+        and production capabilities.
+      </div>
+    </div>
+      -->
+
+
+    <div id="overview" class="step" data-x="4500" data-y="0000" data-scale="10" style="pointer-events: none;"></div>
+
+    </div>
+
+<!--
+    Add navigation-ui controls: back, forward and a select list.
+    Add a progress indicator bar (current step / all steps)
+-->
+<div id="impress-toolbar"></div>
+<div class="impress-progressbar"><div></div></div>
+<div class="impress-progress"></div>
+
+    <script type="text/javascript" src="highlight/highlight.cylc.pack.js"></script>
+    <script type="text/javascript" src="mermaid/mermaid.min.js"></script>
+    <script type="text/javascript" src="js/impress.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+
+  </body>
+</html>
