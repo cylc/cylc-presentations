@@ -1,0 +1,480 @@
+blockquote, q {
+    quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+
+body {
+    font-family: "Trebuchet MS", sans-serif;
+    min-height: 740px;
+
+    background:
+        url(../media/niwa-brand/NIWA_CMYK_Hor.png),
+        rgb(215, 215, 215);
+
+    background-size:
+        200px,
+        100% 100%;
+    background-repeat:
+        no-repeat;
+}
+
+b, strong { font-weight: bold }
+i, em { font-style: italic }
+
+a.button {
+    color: inherit;
+    text-decoration: none;
+    padding: 0 0.1em;
+    background: rgba(255,255,255,0.5);
+    text-shadow: -1px -1px 2px rgba(100,100,100,0.9);
+    border-radius: 0.2em;
+
+    -webkit-transition: 0.5s;
+    -moz-transition:    0.5s;
+    -ms-transition:     0.5s;
+    -o-transition:      0.5s;
+    transition:         0.5s;
+}
+
+a.button:hover,
+a.button:focus {
+    background: rgba(255,255,255,1);
+    text-shadow: -1px -1px 2px rgba(100,100,100,0.5);
+}
+
+.fallback-message {
+    font-family: sans-serif;
+    line-height: 1.3;
+
+    width: 780px;
+    padding: 10px 10px 0;
+    margin: 20px auto;
+
+    border: 1px solid #E4C652;
+    border-radius: 10px;
+    background: #EEDC94;
+}
+
+.fallback-message p {
+    margin-bottom: 10px;
+}
+
+.impress-supported .fallback-message {
+    display: none;
+}
+
+.step {
+    position: relative;
+    width: 900px;
+    padding: 40px;
+    margin: 20px auto;
+
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing:    border-box;
+    -ms-box-sizing:     border-box;
+    -o-box-sizing:      border-box;
+    box-sizing:         border-box;
+
+    font-family: "Trebuchet MS", sans-serif;
+    font-size: 48px;
+    line-height: 1.5;
+}
+
+.step.full {
+    height: 600px;
+    text-align: center;
+    padding: 0;
+}
+
+.impress-enabled .step {
+    margin: 0;
+    opacity: 0.3;
+
+    -webkit-transition: opacity 1s;
+    -moz-transition:    opacity 1s;
+    -ms-transition:     opacity 1s;
+    -o-transition:      opacity 1s;
+    transition:         opacity 1s;
+}
+
+.impress-enabled .step.active { opacity: 1 }
+
+#source q {
+    font-size: 60px;
+}
+
+#overview { display: none }
+
+.impress-on-overview .step {
+    opacity: 1;
+    cursor: pointer;
+}
+
+.impress-enabled div#impress-toolbar {
+    position: fixed;
+    right: 1px;
+    bottom: 1px;
+    opacity: 0.6;
+}
+.impress-enabled div#impress-toolbar > span {
+    margin-right: 10px;
+}
+
+body.impress-mouse-timeout div#impress-toolbar {
+    display: none;
+}
+
+body.impress-mouse-timeout {
+    cursor: none;
+}
+
+.impress-enabled                          { pointer-events: none }
+.impress-enabled #impress                 { pointer-events: auto }
+.impress-enabled #impress-toolbar         { pointer-events: auto }
+.impress-enabled #impress-console-button  { pointer-events: auto }
+
+
+/*
+ * Custom CSS for this presentation.
+ */
+
+@keyframes titleout {
+    0% {
+        /* state before the animation (same as .impress-on-title-slide) */
+        background:
+            url(../media/niwa-brand/NIWA_Rev_Hor_2.png),
+            url(../media/met-office-brand/metoffice-globe-background.jpg);
+        background-size:
+            200px,
+            cover,
+            100% 100%;
+        background-position:
+            0px 0px,
+            0px 0px,
+            0px 0px;
+        background-repeat:
+            no-repeat;
+    }
+    100% {
+        /* state after the animation (~same as {body}) */
+        background:
+            url(../media/niwa-brand/NIWA_CMYK_Hor.png),
+            url(../media/met-office-brand/metoffice-globe-background.jpg);
+        background-size:
+            200px,
+            cover,
+            100% 100%;
+        /* v back compat */
+        background-position:
+            0px 0px,
+            0px -1500px,
+            0px 0px;
+        background-position:
+            0px 0px,
+            0px -120vh,  /* image may be taller than display */
+            0px 0px;
+        background-repeat:
+            no-repeat;
+    }
+}
+
+.impress-on-title-slide {
+    background:
+        url(../media/niwa-brand/NIWA_Rev_Hor_2.png),
+        url(../media/met-office-brand/metoffice-globe-background.jpg);
+    background-size:
+        200px,
+        cover,
+        100% 100%;
+    background-position:
+        0px 0px,
+        0px 0px,
+        0px 0px;
+    background-repeat:
+        no-repeat;
+}
+#title-slide {
+    color: white;
+}
+
+.impress-on-introduction-to-cylc {
+    animation: titleout 3s;
+    animation-timing-function: linear;
+}
+
+/* Substep plugin */
+#impress .step .substep {
+    opacity: 0;
+    transition: opacity 0.5s;
+}
+
+#impress .step .substep.substep-visible {
+    opacity: 1;
+    transition: opacity 0.5s;
+}
+
+#impress .step .substep.flash {
+    display: none;
+}
+
+#impress .step .substep.flash.substep-active {
+    display: block;
+}
+
+span.comment {
+    font-size: 75%;position:absolute;top:0;left:0;
+}
+
+em {
+    color: #00b3fd;
+}
+
+.vflex {
+    display: flex;
+    flex-direction: column;
+}
+
+.vflex > * {
+    margin: 0;
+
+}
+
+.vflex > .flexgrow {
+    flex-grow: 2;
+    flex-shrink: 2;
+}
+
+table.iconlist tr td:nth-child(1) {
+    padding-right: 50px;
+}
+
+table.iconlist tr td:nth-child(1) > * {
+    vertical-align: middle;
+    padding-right: 50px;
+}
+
+table.comparison-table tr {
+    font-size: 32px;
+    padding: 30px;
+}
+
+table.comparison-table > .p {
+    margin: 0px;
+    padding: 0px;
+}
+
+ /* Container holding the image and overlayed text */
+.container {
+  position: relative;
+  text-align: center;
+  color: black;
+}
+/* Centered text */
+.centered-cont {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+ /* Manage two-column invisible layout for certain slides */
+.split {
+  height: 100%;
+  width: 50%;
+  position: fixed;
+  z-index: 1;
+}
+.left {
+  left: 0;
+}
+.right {
+  right: 0;
+}
+.centered {
+  position: absolute;
+  top: -30%;
+  left: 100%;
+  transform: translate(-90%, -60%);
+  text-align: center;
+}
+
+/* Nine-section grid to allow for some points around a central title */
+.grid-container {
+  display: grid;
+  grid-column-gap: 10px;
+  grid-row-gap: 50px;
+  grid-template-columns: 200px auto 200px;
+  grid-template-rows: 200px auto 200px;
+  padding: 0px;
+  /* background-color: red; (leave in so if need can quickly see grid lines) */
+}
+.grid-item {
+  padding: 0px;
+  text-align: center;
+  font-size: 35px;
+  /* background-color: white; (ditto, as above)*/
+}
+.grid-item-central {
+  padding: 20px;
+  text-align: center;
+  /* background-color: white; (ditto, as above)*/
+}
+
+
+#curvedarrow {
+  position: relative;
+  width: 0;
+  height: 0;
+  border-top: 90px solid transparent;
+  border-right: 90px solid;
+  transform: rotate(10deg);
+}
+#curvedarrow:after {
+  content: "";
+  position: absolute;
+  border: 0 solid transparent;
+  border-top: 30px solid;
+  border-radius: 200px 0 0 0;
+  top: -120px;
+  left: -90px;
+  width: 120px;
+  height: 120px;
+  transform: rotate(45deg);
+}
+#curvedarrowrotate {
+  position: relative;
+  width: 0;
+  height: 0;
+  border-top: 90px solid transparent;
+  border-right: 90px solid;
+  transform: rotate(190deg);
+}
+#curvedarrowrotate:after {
+  content: "";
+  position: absolute;
+  border: 0 solid transparent;
+  border-top: 30px solid;
+  border-radius: 200px 0 0 0;
+  top: -120px;
+  left: -90px;
+  width: 120px;
+  height: 120px;
+  transform: rotate(45deg);
+}
+
+/* FLEXBOX: leave in commented colouring for ease of seeing the boxes */
+.flex-container {
+  /* background-color: DodgerBlue; */
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+
+.flex-container > div {
+  /* background-color: #f1f1f1; */
+  margin: 0px;
+  padding: 0px;
+  font-size: 24px;
+}
+
+.flex-container-vert {
+  /* background-color: DodgerBlue; */
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.flex-container-vert > div {
+  /* background-color: #f1f1f1; */
+  margin: 0px;
+  padding: 0px;
+  font-size: 30px;
+}
+
+
+/* OpenLayers map: need it very wide so NZ & NIWA fit in on full zoom-out */
+.map {
+   height: 70%;
+   width: 100%;
+}
+
+.highlight {
+    text-align: left;
+    font-size: 0.6em;
+}
+
+/* pygments stylesheet */
+.highlight .hll { background-color: #ffffcc }
+.highlight .c { color: #aaaaaa; font-style: italic } /* Comment */
+.highlight .err { color: #F00000; background-color: #F0A0A0 } /* Error */
+.highlight .k { color: #0000aa } /* Keyword */
+.highlight .cm { color: #aaaaaa; font-style: italic } /* Comment.Multiline */
+.highlight .cp { color: #4c8317 } /* Comment.Preproc */
+.highlight .c1 { color: #aaaaaa; font-style: italic } /* Comment.Single */
+.highlight .cs { color: #0000aa; font-style: italic } /* Comment.Special */
+.highlight .gd { color: #aa0000 } /* Generic.Deleted */
+.highlight .ge { font-style: italic } /* Generic.Emph */
+.highlight .gr { color: #aa0000 } /* Generic.Error */
+.highlight .gh { color: #000080; font-weight: bold } /* Generic.Heading */
+.highlight .gi { color: #00aa00 } /* Generic.Inserted */
+.highlight .go { color: #888888 } /* Generic.Output */
+.highlight .gp { color: #555555 } /* Generic.Prompt */
+.highlight .gs { font-weight: bold } /* Generic.Strong */
+.highlight .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+.highlight .gt { color: #aa0000 } /* Generic.Traceback */
+.highlight .kc { color: #0000aa } /* Keyword.Constant */
+.highlight .kd { color: #0000aa } /* Keyword.Declaration */
+.highlight .kn { color: #0000aa } /* Keyword.Namespace */
+.highlight .kp { color: #0000aa } /* Keyword.Pseudo */
+.highlight .kr { color: #0000aa } /* Keyword.Reserved */
+.highlight .kt { color: #00aaaa } /* Keyword.Type */
+.highlight .m { color: #009999 } /* Literal.Number */
+.highlight .s { color: #aa5500 } /* Literal.String */
+.highlight .na { color: #1e90ff } /* Name.Attribute */
+.highlight .nb { color: #00aaaa } /* Name.Builtin */
+.highlight .nc { color: #00aa00; text-decoration: underline } /* Name.Class */
+.highlight .no { color: #aa0000 } /* Name.Constant */
+.highlight .nd { color: #888888 } /* Name.Decorator */
+.highlight .ni { color: #800000; font-weight: bold } /* Name.Entity */
+.highlight .nf { color: #00aa00 } /* Name.Function */
+.highlight .nn { color: #00aaaa; text-decoration: underline } /* Name.Namespace */
+.highlight .nt { color: #1e90ff; font-weight: bold } /* Name.Tag */
+.highlight .nv { color: #aa0000 } /* Name.Variable */
+.highlight .ow { color: #0000aa } /* Operator.Word */
+.highlight .w { color: #bbbbbb } /* Text.Whitespace */
+.highlight .mf { color: #009999 } /* Literal.Number.Float */
+.highlight .mh { color: #009999 } /* Literal.Number.Hex */
+.highlight .mi { color: #009999 } /* Literal.Number.Integer */
+.highlight .mo { color: #009999 } /* Literal.Number.Oct */
+.highlight .sb { color: #aa5500 } /* Literal.String.Backtick */
+.highlight .sc { color: #aa5500 } /* Literal.String.Char */
+.highlight .sd { color: #aa5500 } /* Literal.String.Doc */
+.highlight .s2 { color: #aa5500 } /* Literal.String.Double */
+.highlight .se { color: #aa5500 } /* Literal.String.Escape */
+.highlight .sh { color: #aa5500 } /* Literal.String.Heredoc */
+.highlight .si { color: #aa5500 } /* Literal.String.Interpol */
+.highlight .sx { color: #aa5500 } /* Literal.String.Other */
+.highlight .sr { color: #009999 } /* Literal.String.Regex */
+.highlight .s1 { color: #aa5500 } /* Literal.String.Single */
+.highlight .ss { color: #0000aa } /* Literal.String.Symbol */
+.highlight .bp { color: #00aaaa } /* Name.Builtin.Pseudo */
+.highlight .vc { color: #aa0000 } /* Name.Variable.Class */
+.highlight .vg { color: #aa0000 } /* Name.Variable.Global */
+.highlight .vi { color: #aa0000 } /* Name.Variable.Instance */
+.highlight .il { color: #009999 } /* Literal.Number.Integer.Long */
+
+/*
+Adjust OpenLayers styling. Overriding is needed (hence 'important' usage)
+since the default CSS is taken from an online standard OpenLayers file which we
+cannot change, but don't want to bundle in.
+*/
+.ol-control button{
+    background-color: #00C798 !important;
+    font-size:0.5em !important;
+    display:block !important;
+    margin:1px !important;
+}
