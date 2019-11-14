@@ -1,0 +1,1146 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title>Pursuing & supporting reproducible workflows for all with Cylc</title>
+  <meta
+    name="description"
+    content="Pursuing & supporting reproducible workflows for all with Cylc"
+  />
+  <meta
+    name="author"
+    content="Sadie Bartholomew & Oliver Sanders"
+  />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=1024" />
+  <link rel="shortcut icon" type="image/png"
+   href="media/cylc-logo-variants/cylc-favicon.ico"/>
+
+  <!-- General slides layout & formatting stylesheet -->
+  <link href="css/global-stylesheet.css" rel="stylesheet" />
+  <!-- For OpenLayers map: 1) general OpenLayers stylesheet -->
+  <link rel="stylesheet" href="https://openlayers.org/en/v5.3.0/css/ol.css"
+   type="text/css">
+
+  <!-- Scripts for section 1-->
+  <script type="text/javascript" src="js/jquery.min.js"></script>
+  <script type="text/javascript" src="js/index.js"></script>
+  <script type="text/javascript" src="js/minicylc.js"></script>
+
+  <!-- Scripts for section 2-->
+  <!-- For OpenLayers map: 1 & 2) general source JS: bundled -->
+  <script src="js/openlayers-polyfill.js"></script>
+  <script src="js/openlayers-core.min.js"></script>
+  <!-- Plotly 1) bundled core plotly JS script -->
+  <script type="text/javascript" src="js/plotly-latest.min.js"></script>
+  <!-- Plotly: 2) custom JS for MO research running workflows plot:
+       the data for the plot, stored separately to the plotting script: -->
+  <script type="text/javascript"
+   src="js/data/running_workflows_data.js"></script>
+
+</head>
+
+<body class="impress-not-supported">
+
+  <div class="fallback-message">
+    <p>Something went wrong!</p>
+  </div>
+
+  <div id="impress">
+
+    <!-- Title -->
+    <div
+      id="title-slide"
+      class="step"
+      style="
+        width: 900px; /* fallback for older browsers */
+        width: 90vw;  /* 90% of screen (viewport) width */
+      "
+    >
+      <p>
+        Pursuing & supporting<br>
+        <b>reproducible workflows</b><br>
+        for <i>all</i> with
+      </p>
+      <img
+        src="media/cylc-logo-variants/cylc-logo-white.svg"
+        alt="cylc-logo-white"
+        style="
+          height:150px;
+          position: relative;
+          top: -25px;  /* bump the logo up a bit */
+        "
+      />
+      <br />
+        <p
+        style="
+          font-size: 0.6em;
+          color: rgb(179, 179, 179);
+          "
+        >
+          Oliver Sanders & Sadie Bartholomew<br>
+          <i>Modelling Infrastructure Support<br> Systems</i> team,
+          <i>Met Office</i>
+        </p>
+    </div>
+
+
+    <!-- Section 1 - Cylc 101 -->
+    <div
+      id="introduction-to-cylc"
+      class="step"
+      data-rel-y="1.3h"
+      data-rel-to="title-slide"
+    >
+      <b>Introduction</b> to Cylc
+    </div>
+
+    <div
+      id="simple-workflow"
+      class="step full vflex"
+      data-rel-x="1.3w"
+      data-rel-y="0"
+    >
+      <p>
+        This is a <em>simple</em> workflow
+      </p>
+      <embed
+        id="basic-workflow"
+        class="flexgrow"
+        src="media/graph/basic-workflow.svg"
+      />
+    </div>
+
+    <div
+      id="repeating-workflow"
+      class="step full vflex"
+    >
+      <p>
+        This is a <em>repeating</em> workflow
+      </p>
+      <embed
+        id="repeating-workflow2"
+        class="flexgrow substep flash"
+        src="media/graph/repeating-workflow2.svg"
+      />
+    </div>
+
+    <script type="text/javascript">
+      // write dependencies
+      const repeating_deps = [];
+      for (let i=1; i<4; i++) {
+        repeating_deps.push(`a${i} => c${i} => d${i}`);
+        repeating_deps.push(`a${i} => b${i}`);
+        repeating_deps.push(`b${i} => a${i+1}`);
+        repeating_deps.push(`d${i} => a${i+1}`);
+      }
+
+      // create graph
+      const repeating_animation = $('<embed />')
+        .addClass('minicylc flexgrow substep flash')
+        .data('mainLoopStep', '1500')
+        .data('theme', 'demo')
+        .data('dependencies', repeating_deps.join('//'))
+        .attr('src', 'media/graph/repeating-workflow1.svg')[0]
+      $('#repeating-workflow').append(repeating_animation);
+      $('#repeating-workflow2').before(repeating_animation);
+
+      var repeating_workflow;
+      repeating_animation.onload = function() {
+        repeating_workflow = new MiniCylc(repeating_animation);
+        repeating_workflow.hold();
+        repeating_workflow.run();
+
+        // unhold when on slide
+        addClassNameListener(
+          $('#repeating-workflow')[0],
+          'active',
+          repeating_workflow.release.bind(repeating_workflow),
+          repeating_workflow.hold.bind(repeating_workflow)
+        );
+      };
+    </script>
+
+    <div
+      id="cycling-workflow"
+      class="step full vflex"
+    >
+      <p>
+        This is a <em>Cylc cycling</em> workflow
+      </p>
+      <embed
+        id="cycling-workflow-svg"
+        class="flexgrow"
+        src="media/graph/cycling-workflow.svg"
+      />
+    </div>
+
+    <div
+      id="infinite-cycling"
+      class="step full vflex"
+    >
+      <p>
+        This is an <em>infinite cycling</em> workflow
+      </p>
+    </div>
+
+    <script type="text/javascript">
+      // write dependencies
+      const deps = [];
+      for (let i=0; i<100; i++) {
+        deps.push(`a${i} => c${i} => d${i}`);
+        deps.push(`a${i} => b${i}`);
+        deps.push(`a${i} => a${i+1}`);
+        deps.push(`c${i} => b${i+1}`);
+      }
+
+      // create graph
+      const infininte_animation = $('<embed />')
+        .addClass('minicylc flexgrow')
+        .data('focus', true)
+        .data('theme', 'demo')
+        .data('randomFactor', 0.5)
+        .data('dependencies', deps.join('//'))
+        .attr('src', 'media/graph/infinite-workflow.svg')[0]
+      $('#infinite-cycling').append(infininte_animation);
+
+      infininte_animation.onload = function() {
+        const infinite_workflow = new MiniCylc(infininte_animation);
+        infinite_workflow.hold();
+        infinite_workflow.run();
+
+        // unhold when on slide
+        addClassNameListener(
+          $('#infinite-cycling')[0],
+          'active',
+          infinite_workflow.release.bind(infinite_workflow),
+          infinite_workflow.hold.bind(infinite_workflow)
+        );
+      };
+    </script>
+
+    <div
+      id="moving-window"
+      class="step"
+    >
+      <p>
+        Cylc provides a <em>moving window</em> on an infinite workflow
+      </p>
+      <ul>
+        <li>Workflows can be <em>infinite</em></li>
+        <li>Complex workflows <em>scale</em></li>
+        <li><em>Advanced cycling</em> is possible</li>
+      </ul>
+    </div>
+
+    <div
+      id="advanced-cycling"
+      class="step full vflex"
+    >
+      <p>Workflows with multiple <em>cycle intervals</em></p>
+      <embed
+        class="flexgrow substep flash"
+        src="media/multiple-recurrences/1.svg"
+      />
+      <embed
+        class="flexgrow substep flash"
+        src="media/multiple-recurrences/2.svg"
+      />
+      <embed
+        class="flexgrow substep flash"
+        src="media/multiple-recurrences/3.svg"
+      />
+    </div>
+
+    <div
+      id="cylc-features-1"
+      class="step"
+    >
+      <table class="iconlist">
+        <tr>
+          <td>
+            <embed
+              style="width: 150px"
+              src="media/icons/123.svg"
+            />
+          </td><td>
+            <em>Arbitrary</em> (integer) cycling
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <embed
+              style="width: 120px"
+              src="media/icons/clock.svg"
+            />
+          </td><td>
+            <em>Real time</em> cycling
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <embed
+              style="width: 150px"
+              src="media/icons/play.svg"
+            />
+          </td><td>
+            <em>Simulated time</em> cycling
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <embed
+              style="width: 120px"
+              src="media/icons/satellite.svg"
+            />
+          </td><td>
+            <em>Externally driven</em> cycling
+          </td>
+        </tr>
+      </table>
+    </div>
+
+    <div
+      id="basic-configuration"
+      class="step full vflex"
+    >
+      <p>This is a <em>simple</em> workflow definition</p>
+      <div id="basic-configuration-area"></div>
+      <script type="text/javascript">
+        $(document).ready(function() {
+          $('#basic-configuration-area').load('media/rc/simple.html');
+        });
+      </script>
+    </div>
+
+    <div
+      id="cycling-configuration"
+      class="step full vflex"
+    >
+      <p>This is a <em>Cycling</em> workflow definition</p>
+      <div id="cycling-configuration-area"></div>
+      <script type="text/javascript">
+        $(document).ready(function() {
+          $('#cycling-configuration-area').load('media/rc/cycling.html');
+        });
+      </script>
+    </div>
+
+    <div
+      id="architecture"
+      class="step full vflex"
+    >
+      <p>System architecture</p>
+      <embed
+        class="flexgrow"
+        src="media/compound-visuals/system-diagram.svg"
+      />
+    </div>
+
+    <div
+      id="job-submission"
+      class="step"
+    >
+      <p>Submit jobs with:</p>
+      <ul style="
+        position: relative;
+        left: 100px;
+        list-style: none;
+        font-size: 0.8em;"
+      >
+        <li>at</li>
+        <li>background
+          <span
+            style="
+              font-size: 0.6em;
+              color: rgb(100,100,100);
+            "
+          >
+            (no batch submission system)
+          </span>
+        </li>
+        <li>loadleveler</li>
+        <li>lsf</li>
+        <li>moab</li>
+        <li>pbs</li>
+        <li>sge</li>
+        <li>slurm</li>
+      </ul>
+    </div>
+
+    <div
+      id="cylc-features-2"
+      class="step"
+    >
+      <table class="iconlist">
+        <tr>
+          <td>
+            <embed
+              style="width: 200px"
+              src="media/icons/live.svg"
+            />
+          </td><td>
+            <em>Live monitoring</em> via GUI or CLI
+          </td>
+        </tr><tr>
+          <td>
+            <embed
+              style="width: 200px"
+              src="media/icons/hand.svg"
+            />
+          </td><td>
+            <em>Manual intervention</em> with running workflows supported
+          </td>
+        </tr><tr>
+          <td>
+            <embed
+              style="width: 200px"
+              src="media/icons/error.svg"
+            />
+          </td><td>
+            <em>Automatically re-submit</em> failed jobs
+          </td>
+        </tr>
+      </table>
+    </div>
+
+
+    <!-- Section 2 - Cylc Usage -->
+    <div
+      id="usage-and-community"
+      class="step full vflex"
+      data-rel-y="1.3h"
+      data-rel-to="introduction-to-cylc"
+      >
+      <p>
+        <b>Usage</b> & the Cylc <b>Community</b>
+      </p>
+            <!--
+              'community' clipart (public domain):
+              https://publicdomainvectors.org/en/free-clipart/People-sketch-in-a-circle/80562.html
+            -->
+      <embed
+        class="flexgrow"
+        src="media/decorative/community.svg"
+        style="height:100px;align:center"
+      />
+    </div>
+
+    <div
+      id="major-sites-map"
+      class="step full vflex"
+      data-rel-x="1.3w"
+      data-rel-y="0"
+       >
+      <p><em>International</em>
+            use [<img
+              src="media/icons/mapped-user-site.svg"
+              alt="mail"
+              width="35"
+            />]
+            & development [<img
+              src="media/icons/mapped-dev-site.svg"
+              alt="mail"
+              width="35"
+			/>]</p>
+      <div id="map" class="map"></div>
+          <span
+            style="
+              font-size: 0.6em;
+              color: rgb(100,100,100);
+            "
+          >
+            Major sites using Cylc (zoom out fully & pan right!)
+          </span>
+    </div>
+
+    <div
+      id="weather-forecasting-example"
+      class="step full vflex"
+      >
+      <p>Example: <em>weather forecasting</em></p>
+      <div class="flex-container">
+
+        <div class="flex-container-vert" style="flex-basis: 250px">
+          <p>
+            <!--
+              'light bulb' clipart (free to use):
+               http://www.clker.com/clipart-light-bulb-30-lit.html
+            -->
+            <img
+              style="width:30%"
+              src="media/decorative/light-bulb.svg"
+              alt="light-bulb"
+            />
+            <!--
+              Made by Sadie on Inkscape:
+            -->
+            <img
+              style="width:75%"
+              src="media/decorative/research-plot.svg"
+              alt="example-research-plot"
+            />
+          <b>research</b>
+          </p>
+        </div>
+
+        <div style="flex-basis: 350px">
+        <div class="flex-container-vert">
+      <!-- Struggled to align arrow via style, so hack with another flexbox -->
+      <div class="flex-container">
+        <div>
+          <p>
+            <img
+              style="width: 75px; float: left"
+              src="media/icons/clock.svg"
+              alt="clock-icon"
+            />
+          <em>real-time</em><br> cycling
+          </p>
+        </div>
+        <div id="curvedarrow"></div>
+     </div>
+
+      <div><p>seamless<br> (meta-scheduling)<br>
+	  transition</p></div>
+
+      <!-- Struggled to align arrow via style, so hack with another flexbox -->
+      <div class="flex-container">
+        <div id="curvedarrowrotate"></div>
+         <div style="flex-basis: 350px">
+           <p>
+          <img
+              style="width: 125px;float:right"
+              src="media/icons/play.svg"
+              alt="play-icon"
+            />
+          <em>simulated<br> time</em><br> cycling
+           </p>
+        </div>
+     </div>
+
+        </div>
+        </div>
+
+        <div class="flex-container-vert" style="flex-basis: 250px">
+          <p><b>operations</b>
+            <!--
+              'weather symbols' clipart (free to use)
+              http://www.clker.com/clipart-weather-symbols-1.html
+            -->
+            <img
+              style="width:75%"
+              src="media/decorative/weather-symbols.svg"
+              alt="weather-symbols"
+            /></p>
+        </div>
+
+      </div>
+    </div>
+
+    <div
+      id="met-office-figures"
+      class="step vflex"
+      >
+
+      <p>
+        At the
+        <img src="media/met-office-brand/metoffice-logo-black.png"
+         alt="metoffice-logo-black"
+         style="height:100px; vertical-align:-0.6em">
+      </p>
+        <ul>
+          <li>demonstrated scaling to:
+            <ul style="font-size: 0.8em;">
+              <li><em>&tilde;1000s</em> of <em>recurrences</em></li>
+              <li><em>&tilde;10,000s</em> of <em>tasks</em></li>
+              <li><em>&tilde;100,000s</em> of <em>dependencies</em></li>
+            </ul>
+          </li>
+          <li>meta-scheduling for our HPCs:
+            <ul style="font-size: 0.8em;">
+              <li>overall estate with <em>460,672 CPUs/cores</em></li>
+              <li><em>15,600 TFLOPs</em> peak performance</li>
+            </ul>
+          </li>
+        </ul>
+    </div>
+
+    <div
+      id="running-workflows-plot"
+      class="step full vflex"
+      >
+      <div id="running-workflows-plotted"></div>
+
+      <!-- Plotly: 3) custom JS for MO research running workflows plot:
+           & the script to process the data above & renders it on a plot: -->
+      <script type="text/javascript"
+       src="js/running-workflows-mo-research-plot.js"></script>
+
+      <ul style="font-size:0.8em">
+        <li><em>&gt; 500 consistently</em> since June</li>
+        <li>a general <em>upward trend</em> (ignoring noise)</li>
+      </ul>
+    </div>
+
+    <div
+      id="some-workflows-are-bigger-than-others"
+      class="step full vflex"
+      >
+      <p>Met Office workflows are often <em>huge</em>!</p>
+          <span
+            style="
+              font-size: 0.6em;
+              color: rgb(100,100,100);
+            "
+          >
+            (by numbers of tasks, dependencies, recurrences...)
+          </span>
+      <img
+        class="flexgrow"
+        src="media/compound-visuals/cise-graph-figure.png"
+        style="width:70%;display:block;margin-left:auto;margin-right:auto"
+          alt="cise-graph-figure"
+      />
+    </div>
+
+    <div
+      id="development-overview"
+      class="step full vflex"
+      >
+      <div class="grid-container">
+
+        <div class="grid-item">
+            <!--
+              Sourced from Wikimedia Commons (free to use):
+              https://commons.wikimedia.org/wiki/File:GPLv3_Logo.svg
+            -->
+          <img src="media/external-logos/gpl-v3.png"
+          alt="github-text"
+          style="height:125px;align:right">
+          fully <em>open-source</em>, via
+            <!--
+              Fair usage as described at link below, where sourced:
+              https://github.com/logos
+            -->
+          <img src="media/external-logos/github-logo-styled-text.png"
+          alt="github-text"
+          style="height:75px;align:right"><br>
+          <a
+            class="button"
+            href="https://github.com/cylc"
+          >cylc organisation</a>
+        </div>
+        <div class="grid-item"></div>
+        <div class="grid-item">
+            <!--
+              Used to indicate that Cylc uses Python, as permitted at source:
+              https://www.python.org/community/logos/
+            -->
+            <img src="media/external-logos/python-logo.png"
+              alt="python-logo"
+              style="height:150px;">
+        <em>Python-powered</em> core scheduling code
+        </div>
+        <div class="grid-item"></div>
+        <div class="grid-item-central">Development:<br>
+          ecosystem & history</div>
+        <div class="grid-item"></div>
+        <div class="grid-item"></div>
+        <div class="grid-item">
+          <em>&gt;10 years</em><br> of development!
+        </div>
+        <div class="grid-item"></div>
+
+      </div>
+    </div>
+
+    <div
+      id="workflow-design"
+      class="step full vflex"
+      >
+      <p>Workflow <em>design choices</em> include:</p>
+      <table
+        class="comparison-table"
+      >
+        <tr>
+          <td>
+            single monolithic workflow
+          </td>
+          <td><em>modularity</em>
+            <img src="media/icons/scale-line-pos2.svg"
+              alt="scale-pos2"
+              style="height:50px;">
+          </td>
+          <td>
+            multiple connected workflows
+          <span
+            style="
+              font-size: 0.8em;
+              color: rgb(100,100,100);
+            "
+          >
+            (inter-workflow triggering)
+          </span>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            coarse
+          </td>
+          <td><em>task granularity</em>
+            <img src="media/icons/scale-line-pos1.svg"
+              alt="scale-pos1"
+              style="height:50px;">
+          </td>
+          <td>
+            fine
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            via in-built parameterisation
+          </td>
+          <td><em>task generation</em>
+            <img src="media/icons/scale-line-pos3.svg"
+              alt="scale-pos3"
+              style="height:50px;">
+          </td>
+          <td>
+            via templating
+          <span
+            style="
+              font-size: 0.8em;
+              color: rgb(100,100,100);
+            "
+          >
+            (Jinja2)
+          </span>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <br><em>runtime inheritance:</em>
+          </td>
+          <td colspan="2">
+            <br>hierarchy branching, levels & interconnections
+          </td>
+        </tr>
+
+      </table>
+    </div>
+
+    <div
+      id="support-available"
+      class="step"
+      >
+      <div class="grid-container">
+        <div class="grid-item">
+          issue tracking & links etc.<br> via
+          <a
+            class="button"
+            href="https://github.com/cylc"
+          >cylc</a> organisation
+	  on<br>
+            <!--
+              Fair usage as described at link below, where sourced:
+              https://github.com/logos
+            -->
+          <img src="media/external-logos/github-logo.png" alt="github-octocat"
+          style="height:100px;">
+            <!--
+              Fair usage as described at link below, where sourced:
+              https://github.com/logos
+            -->
+          <img src="media/external-logos/github-logo-styled-text.png"
+          alt="github-text-2"
+          style="height:75px;">
+
+        </div>
+        <div class="grid-item">
+          comprehensive<br>
+          <a
+            class="button"
+            href="https://cylc.github.io/doc/built-sphinx/index.html"
+          >documentation</a>!
+        </div>
+        <div class="grid-item">
+          Funded support for the IS-ENES3 community
+          <img
+            src="media/external-logos/is-enes.png"
+            alt="is-enes"
+            height="60"
+          />
+        </div>
+        <div class="grid-item"></div>
+        <div class="grid-item-central">
+          Support available
+        </div>
+        <div class="grid-item"></div>
+        <div class="grid-item"></div>
+        <div class="grid-item">
+          dedicated support<br> & discussion<br>
+            <!--
+              discourse logo (GPL)
+              https://github.com/discourse/discourse/blob/master/LICENSE.txt
+            -->
+          <img src="media/external-logos/discourse-logo-with-text.png"
+          alt="discourse-logo-and-text"
+          style="height:75px;">
+          <br>
+          <a
+            class="button"
+            href="https://cylc.discourse.group/"
+          >forum</a>
+        </div>
+        <div class="grid-item"></div>
+      </div>
+    </div>
+
+
+    <!-- Section 3 - Cylc Future -->
+    <div
+      id="future-cylc-8"
+      class="step full"
+      data-rel-y="1.3h"
+      data-rel-to="usage-and-community"
+      >
+      <p style="align:left">
+        The <b>Future</b> of Cylc
+      </p>
+      <div
+        style="float:right;color:rgb(100,100,100);">
+        <img
+          src="media/cylc-logo-variants/cylc-logo-greyscale.svg"
+          style="height:100px;float:left;"
+          alt="cylc-logo-grey"
+        /> 8
+      </div>
+            <!--
+              'curved road' clipart (free to use)
+              http://www.clker.com/clipart-curved-road.html
+            -->
+      <img
+        src="media/decorative/curved-road.svg"
+        style="align:right"
+          alt="curved-road"
+      />
+    </div>
+
+    <div
+      id="new-tech-stack"
+      class="step"
+      data-rel-x="1.3w"
+      data-rel-y="0"
+      >
+      <p>Same <i>concept</i>, <em>revised tech stack</em>:</p>
+
+      <table
+        class="comparison-table"
+      >
+        <tr>
+          <td>
+            <p>Scheduling & runtime</p>
+          </td>
+          <td>
+          <div class="container">
+            <!--
+              Used to indicate that Cylc uses Python, as permitted at source:
+              https://www.python.org/community/logos/
+            -->
+            <img src="media/external-logos/python-logo.png" alt="python-logo"
+              style="height:100px;">
+            <div class="centered-cont">2</div>
+          </div>
+          </td>
+          <td>
+            <span>&#10230;</span> 
+          </td>
+          <td>
+          <div class="container">
+            <!--
+              Used to indicate that Cylc uses Python, as permitted at source:
+              https://www.python.org/community/logos/
+            -->
+            <img src="media/external-logos/python-logo.png" alt="python-logo"
+              style="height:100px;">
+            <div class="centered-cont">3</div>
+          </div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <p>Data & network layer</p>
+          </td>
+          <td>
+            <!--
+              Source (used under Creative Commons Attribution-ShareAlike 4.0
+              International License) without any modifications:
+              https://restfulapi.net/rest/
+            -->
+            <img src="media/external-logos/rest-logo.png" alt="rest-logo"
+            style="height:100px;">
+          </td>
+          <td>
+            <span>&#10230;</span> 
+          </td>
+          <td>
+            <!--
+              Source (used under Creative Commons 4.0 Attribution International. https://creativecommons.org/licenses/by/4.0/) without any modifications:
+              https://github.com/graphql/graphql.github.io/blob/source/site/img/logo.svg
+            -->
+            <img src="media/external-logos/graphql-logo.png" alt="graphql-logo"
+            style="height:100px;">
+            <!--
+              Drawn on InkScape by Sadie(!) sicne the official logo is not
+              available with a transparent background, but is trivial in form.
+            -->
+            <img src="media/external-logos/homemade-zeromq-logo.svg" alt="zmq-logo"
+            style="height:100px;">
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <p>Web framework</p>
+          </td>
+          <td>
+            <!--
+              Source (fair usage):
+              https://github.com/cherrypy/cherrypy.github.io/blob/master/images/cherrypy.png
+            -->
+            <img src="media/external-logos/cherrypy-logo.png"
+              alt="cherrypy-logo"
+              style="height:100px;">
+          </td>
+          <td>
+            <span>&#10230;</span> 
+          </td>
+          <td>
+            <!--
+              Source (fair usage):
+              http://www.tornadoweb.org/en/stable/_images/tornado.png
+            -->
+            <img src="media/external-logos/tornado-logo.png"
+              alt="tornado-logo"
+              style="height:50px;">
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <p>Front-end</p>
+          </td>
+          <td>
+            <!--
+              Source (fair usage):
+              https://wiki.gnome.org/Projects/GTK/Logo
+            -->
+            <img src="media/external-logos/gtk-logo.png" alt="gtk-logo"
+            style="height:100px;">
+          </td>
+          <td>
+            <span>&#10230;</span> 
+          </td>
+          <td>
+            <!--
+              Sourced from Wikimedia Commons (free to use):
+              https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/CSS3_and_HTML5_logos_and_wordmarks.svg/500px-CSS3_and_HTML5_logos_and_wordmarks.svg.png
+            -->
+            <img src="media/external-logos/css3-and-html5-logos.png"
+            alt="css-html-logos"
+            style="height:75px;">
+            <!--
+              Source (fair usage):
+              https://github.com/vuejs/art/blob/master/logo.png
+            -->
+            <img src="media/external-logos/vue-logo.png" alt="vue-logo"
+            style="height:100px;">
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <p>Documentation</p>
+          </td>
+          <td>
+            <!--
+              Sourced from Wikimedia Commons (free to use):
+              https://commons.wikimedia.org/wiki/File:LaTeX_logo.svg
+            -->
+            <img src="media/external-logos/latex-logo.png" alt="latex-logo"
+            style="height:50px;">
+          </td>
+          <td>
+            <span>&#10230;</span> 
+          </td>
+          <td>
+            <!--
+              Source (fair usage):
+              http://www.sphinx-doc.org/en/master/_static/sphinxheader.png
+            -->
+            <img src="media/external-logos/sphinx-logo.png" alt="sphinx-logo"
+            style="height:50px;">
+          </td>
+        </tr>
+      </table>
+    </div>
+
+    <div
+      id="new-web-UI"
+      class="step full vflex"
+      >
+      <p>
+        <em>Integrated</em>, <em>browser-based</em>
+        <a
+          class="button"
+          href="https://github.com/cylc/cylc-ui/files/3362486/design.document.pdf"
+        >design</a>
+        ...
+      </p>
+      <img
+	 src="media/compound-visuals/cylc-8-mockup.png" alt="cylc-8-mockup"
+	 style="width:80%;display:block;margin-left:auto;margin-right:auto">
+
+      <p> with feedback-led <em>improved UX</em></p>
+          </div>
+    <!--
+         Section "4": Closing Slides (not really a section, but strictly this
+         final slide is not on the future of Cylc, so put on another level as
+         we ease into the closing slides which then go off diagonally.
+    -->
+    <div
+      id="the-present"
+      class="step"
+      data-rel-x="0"
+      data-rel-y="1.3h"
+      data-rel-to="future-cylc-8"
+      >
+      The <b>Present</b>: for now...
+    </div>
+
+    <div
+      id="how-to-install"
+      class="step vflex"
+      data-rel-x="1.3w"
+      data-rel-y="0"
+      >
+      <ul>
+        <li><em>Cylc-8.0.0 "coming soon"</em> (<i>optimistic</i> estimate for
+          release ~June 2020)
+        </li>
+        <li>Until then, <em>please use Cylc 7.8.<i>X</i></em> (the
+	  latest, currently
+	  <a
+      class="button"
+      href="https://github.com/cylc/cylc-flow/releases/tag/7.8.4"
+    >
+      7.8<i>.4</i>
+    </a>) which is thoroughly tested & supported
+        </li>
+        <li>Install for Linux
+          <a
+            class="button"
+            href="https://github.com/cylc/cylc-flow/blob/7.8.x/INSTALL.md"
+          >via GitHub</a>
+        </li>
+      </ul>
+    </div>
+
+    <div
+      id="acknowledgements"
+      class="step full vflex"
+      style="text-align: center;"
+    >
+      <p>Cylc development is supported by:</p>
+      <embed
+        class="flexgrow"
+        src="media/external-logos/proudly-supported-by.svg"
+      />
+
+    </div>
+
+    <div
+      id="fin"
+      class="step"
+    >
+      <p
+        style="font-size: 1.5em;"
+      >
+        Questions?
+      </p>
+      <table
+        class="iconlist"
+      >
+        <tr>
+          <td>
+            <img
+              src="media/icons/web.svg"
+              alt="website"
+              width="50"
+            />
+          </td><td>
+            <a class="button" href="https://cylc.github.io">
+              cylc.github.io
+            </a>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <img
+              src="media/icons/mail.svg"
+              alt="mail"
+              width="50"
+            />
+          </td><td>
+            <a class="button" href="mailto:metomi@metoffice.gov.uk">
+              metomi@metoffice.gov.uk
+            </a>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <!-- see https://github.com/logos for licence and details -->
+            <img
+              src="media/external-logos/github-logo.png"
+              alt="github"
+              width="50"
+            />
+          </td><td>
+            <a class="button" href="https://github.com/cylc/cylc-flow">
+              cylc/cylc-flow
+            </a>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <!--
+              discourse logo (GPL)
+              https://github.com/discourse/discourse/blob/master/LICENSE.txt
+            -->
+            <img
+              src="media/external-logos/discourse-logo-no-text.png"
+              alt="discourse"
+              width="50"
+            />
+          </td><td>
+            <a class="button" href="https://cylc.discourse.group/">
+              cylc.discourse.group
+            </a>
+          </td>
+        </tr>
+      </table>
+    </div>
+
+  </div>
+
+  <!-- General impress.js JS -->
+  <div id="impress-toolbar"></div>
+  <script src="js/impress.js"></script>
+  <script>impress().init();</script>
+
+  <!-- For OpenLayers map: 3) custom JS script to create customised map -->
+  <script type="text/javascript" src="js/sites-map.js"></script>
+
+</body>
+</html>
