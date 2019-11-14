@@ -26,8 +26,8 @@
      showgrid="false"
      inkscape:current-layer="svg8"
      inkscape:document-units="mm"
-     inkscape:cy="204.74868"
-     inkscape:cx="777.47087"
+     inkscape:cy="201.92025"
+     inkscape:cx="653.37363"
      inkscape:zoom="1.4142136"
      inkscape:pageshadow="2"
      inkscape:pageopacity="0.0"
@@ -53,7 +53,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -1780,17 +1780,15 @@
      id="path7386"
      inkscape:connector-curvature="0"
      sodipodi:nodetypes="cc" />
-  <text
-     xml:space="preserve"
+  <g
+     aria-label="?"
      style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:12.09449196px;line-height:1.25;font-family:'Titillium Web';-inkscape-font-specification:'Titillium Web Bold';letter-spacing:0px;word-spacing:0px;fill:#e125e9;fill-opacity:1;stroke:none;stroke-width:0.22677171;stroke-opacity:1"
-     x="269.92068"
-     y="126.43311"
-     id="text8094"><tspan
-       sodipodi:role="line"
-       id="tspan8092"
-       x="269.92068"
-       y="126.43311"
-       style="fill:#e125e9;fill-opacity:1;stroke:none;stroke-width:0.22677171;stroke-opacity:1">?</tspan></text>
+     id="text8094">
+    <path
+       d="m 274.10769,123.45673 h -2.13189 v -0.28937 q 0,-0.48425 0.19489,-0.8563 0.19488,-0.37795 0.82086,-0.95669 l 0.37795,-0.34252 q 0.33662,-0.30709 0.49016,-0.57874 0.15945,-0.27165 0.15945,-0.54331 0,-0.41338 -0.28346,-0.6437 -0.28347,-0.23622 -0.79134,-0.23622 -0.47835,0 -1.03347,0.20079 -0.55512,0.19488 -1.15748,0.58465 v -1.85434 q 0.71457,-0.24803 1.30512,-0.36614 0.59055,-0.11811 1.13976,-0.11811 1.44095,0 2.19686,0.59055 0.7559,0.58465 0.7559,1.7126 0,0.57874 -0.23031,1.03937 -0.23032,0.45473 -0.78544,0.98032 l -0.37795,0.33661 q -0.40157,0.36614 -0.52559,0.59055 -0.12402,0.21851 -0.12402,0.48426 z m -2.13189,0.87402 h 2.13189 v 2.10236 h -2.13189 z"
+       style="fill:#e125e9;fill-opacity:1;stroke:none;stroke-width:0.22677171;stroke-opacity:1"
+       id="path239" />
+  </g>
   <image
      y="181.12184"
      x="240.65489"
