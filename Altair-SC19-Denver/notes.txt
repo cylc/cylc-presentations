@@ -1,0 +1,140 @@
+NOTES
+
+Try ... and fail to.
+First a brief introduction to Cylc
+what it is, what's project like,
+who uses it. FOR context, and then you 
+can decide how relevant my opinions might be less general
+be to your projects) PLUS maybe you
+could use Cylc for fish-y workflows!
+
+1. INTRODUCTION TO CYLC
+=======================
+
+SIMPLE WORKFLOW
+---------------
+- A workflow engine allows construct,
+  monitor, and control, such a system.
+...
+A single non-cycling workflow composed
+of repeating tasks ... is INFINITE!
+GLOBAL CYCLE an artificial constraint
+causes inefficient scheduling when cycles
+"run into" each other.
+
+ANIMATION
+---------
+'a' runs ahead regardless of downstream
+
+WEBSITE
+-------
+Front page "sells cylc", paper, docs, etc.
+
+
+2. GROWING AND SUSTAINING THE PROJECT
+======================================
+
+A list of the main things to consider and
+try to get right, on a collaborative project
+
+COMMUNICATIONS (the easy one first)
+-----
+CHALLENGES:
+  - non co-location, time zones
+  - for years I was the sole Cylc dev in
+    NIWA; with small team in the UK.
+    GitHub was enough, except for users.
+...
+Collaborative software development (more so
+than scientific) NEEDS constant communication
+with low barrier to entry (or you won't bother)
+...
+Takes time to choose platforms but is essential
+...
+GITHUB - for everything to do with collab
+development, from discussing bugs, features, and
+implementation, to code review, CI, and merge
+...
+RIOT - "firehose" chat (store important bits)
+...
+DISCOURSE - release announce, news, discussion
+...
+WEBSTE - "sell"; download releases; community,
+         support, documentation
+
+
+DEVELOPMENT PRACTICE
+--------------------
+Something increasingly apparent: proper OPEN,
+SUSTAINABLE code management is to computational
+science what proper experimental technique and
+maintenance is to lab-based science. Publish your
+code, and metadata on how to REPRODUCE results.
+Any less will be seen as shoddy and unreliable science.
+
+GIT - brilliant, branch-and-merge development
+    - software carpentry
+    - a bit of a learning curve at first
+      - BUT the alternative is truly a nightmare
+  - revision control (and central locus GitHub)
+
+ISSUES, PULL REQUESTS, CODE REVIEWS
+  - discuss and AGREE plans and implementation on
+    Issues BEFORE DOING ANY IMPLEMENTATION and
+    REQUIRE THIS OF CONTRIBUTORS
+    - code bombs are usually not helpful
+    - require doc updates with all code changes
+    - PR templates can help
+
+TESTS
+  - ALL code changes must be supported by tests;
+   to ~90% line coverage
+  - Otherwise EVERY CHANGE YOU MAKE WILL BREAK
+   SOMETHING ELSE AND YOU WON'T KNOW IT!
+  - Use CI (with GH integration) to ease burden
+  - style and static analysis (security etc.)
+  - unit vs functional? 
+  - heavy OVERHEAD but no alternative! spend a
+  lot of time fixing the tests! 
+
+- SUSTAINABLE FUNDING AND KNOWLEDGE
+ - challenge managers who think they
+  can fund a complex software project for a
+  limited time until the code is "finished" at
+   which point it will work forever more.
+ - IF AN IMPORTANT CODE you CANNOT take a hiatus
+  and come back to it next year (you'll likely 
+  lose hard-won expertise, get bitten by evolution
+  of the rest of the world and the competition, and
+  spend ages spinning up a new team)
+ - you NEED long term team members to make progress
+   very steep spin-up
+ - SAVINGS never get counted properly (e.g. 
+  automation in the cylc case)
+ 
+SUSTAINING A TEAM
+-----------------
+CHAMPION: I jumped off the management ladder
+  (the bottom rung) to drive this project
+TEAM SIZE, and delegation
+  small or big good, medium bad? (too much for
+  one lead, not enough to delegate to trusted subs)
+
+W/O the BENEFITS 
+- Project lead is typically not the employer!
+ (all the stress to deliver, but no power)
+- And does not get recognition in his/her home
+ institution because it's not an in-house project
+
+RSE CAREER PATH:
+- If your science is dependent on bespoke software:
+  - make the devs co-authors!
+  - value and fund sustainable development!
+- NIWA Science KPIs
+(but higher levels still exclude us really, because
+all the KPIs are "science leadership" based)
+- SUBVERSIVE: managers are much easier to come by
+ than excellent experts!
+- PARALLEL "expert" career levels in enlightened
+scientific institutions
+

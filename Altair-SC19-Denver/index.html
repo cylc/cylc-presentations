@@ -1,0 +1,488 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+<title>Cycling Workflows with The Cylc Workflow Engine</title>
+  <meta
+    name="description"
+    content="Cycling Workflows with The Cylc Workflow Engine"
+  />
+  <meta
+    name="author"
+    content="Hilary Oliver, NIWA"
+  />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=1024" />
+  <link rel="shortcut icon" type="image/png"
+   href="media/cylc-logo-variants/cylc-favicon.ico"/>
+
+  <!-- General slides layout & formatting stylesheet -->
+  <link href="css/global-stylesheet.css" rel="stylesheet" />
+
+  <!-- Scripts for section 1-->
+  <script type="text/javascript" src="js/jquery.min.js"></script>
+  <script type="text/javascript" src="js/index.js"></script>
+  <script type="text/javascript" src="js/minicylc.js"></script>
+
+  <!-- Scripts for section 2-->
+  <!-- Plotly 1) bundled core plotly JS script -->
+  <script type="text/javascript" src="js/plotly-latest.min.js"></script>
+  <!-- Plotly: 2) custom JS for MO research running workflows plot:
+       the data for the plot, stored separately to the plotting script: -->
+  <script type="text/javascript"
+   src="js/data/running_workflows_data.js"></script>
+
+</head>
+
+<body class="impress-not-supported">
+
+  <div class="fallback-message">
+    <p>Something went wrong!</p>
+  </div>
+
+  <div id="impress">
+
+    <!-- Title -->
+    <div
+      id="title-slide"
+      class="step"
+      style="
+        width: 900px; /* fallback for older browsers */
+        width: 90vw;  /* 90% of screen (viewport) width */
+      "
+    >
+		<div>
+      <p>
+			Cycling Workflows 101 with<br/>the Cylc Workflow Engine
+      </p>
+
+      <img
+        src="media/cylc-logo-variants/cylc-logo-white.svg"
+        alt="cylc-logo-white"
+        style="height:100px"
+      />
+
+        <p style="
+          font-size: 0.6em;
+          color: rgb(179, 179, 179);
+          "
+        >
+          Hilary Oliver<br>
+          <i>NIWA</i>
+        </p>
+		</div>
+    </div>
+
+		<div
+     id="abstract"
+      class="step full vflex"
+      data-rel-y="1.3h"
+      data-rel-to="title-slide"
+    >
+		<!--a href="https://cylc.org"-->
+		<!-- TODO: currently a redirect for http only, not https -->
+		<a href="http://cylc.org">
+      <img
+        class="flexgrow"
+        src="media/screenshots/website-1.png"
+        style="width:100%"
+      />
+	</a>
+    </div>
+
+
+<div
+		id="UI"
+		class="step full vflex">
+		<div style="height:100%; width:100%;
+				background:url(media/decorative/cylc8-ui-design-hjo.svg);
+				background-size:auto 100%;
+				background-repeat:no-repeat">
+			<embed id="ui-z1"
+					class="flexgrow substep flash"
+					src="media/decorative/cylc8-ui-design-hjo-z1.svg"
+					style="background:rgb(215, 215, 215); width:100%; height:100%"/>
+		</div>
+</div>
+
+
+    <div
+      id="major-sites-map"
+      class="step full vflex"
+      data-rel-u="1.3h"
+       >
+			 <div style="width:100%">
+			<img src="media/screenshots/cylc-map.png" style="margin-top:0%"/>
+			</div>
+    </div>
+
+    <div
+      id="simple-workflow"
+      class="step full vflex"
+      data-rel-y="1.3h"
+    >
+      <embed
+        id="basic-workflow"
+        class="flexgrow"
+        src="media/graph/basic-workflow.svg"
+      />
+    </div>
+
+    <div
+      id="repeating-workflow"
+      class="step full vflex"
+      data-rel-x="1.3w"
+      data-rel-y="0"
+			>
+			<div
+			style="width:100%; height:100%; background:url(media/graph/repeating-workflow1a.svg);
+			background-position:bottom left; background-repeat:no-repeat;
+			background-size:auto 100%"
+    >
+      <embed
+        id="repeating-workflow1b"
+        class="flexgrow substep flash"
+        src="media/graph/repeating-workflow1b.svg"
+				style="height:100%; position:absolute; bottom:0; left:0; background-color:rgb(215, 215, 215)"
+      />
+       <embed
+        id="repeating-workflow1c"
+        class="flexgrow substep flash"
+        src="media/graph/repeating-workflow1c.svg"
+				style="height:100%; position:absolute; bottom:0; left:0; background-color:rgb(215, 215, 215);"
+      />
+      <embed
+        id="anim"
+        class="minicylc flexgrow substep flash"
+				style="height:100%; position:absolute; bottom:0; left:0; background-color:rgb(215, 215, 215);"
+      />
+      <embed
+        id="repeating-workflow3a"
+        class="flexgrow substep flash"
+        src="media/graph/repeating-workflow3a.svg"
+				style="height:100%; position:absolute; bottom:0; left:0; background-color:rgb(215, 215, 215);"
+      />
+      <embed
+        id="repeating-workflow3c"
+        class="flexgrow substep flash"
+        src="media/graph/repeating-workflow3c.svg"
+				style="height:100%; position:absolute; bottom:0; left:0; background-color:rgb(215, 215, 215);"
+      />
+      <embed
+        id="repeating-workflow3d"
+        class="flexgrow substep flash"
+        src="media/graph/repeating-workflow3d.svg"
+				style="height:100%; position:absolute; bottom:0; left:0; background-color:rgb(215, 215, 215);"
+      />
+ 
+    </div>
+    </div>
+
+    <script type="text/javascript">
+      // write dependencies
+      const repeating_deps = [];
+      for (let i=1; i<4; i++) {
+        repeating_deps.push(`a${i} => c${i} => d${i}`);
+        repeating_deps.push(`a${i} => b${i}`);
+        repeating_deps.push(`b${i} => a${i+1}`);
+        repeating_deps.push(`d${i} => a${i+1}`);
+      }
+
+      // create graph
+      const repeating_animation = $('#anim')
+        .addClass('minicylc flexgrow substep flash')
+        .data('mainLoopStep', '1500')
+        .data('theme', 'demo')
+        .data('dependencies', repeating_deps.join('//'))
+        .attr('src', 'media/graph/repeating-workflow1.svg')[0]
+
+      var repeating_workflow;
+      repeating_animation.onload = function() {
+        repeating_workflow = new MiniCylc(repeating_animation, false);
+        repeating_workflow.hold();
+        repeating_workflow.run();
+ 
+        // unhold when on slide
+        addClassNameListener(
+          $('#repeating-workflow')[0],
+          'active',
+          repeating_workflow.release.bind(repeating_workflow),
+          repeating_workflow.hold.bind(repeating_workflow)
+        );
+      };
+    </script>
+
+    <div
+      id="cycling-workflow"
+      class="step full vflex"
+    >
+      <embed
+        id="cycling-workflow-svg"
+        class="flexgrow"
+        src="media/graph/cycling-workflow.svg"
+				style="height:120%; margin-top:-10%"
+      />
+    </div>
+
+    <div
+      id="infinite-cycling"
+      class="step full vflex"
+    >
+		<div style="position:absolute; top:-10%; right:0; font-size:80%">
+      <!--
+			Uh-oh, it's really an <em>infinite<br/> non-cycling workflow<br/> of repeating tasks
+      -->
+	</div>
+    </div>
+
+    <script type="text/javascript">
+      // write dependencies
+      const deps = [];
+      for (let i=0; i<100; i++) {
+        deps.push(`a${i} => c${i} => d${i}`);
+        deps.push(`a${i} => b${i}`);
+        deps.push(`a${i} => a${i+1}`);
+        deps.push(`c${i} => b${i+1}`);
+      }
+
+      // create graph
+      const infininte_animation = $('<embed />')
+        .addClass('minicylc flexgrow')
+        .data('focus', true)
+        .data('theme', 'demo')
+        .data('randomFactor', 0.5)
+        .data('dependencies', deps.join('//'))
+        .attr('src', 'media/graph/infinite-workflow.svg')[0]
+      $('#infinite-cycling').append(infininte_animation);
+
+      infininte_animation.onload = function() {
+        const infinite_workflow = new MiniCylc(infininte_animation, true);
+        infinite_workflow.hold();
+        infinite_workflow.run();
+
+        // unhold when on slide
+        addClassNameListener(
+          $('#infinite-cycling')[0],
+          'active',
+          infinite_workflow.release.bind(infinite_workflow),
+          infinite_workflow.hold.bind(infinite_workflow)
+        );
+      };
+    </script>
+
+<div
+		id="niwa-catch-up1"
+		class="step full vflex">
+		<div style="height:100%;
+				background:url(media/decorative/catchup-1.svg);
+				background-size:auto 100%;
+				background-repeat:no-repeat">
+				<embed id="catchup-1a"
+						class="flexgrow substep flash"
+						src="media/decorative/catchup-1a.svg"
+						style="width:100%; height:100%; background:rgb(215, 215, 215);"/>
+				<embed id="catchup-1"
+						class="flexgrow substep flash"
+						src="media/decorative/catchup-2.svg"
+						style="width:100%; height:100%; background:rgb(215, 215, 215);"/>
+		</div>
+</div>
+
+<div
+		id="large-workflows"
+		class="step full vflex">
+		<div style="height:100%; width:100%;
+				background:url(media/decorative/nzlam-ungrouped-2.svg);
+				background-size:100% 100%;
+				background-repeat:no-repeat">
+			<embed id="nzlam-2"
+					class="flexgrow substep flash"
+					src="media/decorative/nzlam-m10.svg"
+					style="background:rgb(215, 215, 215); width:100%; height:100%"/>
+
+		<div class="flexgrow substep flash"
+				style="background:rgb(215, 215, 215); width:100%; height:100%">
+				<embed id="nzlam-3"
+			   	src="media/decorative/graph0.png"
+					style="background:rgb(215, 215, 215); position:relative; height:150%; bottom:25%;"/>
+			</div>
+				<embed id="nzlam-4"
+					class="flexgrow substep flash"
+					src="media/decorative/complex-1.png"
+					style="background:rgb(215, 215, 215); width:100%; height:100%"/>
+		</div>
+</div>
+
+  <!--  notes
+    <ul>
+      <li> 3 cycles of a small deterministic regional NWP suite. Obs
+        processing tasks in yellow. Atmospheric model red, plus DA and
+        other pre and post-processing tasks A few tasks ... generates
+        thousands of products from a few large model output files.</li>
+      <li> ... ~45 tasks (3 cycles)</li>
+      <li> ... as a 10-member ensemble, ~450 tasks (3 cycles)</li>
+      <li> ... as a 30-member ensemble, ~1300 tasks (3 cycles)</li>
+    </ul>
+  </div>
+	-->
+
+
+    <div
+      id="cylc-features-1"
+      class="step"
+    >
+      <table class="iconlist">
+        <tr>
+          <td>
+            <embed
+              style="width: 150px"
+              src="media/icons/123.svg"
+            />
+          </td><td>
+            <em>Arbitrary</em> cycling
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <embed
+              style="width: 120px"
+              src="media/icons/clock.svg"
+            />
+          </td><td>
+            <em>Date-time </em> cycling
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <embed
+              style="width: 150px"
+              src="media/icons/play.svg"
+            />
+          </td><td>
+            <em>Simulation</em> mode
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <embed
+              style="width: 120px"
+              src="media/icons/satellite.svg"
+            />
+          </td><td>
+							<em>External</em> triggering
+          </td>
+        </tr>
+      </table>
+    </div>
+
+    <div
+      id="cylc-features-2"
+      class="step"
+    >
+      <table class="iconlist">
+        <tr>
+          <td>
+            <embed
+              style="width: 200px"
+              src="media/icons/live.svg"
+            />
+          </td><td>
+							<em>Live monitoring</em><br/> via GUI or CLI
+          </td>
+        </tr><tr>
+          <td>
+            <embed
+              style="width: 200px"
+              src="media/icons/hand.svg"
+            />
+          </td><td>
+							<em>Manual intervention</em><br/> if needed
+          </td>
+        </tr><tr>
+          <td>
+            <embed
+              style="width: 200px"
+              src="media/icons/error.svg"
+            />
+          </td><td>
+							<em>Automatic retry</em><br/> on failed jobs
+          </td>
+        </tr>
+      </table>
+    </div>
+
+    <div
+      id="cylc-architecture"
+      class="step full vflex"
+			>
+			<div
+			style="width:100%; height:100%;
+			background:url(media/decorative/arch-0.svg);
+			background-repeat:no-repeat;
+			background-size:auto 100%"
+    >
+      <embed
+        id="arch-1"
+        class="flexgrow substep flash"
+        src="media/decorative/arch-1.svg"
+				style="height:100%; background:rgb(215,215,215)"
+      />
+ 
+		      <embed
+        id="arch-2"
+        class="flexgrow substep flash"
+        src="media/decorative/arch-2.svg"
+				style="height:100%; background:rgb(215,215,215)"
+      />
+ 
+      <embed
+        id="arch-3"
+        class="flexgrow substep flash"
+        src="media/decorative/arch-3.svg"
+				style="height:100%; background:rgb(215,215,215)"
+      />
+ 
+      <embed
+        id="arch-4b"
+        class="flexgrow substep flash"
+        src="media/decorative/arch-4b.svg"
+				style="height:100%; background:rgb(215,215,215)"
+      />
+ 
+      <embed
+        id="arch-4a"
+        class="flexgrow substep flash"
+        src="media/decorative/arch-4a.svg"
+				style="height:100%; background:rgb(215,215,215)"
+      />
+ 
+      <embed
+        id="arch-4"
+        class="flexgrow substep flash"
+        src="media/decorative/arch-4.svg"
+				style="height:100%; background:rgb(215,215,215)"
+      />
+ 
+      <embed
+        id="arch-5"
+        class="flexgrow substep flash"
+        src="media/decorative/arch-5.svg"
+				style="height:100%; background:rgb(215,215,215)"
+      />
+ 
+    </div>
+    </div>
+
+  </div>
+
+  <!-- General impress.js JS -->
+  <div id="impress-toolbar"></div>
+  <script src="js/impress.js"></script>
+  <script>impress().init();</script>
+	<!--
+  <script src="js/impressConsole.js"></script>
+  <script>impress().init();</script>
+	-->
+
+</body>
+</html>
