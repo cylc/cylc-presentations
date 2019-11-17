@@ -53,7 +53,7 @@
     >
 		<div>
       <p>
-			Cycling Workflows 101 with<br/>the Cylc Workflow Engine
+			Cycling Workflows with<br/>the Cylc Workflow Engine
       </p>
 
       <img
@@ -73,11 +73,60 @@
 		</div>
     </div>
 
+    <div
+      id="outline"
+      class="step"
+      data-rel-x="1.3h"
+      data-rel-to="title-slide"
+    >
+      <table class="iconlist">
+        <tr>
+          <td>
+            <embed
+              style="width: 120px"
+              src="media/icons/hand.svg"
+            />
+          </td><td>
+             Altair Booth Intro
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <embed
+              style="width: 120px"
+              src="media/icons/hand.svg"
+            />
+          </td><td>
+            Why Cylc? (website)
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <embed
+              style="width: 120px"
+              src="media/icons/hand.svg"
+            />
+          </td><td>
+           Cylc 8 
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <embed
+              style="width: 120px"
+              src="media/icons/hand.svg"
+            />
+          </td><td>
+						Cylc 8 Demo
+          </td>
+        </tr>
+      </table>
+    </div>
+
+
 		<div
      id="abstract"
       class="step full vflex"
-      data-rel-y="1.3h"
-      data-rel-to="title-slide"
     >
 		<!--a href="https://cylc.org"-->
 		<!-- TODO: currently a redirect for http only, not https -->
@@ -94,17 +143,18 @@
     <div
       id="major-sites-map"
       class="step full vflex"
-      data-rel-u="1.3h"
        >
 			 <div style="width:100%">
 			<img src="media/screenshots/cylc-map.png" style="margin-top:0%"/>
 			</div>
     </div>
 
+
     <div
       id="simple-workflow"
       class="step full vflex"
       data-rel-y="1.3h"
+			data-rel-to="title-slide"
     >
       <embed
         id="basic-workflow"
@@ -116,7 +166,7 @@
     <div
       id="repeating-workflow"
       class="step full vflex"
-      data-rel-x="1.3w"
+      data-rel-x="1.3h"
       data-rel-y="0"
 			>
 			<div
@@ -213,11 +263,6 @@
       id="infinite-cycling"
       class="step full vflex"
     >
-		<div style="position:absolute; top:-10%; right:0; font-size:80%">
-      <!--
-			Uh-oh, it's really an <em>infinite<br/> non-cycling workflow<br/> of repeating tasks
-      -->
-	</div>
     </div>
 
     <script type="text/javascript">
@@ -318,6 +363,17 @@
       class="step"
     >
       <table class="iconlist">
+        <tr>
+          <td>
+            <embed
+              style="width:120px"
+              src="media/icons/factory.svg"
+            />
+          </td><td>
+							<em>Production-ready</em>
+          </td>
+        </tr>
+ 
         <tr>
           <td>
             <embed
@@ -472,14 +528,14 @@
       <div
         style="position:absolute; left:-40px; top:0;">
       <p>
-			The long road to <br/>
+			The road to <br/>
 			Cylc 8!
       </p>
 	</div>
   
       <div style="float:right">
 					<span style="color:red; font-size:50%;">
-				web UI
+							Python 3 &amp; web UI
 		</span>
       </div>
              <!--
@@ -492,64 +548,29 @@
       />
     </div>
 
-
-<div id="c7-arch"
-		class="step full vflex">
+<div id="c78-arch"
+		class="step full vflex"
+		data-rel-x="1.3h"
+		data-rel-y="0"
+		>
 		<div style="height:100%; width:100%;
 				background:url(media/decorative/cylc-7-architecture.svg);
 				background-size:auto 100%;
 				background-position: center;
 				background-repeat:no-repeat">
-			<embed id="c8-arch2"
+		<div style="position:absolute; right:0; bottom:-7%">
+				<span style="font-size:30%">* "User A" can be across multiple hosts</span>
+		</div>
+			<embed id="c78-arch2"
+					class="flexgrow substep flash"
+					src="media/decorative/cylc-8-architecture.svg"
+					style="width:100%; height:100%; background:rgb(215,215,215)"/>
+			<embed id="c78-arch3"
 					class="flexgrow substep flash"
 					src="media/decorative/cylc-8-architecture-1.svg"
 					style="width:100%; height:100%; background:rgb(215,215,215)"/>
 		</div>
 </div>
-
-
-<div id="c8-arch"
-		class="step full vflex">
-		<div style="height:100%; width:100%;
-				background:url(media/decorative/cylc-8-architecture.svg);
-				background-size:auto 100%;
-				background-position: center;
-				background-repeat:no-repeat">
-			<embed id="c8-arch2"
-					class="flexgrow substep flash"
-					src="media/decorative/cylc-8-architecture-1.svg"
-					style="width:100%; height:100%; background:rgb(215,215,215)"/>
-			<embed id="ui-z1"
-					class="flexgrow substep flash"
-					src="media/decorative/cylc8-ui-mockup-1.png"
-					style="background:rgb(215, 215, 215); width:100%; height:100%"/>
-			<embed id="ui-z1"
-					class="flexgrow substep flash"
-					src="media/decorative/cylc8-ui-mockup-2.png"
-					style="background:rgb(215, 215, 215); width:100%; height:100%"/>
-			<embed id="ui-z1"
-					class="flexgrow substep flash"
-					src="media/decorative/cylc8-ui-mockup-3.png"
-					style="background:rgb(215, 215, 215); width:100%; height:100%"/>
-			<embed id="ui-z1"
-          class="flexgrow substep flash"
-					src="media/decorative/cylc8-ui-task-job-sep.png"
-					style="background:rgb(215, 215, 215); width:100%"/>
-		<div style="height:100%; width:100%; 
-					background:rgb(215, 215, 215); width:100%"
-					class="flexgrow substep flash">
-			<embed id="ui-z1"
-					src="media/decorative/cylc7-task-states.png"
-					style="height:70%; margin-top:10%"/>
-			</div>
-			<embed id="ui-z1"
-          class="flexgrow substep flash"
-					src="media/decorative/cylc8-ui-mobile.png"
-					style="background:rgb(215, 215, 215); margin-left:10%; height:100%"/>
-		</div>
-</div>
-
-
 
 
 <div id="UI"
@@ -563,30 +584,30 @@
 					class="flexgrow substep flash"
 					src="media/decorative/cylc8-ui-mockup.png"
 					style="width:100%; height:100%"/>
-			<embed id="ui-z1"
+			<embed id="ui-z2"
 					class="flexgrow substep flash"
 					src="media/decorative/cylc8-ui-mockup-1.png"
 					style="background:rgb(215, 215, 215); width:100%; height:100%"/>
-			<embed id="ui-z1"
+			<embed id="ui-z3"
 					class="flexgrow substep flash"
 					src="media/decorative/cylc8-ui-mockup-2.png"
 					style="background:rgb(215, 215, 215); width:100%; height:100%"/>
-			<embed id="ui-z1"
+			<embed id="ui-z4"
 					class="flexgrow substep flash"
 					src="media/decorative/cylc8-ui-mockup-3.png"
 					style="background:rgb(215, 215, 215); width:100%; height:100%"/>
-			<embed id="ui-z1"
+			<embed id="ui-z5"
           class="flexgrow substep flash"
 					src="media/decorative/cylc8-ui-task-job-sep.png"
 					style="background:rgb(215, 215, 215); width:100%"/>
 		<div style="height:100%; width:100%; 
 					background:rgb(215, 215, 215); width:100%"
 					class="flexgrow substep flash">
-			<embed id="ui-z1"
+			<embed id="ui-z6"
 					src="media/decorative/cylc7-task-states.png"
 					style="height:70%; margin-top:10%"/>
 			</div>
-			<embed id="ui-z1"
+			<embed id="ui-z7"
           class="flexgrow substep flash"
 					src="media/decorative/cylc8-ui-mobile.png"
 					style="background:rgb(215, 215, 215); margin-left:10%; height:100%"/>
@@ -594,6 +615,17 @@
 		</div>
 </div>
 
+
+    <div
+      id="zoomout"
+      class="step"
+      data-rel-x="5h"
+      data-rel-y="3h"
+      data-rel-to="title-slide"
+			data-scale=8
+    >
+    </div>
+ 
 
   </div>
 
