@@ -51,9 +51,9 @@
         width: 90vw;  /* 90% of screen (viewport) width */
       "
     >
-		<div>
+    <div>
       <p>
-			Cycling Workflows 101 with<br/>the Cylc Workflow Engine
+      Cycling Workflows &amp; the<br/>Cylc Workflow Engine
       </p>
 
       <img
@@ -70,40 +70,44 @@
           Hilary Oliver<br>
           <i>NIWA</i>
         </p>
-		</div>
+    </div>
     </div>
 
-		<div
-     id="abstract"
+    <div
+     id="website"
       class="step full vflex"
-      data-rel-y="1.3h"
+      data-rel-y="1.0h"
+      data-rel-x="0"
       data-rel-to="title-slide"
     >
-		<!--a href="https://cylc.org"-->
-		<!-- TODO: currently a redirect for http only, not https -->
-		<a href="http://cylc.org">
+    <!--a href="https://cylc.org"-->
+    <!-- TODO: currently a redirect for http only, not https -->
+    <a href="http://cylc.org">
       <img
         class="flexgrow"
         src="media/screenshots/website-1.png"
         style="width:100%"
       />
-	</a>
+  </a>
     </div>
 
     <div
       id="major-sites-map"
       class="step full vflex"
-      data-rel-u="1.3h"
+      data-rel-x="1.0w"
+      data-rel-y="0"
        >
-			 <div style="width:100%">
-			<img src="media/screenshots/cylc-map.png" style="margin-top:0%"/>
-			</div>
+       <div style="width:100%">
+      <img src="media/screenshots/cylc-map.png" style="margin-top:0%"/>
+      </div>
     </div>
 
     <div
       id="simple-workflow"
       class="step full vflex"
-      data-rel-y="1.3h"
+      data-rel-to="website"
+      data-rel-y="1.0h"
+      data-rel-x="0"
     >
       <embed
         id="basic-workflow"
@@ -115,48 +119,48 @@
     <div
       id="repeating-workflow"
       class="step full vflex"
-      data-rel-x="1.3w"
+      data-rel-x="1.0w"
       data-rel-y="0"
-			>
-			<div
-			style="width:100%; height:100%; background:url(media/graph/repeating-workflow1a.svg);
-			background-position:bottom left; background-repeat:no-repeat;
-			background-size:auto 100%"
+      >
+      <div
+      style="width:100%; height:100%; background:url(media/graph/repeating-workflow1a.svg);
+      background-position:bottom left; background-repeat:no-repeat;
+      background-size:auto 100%"
     >
       <embed
         id="repeating-workflow1b"
         class="flexgrow substep flash"
         src="media/graph/repeating-workflow1b.svg"
-				style="height:100%; position:absolute; bottom:0; left:0; background-color:rgb(215, 215, 215)"
+        style="height:100%; position:absolute; bottom:0; left:0; background-color:rgb(215, 215, 215)"
       />
        <embed
         id="repeating-workflow1c"
         class="flexgrow substep flash"
         src="media/graph/repeating-workflow1c.svg"
-				style="height:100%; position:absolute; bottom:0; left:0; background-color:rgb(215, 215, 215);"
+        style="height:100%; position:absolute; bottom:0; left:0; background-color:rgb(215, 215, 215);"
       />
       <embed
         id="anim"
         class="minicylc flexgrow substep flash"
-				style="height:100%; position:absolute; bottom:0; left:0; background-color:rgb(215, 215, 215);"
+        style="height:100%; position:absolute; bottom:0; left:0; background-color:rgb(215, 215, 215);"
       />
       <embed
         id="repeating-workflow3a"
         class="flexgrow substep flash"
         src="media/graph/repeating-workflow3a.svg"
-				style="height:100%; position:absolute; bottom:0; left:0; background-color:rgb(215, 215, 215);"
+        style="height:100%; position:absolute; bottom:0; left:0; background-color:rgb(215, 215, 215);"
       />
       <embed
         id="repeating-workflow3c"
         class="flexgrow substep flash"
         src="media/graph/repeating-workflow3c.svg"
-				style="height:100%; position:absolute; bottom:0; left:0; background-color:rgb(215, 215, 215);"
+        style="height:100%; position:absolute; bottom:0; left:0; background-color:rgb(215, 215, 215);"
       />
       <embed
         id="repeating-workflow3d"
         class="flexgrow substep flash"
         src="media/graph/repeating-workflow3d.svg"
-				style="height:100%; position:absolute; bottom:0; left:0; background-color:rgb(215, 215, 215);"
+        style="height:100%; position:absolute; bottom:0; left:0; background-color:rgb(215, 215, 215);"
       />
  
     </div>
@@ -204,7 +208,7 @@
         id="cycling-workflow-svg"
         class="flexgrow"
         src="media/graph/cycling-workflow.svg"
-				style="height:120%; margin-top:-10%"
+        style="height:120%; margin-top:-10%"
       />
     </div>
 
@@ -212,11 +216,6 @@
       id="infinite-cycling"
       class="step full vflex"
     >
-		<div style="position:absolute; top:-10%; right:0; font-size:80%">
-      <!--
-			Uh-oh, it's really an <em>infinite<br/> non-cycling workflow<br/> of repeating tasks
-      -->
-	</div>
     </div>
 
     <script type="text/javascript">
@@ -255,47 +254,55 @@
     </script>
 
 <div
-		id="niwa-catch-up1"
-		class="step full vflex">
-		<div style="height:100%;
-				background:url(media/decorative/catchup-1.svg);
-				background-size:auto 100%;
-				background-position:center;
-				background-repeat:no-repeat">
-				<embed id="catchup-1a"
-						class="flexgrow substep flash"
-						src="media/decorative/catchup-1a.svg"
-						style="width:100%; height:100%; background:rgb(215, 215, 215);"/>
-				<embed id="catchup-1"
-						class="flexgrow substep flash"
-						src="media/decorative/catchup-2.svg"
-						style="width:100%; height:100%; background:rgb(215, 215, 215);"/>
-		</div>
+    id="niwa-catch-up1"
+    class="step full vflex"
+    data-rel-to="simple-workflow"
+    data-rel-y="1.0h"
+    data-rel-x="0"
+    >
+    <div style="height:100%;
+        background:url(media/decorative/catchup-1.svg);
+        background-size:auto 100%;
+        background-position:center;
+        background-repeat:no-repeat">
+        <embed id="catchup-1a"
+            class="flexgrow substep flash"
+            src="media/decorative/catchup-1a.svg"
+            style="width:100%; height:100%; background:rgb(215, 215, 215);"/>
+        <embed id="catchup-1"
+            class="flexgrow substep flash"
+            src="media/decorative/catchup-2.svg"
+            style="width:100%; height:100%; background:rgb(215, 215, 215);"/>
+    </div>
 </div>
 
 <div
-		id="large-workflows"
-		class="step full vflex">
-		<div style="height:100%; width:100%;
-				background:url(media/decorative/nzlam-ungrouped-2.svg);
-				background-size:100% 100%;
-				background-repeat:no-repeat">
-			<embed id="nzlam-2"
-					class="flexgrow substep flash"
-					src="media/decorative/nzlam-m10.svg"
-					style="background:rgb(215, 215, 215); width:100%; height:100%"/>
+    id="large-workflows"
+    class="step full vflex"
+    data-rel-y="0"
+    data-rel-x="1.0w"
+    >
+ 
+    <div style="height:100%; width:100%;
+        background:url(media/decorative/nzlam-ungrouped-2.svg);
+        background-size:100% 100%;
+        background-repeat:no-repeat">
+      <embed id="nzlam-2"
+          class="flexgrow substep flash"
+          src="media/decorative/nzlam-m10.svg"
+          style="background:rgb(215, 215, 215); width:100%; height:100%"/>
 
-		<div class="flexgrow substep flash"
-				style="background:rgb(215, 215, 215); width:100%; height:100%">
-				<embed id="nzlam-3"
-			   	src="media/decorative/graph0.png"
-					style="background:rgb(215, 215, 215); position:relative; height:150%; bottom:25%;"/>
-			</div>
-				<embed id="nzlam-4"
-					class="flexgrow substep flash"
-					src="media/decorative/complex-1.png"
-					style="background:rgb(215, 215, 215); width:100%; height:100%"/>
-		</div>
+    <div class="flexgrow substep flash"
+        style="background:rgb(215, 215, 215); width:100%; height:100%">
+        <embed id="nzlam-3"
+          src="media/decorative/graph0.png"
+          style="background:rgb(215, 215, 215); position:relative; height:150%; bottom:25%;"/>
+      </div>
+        <embed id="nzlam-4"
+          class="flexgrow substep flash"
+          src="media/decorative/complex-1.png"
+          style="background:rgb(215, 215, 215); width:100%; height:100%"/>
+    </div>
 </div>
 
   <!--  notes
@@ -309,38 +316,99 @@
       <li> ... as a 30-member ensemble, ~1300 tasks (3 cycles)</li>
     </ul>
   </div>
-	-->
+  -->
 
 
     <div
       id="cylc-features-1"
       class="step"
+      data-rel-to="niwa-catch-up1"
+      data-rel-y="1.0h"
+      data-rel-x="0"
     >
       <table class="iconlist">
         <tr>
           <td>
             <embed
-              style="width: 150px"
-              src="media/icons/123.svg"
+              style="width: 70px"
+              src="media/icons/factory.svg"
             />
           </td><td>
-            <em>Arbitrary</em> cycling
+            <em>Production</em> ready
           </td>
         </tr>
         <tr>
           <td>
             <embed
-              style="width: 120px"
-              src="media/icons/clock.svg"
+              style="width: 90px"
+              src="media/icons/clock123.svg"
             />
           </td><td>
-            <em>Date-time </em> cycling
+              <em>Cycling:</em> date-time &amp; arbitrary 
           </td>
         </tr>
         <tr>
           <td>
             <embed
-              style="width: 150px"
+              style="width: 70px;"
+              src="media/icons/error.svg"
+            />
+          </td><td>
+              <em>Job retry</em> on failure
+          </td>
+        </tr><tr>
+          <td>
+            <embed
+              style="width: 70px"
+              src="media/icons/restart.svg"
+            />
+          </td><td>
+              <em>Restart</em> from checkpoint
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <embed
+              style="width: 70px"
+              src="media/icons/distributed.svg"
+            />
+          </td><td>
+              <em>Distributed</em> architecture
+          </td>
+        </tr>
+      </table>
+    </div>
+
+    <div
+      id="cylc-features-2"
+      class="step"
+      data-rel-y="0"
+      data-rel-x="1.0w"
+    >
+      <table class="iconlist">
+        <tr>
+          <td>
+            <embed
+              style="width: 80px"
+              src="media/icons/live.svg"
+            />
+          </td><td>
+              <em>Live</em> monitoring
+          </td>
+        </tr><tr>
+          <td>
+            <embed
+              style="width: 100px"
+              src="media/icons/hand.svg"
+            />
+          </td><td>
+              <em>Manual</em> intervention
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <embed
+              style="width: 80px; margin-left:20px"
               src="media/icons/play.svg"
             />
           </td><td>
@@ -350,113 +418,98 @@
         <tr>
           <td>
             <embed
-              style="width: 120px"
+              style="width: 80px"
               src="media/icons/satellite.svg"
             />
           </td><td>
-							<em>External</em> triggering
+              <em>External</em> triggering
           </td>
         </tr>
-      </table>
-    </div>
-
-    <div
-      id="cylc-features-2"
-      class="step"
-    >
-      <table class="iconlist">
         <tr>
           <td>
             <embed
-              style="width: 200px"
-              src="media/icons/live.svg"
+              style="width: 100px"
+              src="media/external-logos/gpl-v3.png"
             />
           </td><td>
-							<em>Live monitoring</em><br/> via GUI or CLI
-          </td>
-        </tr><tr>
-          <td>
-            <embed
-              style="width: 200px"
-              src="media/icons/hand.svg"
-            />
-          </td><td>
-							<em>Manual intervention</em><br/> if needed
-          </td>
-        </tr><tr>
-          <td>
-            <embed
-              style="width: 200px"
-              src="media/icons/error.svg"
-            />
-          </td><td>
-							<em>Automatic retry</em><br/> on failed jobs
+              <em>Open Source</em> GPLv3
           </td>
         </tr>
+
+
       </table>
     </div>
 
     <div
       id="cylc-architecture"
       class="step full vflex"
-			>
-			<div
-			style="width:100%; height:100%;
-			background:url(media/decorative/arch-0.svg);
-			background-repeat:no-repeat;
-			background-size:auto 100%"
-    >
-      <embed
-        id="arch-1"
-        class="flexgrow substep flash"
-        src="media/decorative/arch-1.svg"
-				style="height:100%; background:rgb(215,215,215)"
-      />
- 
-		      <embed
-        id="arch-2"
-        class="flexgrow substep flash"
-        src="media/decorative/arch-2.svg"
-				style="height:100%; background:rgb(215,215,215)"
-      />
- 
-      <embed
-        id="arch-3"
-        class="flexgrow substep flash"
-        src="media/decorative/arch-3.svg"
-				style="height:100%; background:rgb(215,215,215)"
-      />
- 
-      <embed
-        id="arch-4b"
-        class="flexgrow substep flash"
-        src="media/decorative/arch-4b.svg"
-				style="height:100%; background:rgb(215,215,215)"
-      />
- 
-      <embed
-        id="arch-4a"
-        class="flexgrow substep flash"
-        src="media/decorative/arch-4a.svg"
-				style="height:100%; background:rgb(215,215,215)"
-      />
- 
-      <embed
-        id="arch-4"
-        class="flexgrow substep flash"
-        src="media/decorative/arch-4.svg"
-				style="height:100%; background:rgb(215,215,215)"
-      />
- 
-      <embed
-        id="arch-5"
-        class="flexgrow substep flash"
-        src="media/decorative/arch-5.svg"
-				style="height:100%; background:rgb(215,215,215)"
-      />
- 
+      data-rel-y="0"
+      data-rel-x="1.0w"
+      >
+      <div
+          style="width:100%; height:100%;
+          background:url(media/decorative/arch-0.svg);
+          background-repeat:no-repeat;
+          background-size:auto 100%"
+          >
+          <embed
+          id="arch-1"
+          class="flexgrow substep flash"
+          src="media/decorative/arch-1.svg"
+          style="height:100%; background:rgb(215,215,215)"
+          />
+          <embed
+          id="arch-2"
+          class="flexgrow substep flash"
+          src="media/decorative/arch-2.svg"
+          style="height:100%; background:rgb(215,215,215)"
+          />
+          <embed
+          id="arch-3"
+          class="flexgrow substep flash"
+          src="media/decorative/arch-3.svg"
+          style="height:100%; background:rgb(215,215,215)"
+          />
+          <embed
+          id="arch-4b"
+          class="flexgrow substep flash"
+          src="media/decorative/arch-4b.svg"
+          style="height:100%; background:rgb(215,215,215)"
+          />
+     
+          <embed
+          id="arch-4a"
+          class="flexgrow substep flash"
+          src="media/decorative/arch-4a.svg"
+          style="height:100%; background:rgb(215,215,215)"
+          />
+     
+          <embed
+          id="arch-4"
+          class="flexgrow substep flash"
+          src="media/decorative/arch-4.svg"
+          style="height:100%; background:rgb(215,215,215)"
+          />
+     
+          <embed
+          id="arch-5"
+          class="flexgrow substep flash"
+          src="media/decorative/arch-5.svg"
+          style="height:100%; background:rgb(215,215,215)"
+          />
+      </div>
+  </div>
+
+    <div
+        id="zoom-out"
+        class="step full"
+        data-scale="6"
+        data-rel-to="title-slide"
+        data-rel-x="1w"
+        data-rel-y="2.0h"
+        >
     </div>
-    </div>
+
 
   </div>
 
@@ -464,10 +517,10 @@
   <div id="impress-toolbar"></div>
   <script src="js/impress.js"></script>
   <script>impress().init();</script>
-	<!--
+  <!--
   <script src="js/impressConsole.js"></script>
   <script>impress().init();</script>
-	-->
+  -->
 
 </body>
 </html>
