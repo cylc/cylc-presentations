@@ -53,7 +53,7 @@
     >
     <div>
       <p>
-      Cycling Workflows &amp; the<br/>Cylc Workflow Engine
+      Cycling Workflow Orchestration:<br/>The Cylc Workflow Engine
       </p>
 
       <img
@@ -117,7 +117,7 @@
     </div>
 
     <div
-      id="repeating-workflow"
+      id="repeating-workflow-1"
       class="step full vflex"
       data-rel-x="1.0w"
       data-rel-y="0"
@@ -139,34 +139,14 @@
         src="media/graph/repeating-workflow1c.svg"
         style="height:100%; position:absolute; bottom:0; left:0; background-color:rgb(215, 215, 215);"
       />
-      <embed
-        id="anim"
-        class="minicylc flexgrow substep flash"
-        style="height:100%; position:absolute; bottom:0; left:0; background-color:rgb(215, 215, 215);"
-      />
-      <embed
-        id="repeating-workflow3a"
-        class="flexgrow substep flash"
-        src="media/graph/repeating-workflow3a.svg"
-        style="height:100%; position:absolute; bottom:0; left:0; background-color:rgb(215, 215, 215);"
-      />
-      <embed
-        id="repeating-workflow3c"
-        class="flexgrow substep flash"
-        src="media/graph/repeating-workflow3c.svg"
-        style="height:100%; position:absolute; bottom:0; left:0; background-color:rgb(215, 215, 215);"
-      />
-			<!--
-      <embed
-        id="repeating-workflow3d"
-        class="flexgrow substep flash"
-        src="media/graph/repeating-workflow3d.svg"
-        style="height:100%; position:absolute; bottom:0; left:0; background-color:rgb(215, 215, 215);"
-      />
-			-->
- 
     </div>
     </div>
+
+		<div
+			 id="anim"
+			 class="step full vflex"
+			 >
+		</div>
 
     <script type="text/javascript">
       // write dependencies
@@ -179,12 +159,13 @@
       }
 
       // create graph
-      const repeating_animation = $('#anim')
-        .addClass('minicylc flexgrow substep flash')
+			const repeating_animation = $('<embed />')
+        .addClass('minicylc flexgrow')
         .data('mainLoopStep', '1500')
         .data('theme', 'demo')
         .data('dependencies', repeating_deps.join('//'))
         .attr('src', 'media/graph/repeating-workflow1.svg')[0]
+      $('#anim').append(repeating_animation);
 
       var repeating_workflow;
       repeating_animation.onload = function() {
@@ -194,13 +175,32 @@
  
         // unhold when on slide
         addClassNameListener(
-          $('#repeating-workflow')[0],
+          $('#anim')[0],
           'active',
           repeating_workflow.release.bind(repeating_workflow),
           repeating_workflow.hold.bind(repeating_workflow)
         );
       };
     </script>
+
+    <div
+      id="repeating-workflow-2"
+      class="step full vflex"
+      >
+      <div
+			style="width:100%; height:100%; background:url(media/graph/repeating-workflow3a.svg);
+      background-position:bottom left; background-repeat:no-repeat;
+      background-size:auto 100%"
+    >
+      <embed
+        id="repeating-workflow3c"
+        class="flexgrow substep flash"
+        src="media/graph/repeating-workflow3c.svg"
+        style="height:100%; position:absolute; bottom:0; left:0; background-color:rgb(215, 215, 215);"
+      />
+ 
+    </div>
+    </div>
 
     <div
       id="cycling-workflow"
