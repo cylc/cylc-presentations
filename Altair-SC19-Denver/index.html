@@ -653,8 +653,6 @@ infininte_animation.onload = function() {
               <em>Open Source</em> GPLv3
           </td>
         </tr>
-
-
       </table>
     </div>
 
@@ -662,6 +660,7 @@ infininte_animation.onload = function() {
       id="basic-configuration"
       class="step full vflex"
     >
+		<p>Modest workflows are easy!</p>
 		<div style="width:100%; height:100%; margin-top:10%">
 			 <div style="width:70%; float:left">
 					<img src="media/decorative/simple-rc.png"
@@ -672,15 +671,14 @@ infininte_animation.onload = function() {
 					<img src="media/graph/basic-workflow.svg"
 					style="margin-left:-50%; width:40%"
 					/>
-	
 			 </div>
 		</div>
-    </div>
+ </div>
 
-    <div
-      id="cycling-configuration"
-      class="step full vflex"
-    >
+ <div
+		id="cycling-configuration"
+		class="step full vflex"
+		>
 		<div style="width:100%; height:100%; margin-top:10%">
 			 <div style="width:70%; float:left">
 					<img src="media/decorative/cycling-rc.png"
@@ -691,10 +689,52 @@ infininte_animation.onload = function() {
 					<img src="media/graph/cycling-workflow.svg"
 					style="margin-left:-60%; margin-top:-10%; width:100%"
 					/>
-	
 			 </div>
 		</div>
-    </div>
+ </div>
+
+ <div
+		id="complex-configuration"
+		class="step"
+		>
+		<p>Efficient generation of large complex workflows</p>
+
+		<table class="iconlist">
+			 <tr>
+					<td>
+						 <embed
+							style="width: 120px"
+							src="media/icons/code.svg"
+							/>
+					 </td>
+					 <td>
+							Runtime property inheritance
+					 </td>
+				</tr>
+				<tr>
+					 <td>
+							<embed
+							 style="width: 120px"
+							 src="media/icons/code.svg"
+							 />
+						</td>
+						<td>
+							 Task paramater expansion
+						</td>
+				 </tr>
+				 <tr>
+						<td>
+							 <embed
+								style="width: 120px"
+								src="media/icons/code.svg"
+								/>
+						 </td>
+						 <td>
+								General Pythonic templating
+						 </td>
+					</tr>
+			 </table>
+		</div>
 
     <div
         id="cylc-architecture"
@@ -827,11 +867,35 @@ infininte_animation.onload = function() {
     </div>
 
     <div
-      id="new-tech-stack"
-      class="step"
+      id="python2-eol"
+      class="step full vflex"
+			style="background:url(media/screenshots/python2-eol.png); background-size:100%"
       data-rel-y="1.0h"
       data-rel-x="0"
       data-rel-to="large-workflows"
+      >
+     <embed
+		 class="flexgrow substep flash"
+		 src="media/screenshots/rhel-python2-1.png"
+		 style="width:100%;"
+		 />
+     <embed
+		 class="flexgrow substep flash"
+		 src="media/screenshots/rhel-python2-2.png"
+		 style="width:100%;"
+		 />
+     <embed
+		 class="flexgrow substep flash"
+		 src="media/screenshots/python2-gtk.png"
+		 style="width:100%;"
+		 />
+	</div>
+
+    <div
+      id="new-tech-stack"
+      class="step"
+      data-rel-y="0"
+      data-rel-x="1.0w"
       >
       <table
         class="comparison-table"
@@ -983,29 +1047,6 @@ infininte_animation.onload = function() {
     </div>
 
 
-    <div
-      id="python2-eol"
-      class="step full vflex"
-			style="background:url(media/screenshots/python2-eol.png); background-size:100%"
-      data-rel-y="0"
-      data-rel-x="1.0w"
-      >
-     <embed
-		 class="flexgrow substep flash"
-		 src="media/screenshots/rhel-python2-1.png"
-		 style="width:100%;"
-		 />
-     <embed
-		 class="flexgrow substep flash"
-		 src="media/screenshots/rhel-python2-2.png"
-		 style="width:100%;"
-		 />
-     <embed
-		 class="flexgrow substep flash"
-		 src="media/screenshots/python2-gtk.png"
-		 style="width:100%;"
-		 />
-	</div>
 
     <div id="c78-arch"
     class="step full vflex"
@@ -1020,17 +1061,50 @@ infininte_animation.onload = function() {
         <div style="position:absolute; right:0; bottom:-7%">
             <span style="font-size:30%">* "User A" can be across multiple hosts</span>
         </div>
+
         <embed
         id="c78-arch2"
         class="flexgrow substep flash"
         src="media/decorative/cylc-8-architecture.svg"
         style="width:100%; height:100%; background:rgb(215,215,215)"
         />
+
         <embed
         id="c78-arch3"
         class="flexgrow substep flash"
         src="media/decorative/cylc-8-architecture-1.svg"
         style="width:100%; height:100%; background:rgb(215,215,215)"/>
+
+        <embed
+        id="c78-arch3"
+        class="flexgrow substep flash"
+        src="media/decorative/cylc-8-architecture-1d.svg"
+        style="width:100%; height:100%; background:rgb(215,215,215)"/>
+ 
+        <embed
+        id="c78-arch3"
+        class="flexgrow substep flash"
+        src="media/decorative/cylc-8-architecture-1c.svg"
+        style="width:100%; height:100%; background:rgb(215,215,215)"/>
+ 
+        <embed
+        id="c78-arch3"
+        class="flexgrow substep flash"
+        src="media/decorative/cylc-8-architecture-1b.svg"
+        style="width:100%; height:100%; background:rgb(215,215,215)"/>
+ 
+        <embed
+        id="c78-arch3"
+        class="flexgrow substep flash"
+        src="media/decorative/cylc-8-architecture-1a.svg"
+        style="width:100%; height:100%; background:rgb(215,215,215)"/>
+
+        <embed
+        id="c78-arch3"
+        class="flexgrow substep flash"
+        src="media/decorative/cylc-8-architecture-1.svg"
+        style="width:100%; height:100%; background:rgb(215,215,215)"/>
+ 
     </div>
 </div>
 
@@ -1128,7 +1202,7 @@ infininte_animation.onload = function() {
 			 class="flexgrow"
 			 src="media/decorative/cylc8-ui-mobile.png"
        style="height:100%"
-			 >
+			 />
  </div>
 
 
