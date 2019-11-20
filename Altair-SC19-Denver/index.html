@@ -920,6 +920,120 @@ infininte_animation.onload = function() {
 		 />
 	</div>
 
+		<div id="c7-arch"
+			 class="step full vflex"
+			 data-rel-x="1.0w"
+			 data-rel-y="0"
+			 style="font-size:30px"
+			 >
+			 <h4>Cylc 7 Architecture</h4>
+			 <div style="width:100%; height:100%">
+					<div style="width:40%; float:left">
+						 <img
+						 src="media/decorative/cylc-7-architecture.svg"
+						 />
+						 <div style="position:absolute; left:10%; bottom:-7%;">
+								<span style="font-size:10px">* "User A" can be across multiple hosts</span>
+						 </div>
+					</div>
+					<div style="width:59%; float:right; text-align:left">
+						 <ul>
+								<li> local(ish) client/server 
+								<li> all clients equal (incl. jobs)
+								<li> all runs as the user
+								<li> auto owner-only authentication
+								<li> owner/public authorization
+								<li> https network layer REST API
+								<li> <a
+									 href="https://cylc.github.io/cylc-admin/cylc-7-architecture">details</a>
+						 </ul>
+						 <p><em>cylc-7.8.4</em> - current stable production system</p>
+					</div>
+			 </div>
+		</div>
+
+
+		<div id="c8-arch"
+			 class="step full vflex"
+			 style="font-size:30px"
+			 >
+			 <h4>Cylc 8 Architecture</h4>
+			 <div style="height:100%; width:100%">
+					<img
+					src="media/decorative/cylc-8-architecture.svg"
+					style="height:100%"
+					/>
+					<div style="position:absolute; right:0; bottom:-7%">
+						 <span style="font-size:30%">* "User A" can be across multiple hosts</span>
+					</div>
+			 </div>
+		</div>
+
+    <div
+        id="c8-reasons"
+        class="step"
+        >
+				<table class="iconlist2" >
+					 
+            <tr>
+                <td>
+                    <embed
+                    style="width: 100px"
+                    src="media/icons/hand.svg"
+                    />
+                </td><td>
+                    Single point of access
+                </td>
+            </tr>
+						<tr>
+                <td>
+                    <embed
+                    style="width: 100px"
+                    src="media/icons/hand.svg"
+                    />
+                </td><td>
+                    Integrate with site ID management
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <embed
+                    style="width: 100px"
+                    src="media/icons/hand.svg"
+                    />
+                </td><td>
+                    In-browser UI, with:
+										<ul style="margin-top:0">
+											 <li> no front-end Cylc installation
+											 <li> no shared FS with WF platfroms
+										</ul>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <embed
+                    style="width: 100px"
+                    src="media/icons/hand.svg"
+                    />
+                </td><td>
+                    Fine-grained authorization in WFS
+                </td>
+            </tr>
+ 
+            <tr>
+                <td>
+                    <embed
+                    style="width: 100px"
+                    src="media/icons/hand.svg"
+                    />
+                </td><td>
+                    Retire suite-specific passphrase
+                </td>
+            </tr>
+        </table>
+    </div>
+
     <div
       id="new-tech-stack"
       class="step"
@@ -1075,156 +1189,146 @@ infininte_animation.onload = function() {
       </table>
     </div>
 
-
-    <div id="c7-arch"
-    class="step full vflex"
-    data-rel-x="1.0w"
-    data-rel-y="0"
-		style="font-size:30px"
-    >
-		<h4>Cylc 7 Architecture</h4>
-		<div style="width:100%; height:100%">
-		<div style="width:40%; float:left">
-			 <img
-        src="media/decorative/cylc-7-architecture.svg"
-        />
-        <div style="position:absolute; left:10%; bottom:-7%;">
-            <span style="font-size:10px">* "User A" can be across multiple hosts</span>
-        </div>
-	 </div>
-		 <div style="width:59%; float:right; text-align:left">
-				<ul>
-					 <li> local(ish) client/server 
-					 <li> all clients equal (incl. jobs)
-					 <li> all runs as the user
-					 <li> auto owner-only authentication
-					 <li> owner/public authorization
-					 <li> https network layer REST API
-					 <li> <a
-							href="https://cylc.github.io/cylc-admin/cylc-7-architecture">details</a>
-				</ul>
-				<p><em>cylc-7.8.4</em> - current stable production system</p>
-		 </div>
-	</div>
-    </div>
-
-    <div id="c78-arch"
-    class="step full vflex"
-    >
-    <div style="height:100%; width:100%;
-        background:url(media/decorative/cylc-8-architecture.svg);
-        background-size:auto 100%;
-        background-position: center;
-        background-repeat:no-repeat">
-        <div style="position:absolute; right:0; bottom:-7%">
-            <span style="font-size:30%">* "User A" can be across multiple hosts</span>
-        </div>
-
-				<!--
-        <embed
-        id="c78-arch3"
-        class="flexgrow substep flash"
-        src="media/decorative/cylc-8-architecture-1.svg"
-        style="width:100%; height:100%; background:rgb(215,215,215)"/>
-				-->
-
-        <embed
-        id="c78-arch3"
-        class="flexgrow substep flash"
-        src="media/decorative/cylc-8-architecture-1d.svg"
-        style="width:100%; height:100%; background:rgb(215,215,215)"/>
- 
-        <embed
-        id="c78-arch3"
-        class="flexgrow substep flash"
-        src="media/decorative/cylc-8-architecture-1c.svg"
-        style="width:100%; height:100%; background:rgb(215,215,215)"/>
- 
-        <embed
-        id="c78-arch3"
-        class="flexgrow substep flash"
-        src="media/decorative/cylc-8-architecture-1b.svg"
-        style="width:100%; height:100%; background:rgb(215,215,215)"/>
- 
-        <embed
-        id="c78-arch3"
-        class="flexgrow substep flash"
-        src="media/decorative/cylc-8-architecture-1a.svg"
-        style="width:100%; height:100%; background:rgb(215,215,215)"/>
-
-        <embed
-        id="c78-arch3"
-        class="flexgrow substep flash"
-        src="media/decorative/cylc-8-architecture-1.svg"
-        style="width:100%; height:100%; background:rgb(215,215,215)"/>
- 
-    </div>
-</div>
-
     <div
-        id="c8-reasons"
+        id="packaging"
         class="step"
+				style="font-size:40px"
         >
-				<table class="iconlist2" >
-					 
-            <tr>
-                <td>
-                    <embed
-                    style="width: 120px"
-                    src="media/icons/hand.svg"
-                    />
-                </td><td>
-                    Single point of access
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <embed
-                    style="width: 120px"
-                    src="media/icons/hand.svg"
-                    />
-                </td><td>
-                    In-browser UI, anywhere, with:
-										<ul>
-											 <li> no front-end Cylc installation
-											 <li> no shared FS with WF platfroms
-										</ul>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <embed
-                    style="width: 120px"
-                    src="media/icons/hand.svg"
-                    />
-                </td><td>
-                    Retire suite-specific passphrase auth
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <embed
-                    style="width: 120px"
-                    src="media/icons/hand.svg"
-                    />
-                </td><td>
-                    Integrate with site ID management
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <embed
-                    style="width: 120px"
-                    src="media/icons/hand.svg"
-                    />
-                </td><td>
-                    fine-grained authorization in WFS
-                </td>
-            </tr>
- 
-        </table>
+				<h4>Cylc Packaging</h4>
+				<ul>
+					 <li><em>Cylc 7</em>
+					 <ul>
+							<li>Download &amp; unpack relase tarball (Cylc and several
+							bundled libraries)
+							<li>Install all dependencies (good luck!)
+					 </ul>
+					 <li><em>Cylc 8</em>
+					 <ul>
+							<li> (<code>pip install cylc-flow</code>)
+							<li> (<code>pip install cylc-uiserver</code>)
+							<li> <code>conda install cylc</code>
+					 </ul>
+				</ul>
     </div>
 
+    <div id="c8-arch-wfs"
+			 class="step full vflex"
+			 >
+			 <h4>Cylc 8 Workflow Services</h4>
+			 <div style="font-size:30px; text-align:left">
+					<p>Server program &amp; CLI. Mostly unchanged, but:</p>
+					<div style="width:100%; height:100%;">
+						 <div style="width:40%; float:left">
+								<img
+								src="media/decorative/c8-arch-wfs.png"
+								style="width:100%; border: 2px dashed black"
+								/>
+						 </div>
+						 <div style="width:59%; float:right">
+								<ul>
+									 <li> Python 3!
+									 <li> ZMQ network layer
+									 <li> No direct UI service
+									 <li> Incremental update to UI Server
+									 <li> No load from multiple UIs
+								</ul>
+						 </div>
+					</div>
+			 </div>
+		</div>
+
+    <div id="c8-arch-uis"
+			 class="step full vflex"
+			 >
+			 <h4>Cylc 8 UI Servers</h4>
+
+			 <div style="font-size:30px; text-align:left">
+			 <p>Serves the UI to the browser, and:</p>
+					<div style="width:100%; height:100%">
+						 <div style="width:40%; float:left">
+								<img
+								src="media/decorative/c8-arch-uis.png"
+								style="width:100%; border: 2px dashed black"
+								/>
+						 </div>
+						 <div style="width:59%; float:right; text-align:left">
+								<ul>
+									 <li> Collates data from user WFs
+									 <li> Takes the load off of WFs
+									 <li> Pluggable sub-services
+									 <li> presents stopped WFs etc. too!
+									 <li> Tornado server
+									 <ul>
+											<li> to UI: GraphQL by WebSocket
+											<li> to WFS: ProtoBuf by ZMQ
+									 </ul>
+									 <li> <a
+											href="https://cylc.github.io/cylc-admin/cylc-8-architecture#cylc-ui-server">details</a>
+								</ul>
+						 </div>
+					</div>
+			 </div>
+		</div>
+
+    <div id="c8-arch-hub"
+			 class="step full vflex"
+			 >
+			 <h4>Cylc 8 Hub</h4>
+
+			 <div style="font-size:30px; text-align:left">
+Uses <a href="https://github.com/jupyterhub/jupyterhub">JupyterHub</a>
+as a generic application spawner.
+					<div style="width:100%; height:100%; margin-top:5%">
+						 <div style="width:40%; float:left">
+								<img
+								src="media/decorative/c8-arch-hub.png"
+								style="width:100%; border:2px dashed black"
+								/>
+								<div style="position:absolute; left:10%; bottom:-7%;">
+									 <span style="font-size:10px">* "User A" can be across multiple hosts</span>
+								</div>
+						 </div>
+						 <div style="width:59%; float:right; text-align:left">
+								<ul>
+									 <li> single point of access
+									 <li> site identity management
+									 <li> spawn and proxy UI Servers
+									 <li> local and remote spawners
+									 <li> stores session information
+									 <li> <a href="details](https://cylc.github.io/cylc-admin/cylc-8-architecture#cylc-hub">details</a>
+								</ul>
+						 </div>
+					</div>
+			 </div>
+		</div>
+
+    <div id="c8-arch-ui"
+			 class="step full vflex"
+			 >
+			 <h4>Cylc 8 UI</h4>
+
+			 <div style="font-size:30px; text-align:left">
+					<p> Javascript with Vue.js</p>
+			 <div style="width:100%; height:100%">
+					<div style="width:40%; float:left">
+						 <img
+						 src="media/decorative/c8-arch-ui.png"
+						 style="width:100%; border:2px dashed black"
+						 />
+					</div>
+					<div style="width:59%; float:right; text-align:left">
+						 <ul>
+								<li> unified (<code>cylc gui, gscan</code>)
+								<li> dash board
+								<li> responsive design
+								<li> simplified set of task states
+								<li> (n=1,2,3 window?)
+								<li> shared data-store with incremental update
+						 </ul>
+					</div>
+			 </div>
+			 </div>
+		</div>
 
 
 <div id="ui-design"
@@ -1314,6 +1418,14 @@ infininte_animation.onload = function() {
 		 </div>
 	</div>
 
+<div id="ui-x"
+    class="step full vflex">
+			 <img
+			 class="flexgrow"
+			 src="media/decorative/cylc8-ui-mockup-x.png"
+       style="width:70%"
+			 />
+</div>
 
 <div id="ui-mobile"
     class="step full vflex">
