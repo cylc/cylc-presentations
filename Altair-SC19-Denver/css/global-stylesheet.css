@@ -262,6 +262,21 @@ table.iconlist tr td:nth-child(1) > * {
     padding-right: 50px;
 }
 
+table.iconlist2 tr {
+		font-size:30px;
+}
+
+table.iconlist2 tr td:nth-child(1) {
+    padding-right: 50px;
+		padding-top:15px;
+}
+
+table.iconlist2 tr td:nth-child(1) > * {
+    vertical-align: middle;
+    padding-right: 50px;
+}
+
+
 table.comparison-table tr {
     font-size: 32px;
     padding: 30px;

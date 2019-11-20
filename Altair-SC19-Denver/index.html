@@ -2,10 +2,10 @@
 <html lang="en">
 
 <head>
-<title>Cycling Workflows with The Cylc Workflow Engine</title>
+<title>Cycling Workflow Orchestration: The Cylc Workflow Engine</title>
 <meta
 name="description"
-content="Cycling Workflows with The Cylc Workflow Engine"
+content="Cycling Workflow Orchestration:with The Cylc Workflow Engine"
 />
 <meta
 name="author"
@@ -53,7 +53,7 @@ src="js/data/running_workflows_data.js"></script>
         >
         <div>
             <p>
-            Cycling Workflows with<br/>the Cylc Workflow Engine
+            Cycling Workflow Orchestration:<br/>the Cylc Workflow Engine
             </p>
 
             <img
@@ -236,89 +236,84 @@ src="js/data/running_workflows_data.js"></script>
     </div>
 
     <div
-        id="repeating-workflow"
-        class="step full vflex"
-        data-rel-x="1.0w"
-        data-rel-y="0"
-        >
-        <div
-            style="width:100%; height:100%; background:url(media/graph/repeating-workflow1a.svg);
-            background-position:bottom left; background-repeat:no-repeat;
-            background-size:auto 100%"
-            >
-            <embed
-            id="repeating-workflow1b"
-            class="flexgrow substep flash"
-            src="media/graph/repeating-workflow1b.svg"
-            style="height:100%; position:absolute; bottom:0; left:0; background-color:rgb(215, 215, 215)"
-            />
-            <embed
-            id="repeating-workflow1c"
-            class="flexgrow substep flash"
-            src="media/graph/repeating-workflow1c.svg"
-            style="height:100%; position:absolute; bottom:0; left:0; background-color:rgb(215, 215, 215);"
-            />
-            <embed
-            id="anim"
-            class="minicylc flexgrow substep flash"
-            style="height:100%; position:absolute; bottom:0; left:0; background-color:rgb(215, 215, 215);"
-            />
-            <embed
-            id="repeating-workflow3a"
-            class="flexgrow substep flash"
-            src="media/graph/repeating-workflow3a.svg"
-            style="height:100%; position:absolute; bottom:0; left:0; background-color:rgb(215, 215, 215);"
-            />
-            <embed
-            id="repeating-workflow3c"
-            class="flexgrow substep flash"
-            src="media/graph/repeating-workflow3c.svg"
-            style="height:100%; position:absolute; bottom:0; left:0; background-color:rgb(215, 215, 215);"
-            />
-						<!--
-            <embed
-            id="repeating-workflow3d"
-            class="flexgrow substep flash"
-            src="media/graph/repeating-workflow3d.svg"
-            style="height:100%; position:absolute; bottom:0; left:0; background-color:rgb(215, 215, 215);"
-            />
-						-->
-        </div>
+      id="repeating-workflow-1"
+      class="step full vflex"
+      data-rel-x="1.0w"
+      data-rel-y="0"
+      >
+      <div
+      style="width:100%; height:100%; background:url(media/graph/repeating-workflow1a.svg);
+      background-position:bottom left; background-repeat:no-repeat;
+      background-size:auto 100%"
+    >
+      <embed
+        id="repeating-workflow1b"
+        class="flexgrow substep flash"
+        src="media/graph/repeating-workflow1b.svg"
+        style="height:100%; position:absolute; bottom:0; left:0; background-color:rgb(215, 215, 215)"
+      />
+       <embed
+        id="repeating-workflow1c"
+        class="flexgrow substep flash"
+        src="media/graph/repeating-workflow1c.svg"
+        style="height:100%; position:absolute; bottom:0; left:0; background-color:rgb(215, 215, 215);"
+      />
+    </div>
     </div>
 
+		<div
+			 id="anim"
+			 class="step full vflex"
+			 >
+		</div>
+
     <script type="text/javascript">
-// write dependencies
-const repeating_deps = [];
-for (let i=1; i<4; i++) {
-    repeating_deps.push(`a${i} => c${i} => d${i}`);
-    repeating_deps.push(`a${i} => b${i}`);
-    repeating_deps.push(`b${i} => a${i+1}`);
-    repeating_deps.push(`d${i} => a${i+1}`);
-}
+      // write dependencies
+      const repeating_deps = [];
+      for (let i=1; i<4; i++) {
+        repeating_deps.push(`a${i} => c${i} => d${i}`);
+        repeating_deps.push(`a${i} => b${i}`);
+        repeating_deps.push(`b${i} => a${i+1}`);
+        repeating_deps.push(`d${i} => a${i+1}`);
+      }
 
-// create graph
-const repeating_animation = $('#anim')
-.addClass('minicylc flexgrow substep flash')
-.data('mainLoopStep', '1500')
-.data('theme', 'demo')
-.data('dependencies', repeating_deps.join('//'))
-.attr('src', 'media/graph/repeating-workflow1.svg')[0]
+      // create graph
+			const repeating_animation = $('<embed />')
+        .addClass('minicylc flexgrow')
+        .data('mainLoopStep', '1500')
+        .data('theme', 'demo')
+        .data('dependencies', repeating_deps.join('//'))
+        .attr('src', 'media/graph/repeating-workflow1.svg')[0]
+      $('#anim').append(repeating_animation);
 
-var repeating_workflow;
-repeating_animation.onload = function() {
-    repeating_workflow = new MiniCylc(repeating_animation, false);
-    repeating_workflow.hold();
-    repeating_workflow.run();
-
-    // unhold when on slide
-    addClassNameListener(
-            $('#repeating-workflow')[0],
-            'active',
-            repeating_workflow.release.bind(repeating_workflow),
-            repeating_workflow.hold.bind(repeating_workflow)
-            );
-};
+      var repeating_workflow;
+      repeating_animation.onload = function() {
+        repeating_workflow = new MiniCylc(repeating_animation, false);
+        repeating_workflow.hold();
+        repeating_workflow.run();
+ 
+        // unhold when on slide
+        addClassNameListener(
+          $('#anim')[0],
+          'active',
+          repeating_workflow.release.bind(repeating_workflow),
+          repeating_workflow.hold.bind(repeating_workflow)
+        );
+      };
     </script>
+
+    <div
+      id="repeating-workflow-2"
+      class="step full vflex"
+      >
+      <img
+			style="width:100%; height:100%; background:url(media/graph/repeating-workflow3c.svg);
+      background-position:bottom left; background-repeat:no-repeat;
+      background-size:auto 100%"
+      />
+    </div>
+
+
 
     <div
         id="cycling-workflow"
@@ -665,19 +660,19 @@ infininte_animation.onload = function() {
 			<div
 				 style="width:100%; height:100%;
 				 background:url(media/screenshots/gcylc-graph-dot.png);
-				 background-size:auto 100%"
+				 background-size:100% 100%"
 				 >
 				 <embed
 				 id="gcylc-tree"
 				 class="flexgrow substep flash"
 				 src="media/screenshots/gcylc-tree.png"
-				 style="height:100%;"
+				 style="width:100%; height:100%;"
 				 />
 				 <embed
 					id="cylc-8-mockup"
 					class="flexgrow substep flash"
 					src="media/compound-visuals/cylc-8-mockup.png"
-					style="height:100%;"
+					style="width:100%; height:100%;"
 					/>
 			 </div>
 		</div>
@@ -722,8 +717,9 @@ infininte_animation.onload = function() {
  <div
 		id="complex-configuration"
 		class="step"
+		style="font-size:40px"
 		>
-		<p>Efficient generation of large complex workflows</p>
+		<p>Efficient programmatic generation of large and complex workflows</p>
 
 		<table class="iconlist">
 			 <tr>
@@ -734,7 +730,7 @@ infininte_animation.onload = function() {
 							/>
 					 </td>
 					 <td>
-							Runtime property inheritance
+							Task config inheritance
 					 </td>
 				</tr>
 				<tr>
@@ -745,7 +741,7 @@ infininte_animation.onload = function() {
 							 />
 						</td>
 						<td>
-							 Task paramater expansion
+							 Task parameter expansion
 						</td>
 				 </tr>
 				 <tr>
@@ -814,13 +810,20 @@ infininte_animation.onload = function() {
             style="height:100%; background:rgb(215,215,215)"
             />
 
-            <embed
-            id="arch-5"
-            class="flexgrow substep flash"
-            src="media/decorative/arch-5.svg"
-            style="height:100%; background:rgb(215,215,215)"
-            />
+					 <embed
+					 id="arch-5a"
+					 class="flexgrow substep flash"
+					 src="media/decorative/arch-5a.svg"
+					 style="height:100%; background:rgb(215,215,215)"
+					 />
 
+					 <embed
+					 id="arch-5"
+					 class="flexgrow substep flash"
+					 src="media/decorative/arch-5.svg"
+					 style="height:100%; background:rgb(215,215,215)"
+					 />
+ 
         </div>
     </div>
 
@@ -1073,14 +1076,43 @@ infininte_animation.onload = function() {
     </div>
 
 
-
-    <div id="c78-arch"
+    <div id="c7-arch"
     class="step full vflex"
     data-rel-x="1.0w"
     data-rel-y="0"
+		style="font-size:30px"
+    >
+		<h4>Cylc 7 Architecture</h4>
+		<div style="width:100%; height:100%">
+		<div style="width:40%; float:left">
+			 <img
+        src="media/decorative/cylc-7-architecture.svg"
+        />
+        <div style="position:absolute; left:10%; bottom:-7%;">
+            <span style="font-size:10px">* "User A" can be across multiple hosts</span>
+        </div>
+	 </div>
+		 <div style="width:59%; float:right; text-align:left">
+				<ul>
+					 <li> local(ish) client/server 
+					 <li> all clients equal (incl. jobs)
+					 <li> all runs as the user
+					 <li> auto owner-only authentication
+					 <li> owner/public authorization
+					 <li> https network layer REST API
+					 <li> <a
+							href="https://cylc.github.io/cylc-admin/cylc-7-architecture">details</a>
+				</ul>
+				<p><em>cylc-7.8.4</em> - current stable production system</p>
+		 </div>
+	</div>
+    </div>
+
+    <div id="c78-arch"
+    class="step full vflex"
     >
     <div style="height:100%; width:100%;
-        background:url(media/decorative/cylc-7-architecture.svg);
+        background:url(media/decorative/cylc-8-architecture.svg);
         background-size:auto 100%;
         background-position: center;
         background-repeat:no-repeat">
@@ -1088,18 +1120,13 @@ infininte_animation.onload = function() {
             <span style="font-size:30%">* "User A" can be across multiple hosts</span>
         </div>
 
-        <embed
-        id="c78-arch2"
-        class="flexgrow substep flash"
-        src="media/decorative/cylc-8-architecture.svg"
-        style="width:100%; height:100%; background:rgb(215,215,215)"
-        />
-
+				<!--
         <embed
         id="c78-arch3"
         class="flexgrow substep flash"
         src="media/decorative/cylc-8-architecture-1.svg"
         style="width:100%; height:100%; background:rgb(215,215,215)"/>
+				-->
 
         <embed
         id="c78-arch3"
@@ -1133,6 +1160,72 @@ infininte_animation.onload = function() {
  
     </div>
 </div>
+
+    <div
+        id="c8-reasons"
+        class="step"
+        >
+				<table class="iconlist2" >
+					 
+            <tr>
+                <td>
+                    <embed
+                    style="width: 120px"
+                    src="media/icons/hand.svg"
+                    />
+                </td><td>
+                    Single point of access
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <embed
+                    style="width: 120px"
+                    src="media/icons/hand.svg"
+                    />
+                </td><td>
+                    In-browser UI, anywhere, with:
+										<ul>
+											 <li> no front-end Cylc installation
+											 <li> no shared FS with WF platfroms
+										</ul>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <embed
+                    style="width: 120px"
+                    src="media/icons/hand.svg"
+                    />
+                </td><td>
+                    Retire suite-specific passphrase auth
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <embed
+                    style="width: 120px"
+                    src="media/icons/hand.svg"
+                    />
+                </td><td>
+                    Integrate with site ID management
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <embed
+                    style="width: 120px"
+                    src="media/icons/hand.svg"
+                    />
+                </td><td>
+                    fine-grained authorization in WFS
+                </td>
+            </tr>
+ 
+        </table>
+    </div>
+
+
 
 <div id="ui-design"
     class="step full vflex">
