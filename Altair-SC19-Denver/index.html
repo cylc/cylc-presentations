@@ -444,6 +444,7 @@ infininte_animation.onload = function() {
             />
         </div>
     </div>
+
     <!--  notes
     <ul>
       <li> 3 cycles of a small deterministic regional NWP suite. Obs
@@ -681,7 +682,7 @@ infininte_animation.onload = function() {
       id="basic-configuration"
       class="step full vflex"
     >
-		<p>Modest workflows are easy!</p>
+		<p>Smaller workflows are very easy!</p>
 		<div style="width:100%; height:100%; margin-top:10%">
 			 <div style="width:70%; float:left">
 					<img src="media/decorative/simple-rc.png"
@@ -758,6 +759,74 @@ infininte_animation.onload = function() {
 			 </table>
 		</div>
 
+		<div id="inherit"
+			 class="step full vflex">
+			 <div style="height:60%; margin-top:10%">
+			 <img
+			 class="flexgrow"
+			 src="media/decorative/inherit.png"
+			 style="height:100%"
+			 >
+		</div>
+		</div>
+
+    <div
+        id="params"
+        class="step full vflex"
+				>
+        <div
+            style="
+            height:100%; width:100%; background:url(media/decorative/param-1.png);
+            background-size:auto 100%; background-repeat:no-repeat;
+						background-position:center">
+            <embed
+            id="comp3"
+            class="flexgrow substep flash"
+            src="media/decorative/param-2.png"
+            style="background:rgb(215, 215, 215); width:100%;"
+            />
+        </div>
+    </div>
+ 
+		<div id="jinja2"
+			 class="step full vflex">
+			 <div style="height:80%; margin-top:5%">
+			 <img
+			 class="flexgrow"
+			 src="media/decorative/jinja2.png"
+			 style="height:100%"
+			 >
+		</div>
+		</div>
+
+    <div
+        id="comp2"
+        class="step full vflex"
+				>
+        <div
+            style="
+            height:100%; width:100%; background:url(media/decorative/complex-0.png);
+            background-size:100% 100%; background-repeat:no-repeat">
+            <embed
+            id="comp3"
+            class="flexgrow substep flash"
+            src="media/decorative/complex-3.png"
+            style="background:rgb(215, 215, 215); width:100%; height:100%"
+            />
+        </div>
+    </div>
+ 
+		<div
+			 id="architecture"
+			 class="step full vflex"
+			 >
+			 <p>System Architecture</p>
+			 <embed
+		  	class="flexgrow"
+		  	src="media/compound-visuals/system-diagram.svg"
+		  	/>
+    </div>
+
     <div
         id="cylc-architecture"
         class="step full vflex"
@@ -828,44 +897,55 @@ infininte_animation.onload = function() {
     </div>
 
     <div
-      id="architecture"
-      class="step full vflex"
-    >
-      <p>System architecture</p>
-      <embed
-        class="flexgrow"
-        src="media/compound-visuals/system-diagram.svg"
-      />
-    </div>
-
-    <div
       id="met-office-figures"
-      class="step vflex"
+      class="step full vflex"
+			style="font-size:40px; text-align:left;
+			color:white;
+			text-shadow:2px 1px black;
+			background:url(media/decorative/metoffice.jpg);
+			background-size:100% auto"
       >
+			<div style="width:100%; height:100%">
+				 <img src="media/icons/metoffice-logo-black.png"
+				 alt="metoffice-logo-black"
+				 style="height:100px; width:auto">
+				 <ul>
+						<li><b>research</b>, and <b>production</b> (Jan 2014)</li>
+						<li>demonstrated per-workflow scaling to:
+						<ul style="font-size: 0.8em;">
+							 <li><b>&tilde;1000s</b> of <b>recurrences</b></li>
+							 <li><b>&tilde;10,000s</b> of <b>tasks</b></li>
+							 <li><b>&tilde;100,000s</b> of <b>dependencies</b></li>
+						</ul>
+						</li>
+						<li>Cylc orchestrates ~full HPC workload:
+						<ul style="font-size: 0.8em;">
+							 <li><b>460,672 cores</b></li>
+							 <li><b>15,600 TFLOPs</b> peak performance</li>
+						</ul>
+						</li>
+				 </ul>
+			 </div>
+		</div>
 
-      <p>
-         <img src="media/icons/metoffice-logo-black.png"
-         alt="metoffice-logo-black"
-         style="height:100px; vertical-align:-0.7em; margin-right:-0.5em">
-				 since Jan 2014
-      </p>
-        <ul>
-					 <li><em>research</em> and <em>production</em></li>
-          <li>demonstrated scaling to:
-            <ul style="font-size: 0.8em;">
-              <li><em>&tilde;1000s</em> of <em>recurrences</em></li>
-              <li><em>&tilde;10,000s</em> of <em>tasks</em></li>
-              <li><em>&tilde;100,000s</em> of <em>dependencies</em></li>
-            </ul>
-          </li>
-          <li>~all workload for HPCs:
-            <ul style="font-size: 0.8em;">
-              <li><em>460,672 cores</em></li>
-              <li><em>15,600 TFLOPs</em> peak performance</li>
-            </ul>
-          </li>
-        </ul>
+		 <div
+      id="running-workflows-plot"
+      class="step full vflex"
+			style="font-size:40px; text-align:left"
+      >
+      <div id="running-workflows-plotted"></div>
+
+      <!-- Plotly: 3) custom JS for MO research running workflows plot:
+           & the script to process the data above & renders it on a plot: -->
+      <script type="text/javascript"
+       src="js/running-workflows-mo-research-plot.js"></script>
+
+      <ul style="font-size:0.8em">
+        <li><em>&gt; 500 consistently</em> since June</li>
+        <li>a general <em>upward trend</em> (ignoring noise)</li>
+      </ul>
     </div>
+
 
 
     <div
@@ -992,25 +1072,10 @@ infininte_animation.onload = function() {
                     src="media/icons/hand.svg"
                     />
                 </td><td>
-                    Integrate with site ID management
+                    Site identity management integration
                 </td>
             </tr>
-
-            <tr>
-                <td>
-                    <embed
-                    style="width: 100px"
-                    src="media/icons/hand.svg"
-                    />
-                </td><td>
-                    In-browser UI, with:
-										<ul style="margin-top:0">
-											 <li> no front-end Cylc installation
-											 <li> no shared FS with WF platfroms
-										</ul>
-                </td>
-            </tr>
-            <tr>
+           <tr>
                 <td>
                     <embed
                     style="width: 100px"
@@ -1020,8 +1085,21 @@ infininte_animation.onload = function() {
                     Fine-grained authorization in WFS
                 </td>
             </tr>
- 
             <tr>
+                <td>
+                    <embed
+                    style="width: 100px"
+                    src="media/icons/hand.svg"
+                    />
+                </td><td>
+                    In-browser UI, with no need for:
+										<ul style="margin-top:0">
+											 <li> front-end Cylc installation
+											 <li> shared FS with WF platforms
+										</ul>
+                </td>
+            </tr>
+             <tr>
                 <td>
                     <embed
                     style="width: 100px"
@@ -1045,7 +1123,7 @@ infininte_animation.onload = function() {
       >
         <tr>
           <td>
-            <p>Scheduling & runtime</p>
+            <p>Server and CLI</p>
           </td>
           <td>
           <div class="container">
@@ -1055,7 +1133,7 @@ infininte_animation.onload = function() {
             -->
             <img src="media/external-logos/python-logo.png" alt="python-logo"
               style="height:100px;">
-            <div class="centered-cont">2</div>
+							<div class="centered-cont" style="color:white; text-shadow:2px 2px black"><b>2</b></div>
           </div>
           </td>
           <td>
@@ -1069,7 +1147,7 @@ infininte_animation.onload = function() {
             -->
             <img src="media/external-logos/python-logo.png" alt="python-logo"
               style="height:100px;">
-            <div class="centered-cont">3</div>
+					  <div class="centered-cont" style="color:white; text-shadow:2px 2px black"><b>3</b></div>
           </div>
           </td>
         </tr>
@@ -1228,9 +1306,8 @@ infininte_animation.onload = function() {
 								<ul>
 									 <li> Python 3!
 									 <li> ZMQ network layer
-									 <li> No direct UI service
 									 <li> Incremental update to UI Server
-									 <li> No load from multiple UIs
+									 <li> Reduced UI loading!
 								</ul>
 						 </div>
 					</div>
@@ -1255,8 +1332,7 @@ infininte_animation.onload = function() {
 								<ul>
 									 <li> Collates data from user WFs
 									 <li> Takes the load off of WFs
-									 <li> Pluggable sub-services
-									 <li> presents stopped WFs etc. too!
+									 <li> Presents stopped WFs <b>etc.</b> too
 									 <li> Tornado server
 									 <ul>
 											<li> to UI: GraphQL by WebSocket
@@ -1330,15 +1406,30 @@ as a generic application spawner.
 			 </div>
 		</div>
 
+		<div id="c8-arch-again"
+			 class="step full vflex"
+			 style="font-size:30px"
+			 >
+			 <h4>Cylc 8 Architecture</h4>
+			 <div style="height:100%; width:100%">
+					<img
+					src="media/decorative/cylc-8-architecture.svg"
+					style="height:100%"
+					/>
+					<div style="position:absolute; right:0; bottom:-7%">
+						 <span style="font-size:30%">* "User A" can be across multiple hosts</span>
+					</div>
+			 </div>
+		</div>
 
-<div id="ui-design"
-    class="step full vflex">
+		<div id="ui-design"
+			 class="step full vflex">
 			 <img
 			 class="flexgrow"
 			 src="media/decorative/cylc8-ui-design-hjo-z1.png"
 			 style="width:40%; margin-left:30%; margin-top:-8%"
 			 >
- </div>
+		</div>
 
 <div id="UI"
     class="step full vflex">
