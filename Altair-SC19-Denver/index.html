@@ -905,23 +905,22 @@ infininte_animation.onload = function() {
 			background:url(media/decorative/metoffice.jpg);
 			background-size:100% auto"
       >
-			<div style="width:100%; height:100%">
+			<div style="width:100%; height:100%;">
 				 <img src="media/icons/metoffice-logo-black.png"
 				 alt="metoffice-logo-black"
 				 style="height:100px; width:auto">
 				 <ul>
-						<li><b>research</b>, and <b>production</b> (Jan 2014)</li>
-						<li>demonstrated per-workflow scaling to:
-						<ul style="font-size: 0.8em;">
+						<li>Cylc: ~full HPC workload - <b>research</b>, and
+						(since Jan 2014) <b>production</b>:
+						<ul style="font-size: 0.8em; color:#8afda3">
+							 <li><b>460,672 cores</b></li>
+						</ul>
+						</li>
+						<li>Demonstrated single-workflow scaling to:
+						<ul style="font-size: 0.8em; color:#8afda3">
 							 <li><b>&tilde;1000s</b> of <b>recurrences</b></li>
 							 <li><b>&tilde;10,000s</b> of <b>tasks</b></li>
 							 <li><b>&tilde;100,000s</b> of <b>dependencies</b></li>
-						</ul>
-						</li>
-						<li>Cylc orchestrates ~full HPC workload:
-						<ul style="font-size: 0.8em;">
-							 <li><b>460,672 cores</b></li>
-							 <li><b>15,600 TFLOPs</b> peak performance</li>
 						</ul>
 						</li>
 				 </ul>
@@ -940,7 +939,7 @@ infininte_animation.onload = function() {
       <script type="text/javascript"
        src="js/running-workflows-mo-research-plot.js"></script>
 
-      <ul style="font-size:0.8em">
+      <ul style="font-size:0.8em; margin-top:0.6em">
         <li><em>&gt; 500 consistently</em> since June</li>
         <li>a general <em>upward trend</em> (ignoring noise)</li>
       </ul>
@@ -1276,7 +1275,7 @@ infininte_animation.onload = function() {
 				<ul>
 					 <li><em>Cylc 7</em>
 					 <ul>
-							<li>Download &amp; unpack relase tarball (Cylc and several
+							<li>Download &amp; unpack release tarball (Cylc and several
 							bundled libraries)
 							<li>Install all dependencies (good luck!)
 					 </ul>
@@ -1284,7 +1283,7 @@ infininte_animation.onload = function() {
 					 <ul>
 							<li> (<code>pip install cylc-flow</code>)
 							<li> (<code>pip install cylc-uiserver</code>)
-							<li> <code>conda install cylc</code>
+							<li> <em><code>conda install cylc</code></em>
 					 </ul>
 				</ul>
     </div>
@@ -1330,8 +1329,8 @@ infininte_animation.onload = function() {
 						 </div>
 						 <div style="width:59%; float:right; text-align:left">
 								<ul>
-									 <li> Collates data from user WFs
-									 <li> Takes the load off of WFs
+									 <li> Collates data from user WFS's
+									 <li> Takes the load off of WFS's
 									 <li> Presents stopped WFs <b>etc.</b> too
 									 <li> Tornado server
 									 <ul>
