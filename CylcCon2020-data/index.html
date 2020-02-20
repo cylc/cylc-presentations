@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<fieldset class="slideshow">
+
+  <!-- Slide 1 -->
+  <input type="radio" id="slideCheckbox1" name="slide" checked autofocus></input>
+  <div class="slide">
+    <div class="slide__html">
+      <!-- You can include HTML instead of a background image using .slide__image -->
+    </div>
+    <div class="slide__content">
+      <h1>Intro</h1>
+      <br>
+      <p>What's Important?</p>
+      <ul>
+        <li>Workflow state.</li>
+        <li>Job config, state, and messages.</li>
+        <li>Hierarchy data (tree view).</li>
+        <li>Graph data:</li>
+        <ul><li>Nodes & Edges.</li></ul>
+      </ul>
+      <p>What data?</p>
+      <ol>
+        <li>In memory
+          <ul>
+            <li>Parsed workflow config/definition (<code>cylc-flow.conf</code>).</li>
+            <li>Task handlers/proxies/instances (Task Pool).</li>
+            <li>Job config/file creation & message handling.</li>
+          </ul>
+        </li>
+        <li>File System
+          <ul>
+            <li>Workflow sqlite DB</li>
+            <li>Contact file (Cylc/API verison, ports ...etc).</li>
+            <li>Job logs.</li>
+            <li>Contact file.</li>
+            <li>Security keys.</li>
+          </ul>
+        </li>
+      </ol>
+    </div>  
+  </div>
+
+  <!-- Slide 2 -->
+  <input type="radio" id="slideCheckbox2" name="slide"></input>
+  <div class="slide">
+    <div class="slide__content">
+      <h1>Architecture</h1>
+      <p> Overview & considerations</p>
+      <br>
+      <p>Workflow Scheduler (WFS) Interaction paths</p>
+      <ul>
+        <li>Directly with WFS (CLI, Jobs ..etc)</li>
+        <li>UI Server (UIS) CLI.</li>
+        <li>Web UI via hub proxy and UIS.</li>
+      </ul>
+      <br>
+      <p>Desirables & Consequences</p>
+      <ul>
+        <li>Unified CLI across alternate paths.</li>
+        <li>Data efficiency of WSF <=> UIS.</li>
+        <li>Isolate load on WFS by Web UI.</li>
+        <li>Scalability; Number & size of WFS</li>
+      </ul>
+    </div> 
+  </div>
+
+  <!-- Slide 3 -->
+  <input type="radio" id="slideCheckbox3" name="slide"></input>
+  <div class="slide">
+    <div class="slide__content">
+      <h1>GraphQL</h1>
+      <br>
+      <p>Why? <p style="color: #e95d16">(It's better than REST!)</p></p>
+      <ul>
+        <li>Allows the client to determine the data's structure and content.</li>
+        <li>Agnostic to transport protocol.</li>
+        <li>Strongly typed schema</li>
+        <li>Subscriptions via existing schema object types.</li>
+        <li>Introspection (api-on-the-fly)</li>
+        <li>Many supported libraries & active community</li>
+      </ul>
+      <br>
+      <p>Consequences</p>
+      <ul>
+        <li>Fine-grained authorisation.</li>
+        <li>Unified CLI with identical schema at both WFS & UIS.</li>
+        <li>ZeroMQ has not GraphQL packages, so we need to create these tools.</li>
+      </ul>
+    </div>  
+  </div>
+
+  <!-- Slide 4 -->
+  <input type="radio" id="slideCheckbox4" name="slide"></input>
+  <div class="slide">
+    <div class="slide__content">
+      <h1>Data-store</h1>
+      <br>
+      <p>Why?</p>
+      <ul>
+        <li>GraphQL requires backing data.</li>
+        <li>In memory mapping (via Id) provides fast retreival for query resolving</li>
+      </ul>
+      <br>
+      <p>Replication/Sync of data-store at UIS</p>
+      <ul>
+        <li>With unified CLI & the same GraphQL schema, input data needs to be identical.</li>
+        <li>Isolates WUI load from WFS</li>
+        <li>Facilitates efficient crow/multi-workflow queries</li>
+      </ul>
+      <br>
+      <p>Protobuf</p>
+      <ul>
+        <li>Efficient transport format.</li>
+        <li>GraphQL can resolve directly off Protobuf messages.</li>
+        <li>Type checking</li>
+        <li>GraphQL input != GraphQL output.</li>
+      </ul>
+    </div>   
+  </div>
+
+  <!-- Slide 5 -->
+  <input type="radio" id="slideCheckbox5" name="slide"></input>
+  <div class="slide">
+    <div class="slide__content">
+      <h1>Progress Report</h1>
+      <br>
+      <p>Done:</p>
+      <ul>
+        <li>GraphQL at UIS and WFS</li>
+        <li>Data-store sync</li>
+        <li>Queries.</li>
+        <li>Mutations (api-on-the-fly! thanks Oliver)</li>
+        <li>N-distance Nodes-Edges query (follows edges)</li>
+        <li>Tornado web-sockets GraphQL subscriptions (thanks Bruno!)</li>
+      </ul>
+      <br>
+      <p>Underway:</p>
+      <ul>
+        <li>UIS delta subscriptions:</li>
+        <ul>
+          <li>https://github.com/cylc/cylc-flow/pull/3500#</li>
+          <li>https://github.com/cylc/cylc-uiserver/pull/118#</li>
+        </ul>
+      </ul>
+      <br>
+      <p>To Do:</p>
+      <ul>
+        <li>CLI migration to GraphQL.</li>
+        <li>ZeroMQ GraphQL subscription module.</li>
+        <li>Authorisation middleware</li>
+      </ul>
+    </div>  
+  </div>
+
+  <input type="radio" id="slideCheckbox5" name="slide"></input>
+  <div class="slide">
+    <div class="slide__content">
+      <h1>Future</h1>
+      <br>
+      <p>To Discuss...</p>
+    </div>  
+  </div>
+
+  <!-- Add more slides here! -->
+
+  <nav>
+    
+    <!-- Add slide labels here! -->
+    
+    <label class="slide-button" for="slideCheckbox1">Intro</label>
+    <label class="slide-button" for="slideCheckbox2">Architecture</label>
+    <label class="slide-button" for="slideCheckbox3">GraphQL</label>
+    <label class="slide-button" for="slideCheckbox4">Data-store</label>
+    <label class="slide-button" for="slideCheckbox5">Progress</label>
+    <label class="slide-button" for="slideCheckbox6">Future</label>
+  </nav>
+
+</fieldset>
