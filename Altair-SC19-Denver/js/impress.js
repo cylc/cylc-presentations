@@ -3146,7 +3146,8 @@
 /* global window, document */
 ( function( document, window ) {
     "use strict";
-    var timeout = 3;
+// HJO    var timeout = 3;
+    var timeout = 10;
     var timeoutHandle;
 
     var hide = function() {

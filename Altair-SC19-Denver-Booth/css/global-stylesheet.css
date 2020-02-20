@@ -230,7 +230,7 @@ span.comment {
 }
 
 em {
-    color: #00b3fd;
+    color: #00a3fd;
 }
 
 .vflex {
@@ -248,8 +248,13 @@ em {
     flex-shrink: 2;
 }
 
+table.iconlist tr {
+		font-size:40px;
+}
+
 table.iconlist tr td:nth-child(1) {
     padding-right: 50px;
+		padding-top:15px;
 }
 
 table.iconlist tr td:nth-child(1) > * {
