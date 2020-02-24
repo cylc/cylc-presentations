@@ -15,17 +15,20 @@
     <div class="slide__content">
       <h1>Intro</h1>
 
-			<b>David Sutherland, NIWA</b>
+      <b>David Sutherland, NIWA</b>
 
+      <br>
       <br>
       <p>What's Important?</p>
       <ul>
         <li>Workflow state.</li>
         <li>Job config, state, and messages.</li>
-        <li>Hierarchy data (tree view).</li>
+        <li>Hierarchy data (tree view):</li>
+        <ul><li>Child/parent Node relationships.</li></ul>
         <li>Graph data:</li>
         <ul><li>Nodes & Edges.</li></ul>
       </ul>
+      <br>
       <p>What data?</p>
       <ol>
         <li>In memory
@@ -35,9 +38,10 @@
             <li>Job config/file creation & message handling.</li>
           </ul>
         </li>
+        <br>
         <li>File System
           <ul>
-            <li>Workflow sqlite DB</li>
+            <li>Workflow sqlite DB.</li>
             <li>Contact file (Cylc/API verison, ports ...etc).</li>
             <li>Job logs.</li>
             <li>Contact file.</li>
@@ -64,10 +68,11 @@
       <br>
       <p>Desirables & Consequences</p>
       <ul>
+        <li>One WUI per user (instead of per workflow with Cylc7).</li>
         <li>Unified CLI across alternate paths.</li>
         <li>Data efficiency of WSF <=> UIS.</li>
         <li>Isolate load on WFS by Web UI.</li>
-        <li>Scalability; Number & size of WFS</li>
+        <li>Scalability; Number & size of WFS.</li>
       </ul>
     </div> 
   </div>
@@ -92,7 +97,7 @@
       <ul>
         <li>Fine-grained authorisation.</li>
         <li>Unified CLI with identical schema at both WFS & UIS.</li>
-        <li>ZeroMQ has not GraphQL packages, so we need to create these tools.</li>
+        <li>ZeroMQ has no GraphQL packages, so we need to create these tools.</li>
       </ul>
     </div>  
   </div>
@@ -106,21 +111,22 @@
       <p>Why?</p>
       <ul>
         <li>GraphQL requires backing data.</li>
-        <li>In memory mapping (via Id) provides fast retreival for query resolving</li>
+        <li>In memory mapping (via Id) provides fast retreival for query resolving.</li>
       </ul>
       <br>
       <p>Replication/Sync of data-store at UIS</p>
       <ul>
         <li>With unified CLI & the same GraphQL schema, input data needs to be identical.</li>
-        <li>Isolates WUI load from WFS</li>
-        <li>Facilitates efficient crow/multi-workflow queries</li>
+        <li>Isolates WUI load from WFS.</li>
+        <li>Facilitates efficient cross/multi workflow queries.</li>
+        <li>Size is no barrier to scalability (~1Mb for large workflows).</li>
       </ul>
       <br>
       <p>Protobuf</p>
       <ul>
         <li>Efficient transport format.</li>
         <li>GraphQL can resolve directly off Protobuf messages.</li>
-        <li>Type checking</li>
+        <li>Type checking.</li>
         <li>GraphQL input != GraphQL output.</li>
       </ul>
     </div>   
@@ -134,12 +140,12 @@
       <br>
       <p>Done:</p>
       <ul>
-        <li>GraphQL at UIS and WFS</li>
-        <li>Data-store sync</li>
+        <li>GraphQL at UIS and WFS.</li>
+        <li>Data-store sync.</li>
         <li>Queries.</li>
-        <li>Mutations (api-on-the-fly! thanks Oliver)</li>
-        <li>N-distance Nodes-Edges query (follows edges)</li>
-        <li>Tornado web-sockets GraphQL subscriptions (thanks Bruno!)</li>
+        <li>Mutations (api-on-the-fly! thanks Oliver).</li>
+        <li>N-distance Nodes-Edges query (follows edges).</li>
+        <li>Tornado web-sockets GraphQL subscriptions (thanks Bruno!).</li>
       </ul>
       <br>
       <p>Underway:</p>
@@ -155,12 +161,12 @@
       <ul>
         <li>CLI migration to GraphQL.</li>
         <li>ZeroMQ GraphQL subscription module.</li>
-        <li>Authorisation middleware</li>
+        <li>Authorisation middleware.</li>
       </ul>
     </div>  
   </div>
 
-  <input type="radio" id="slideCheckbox5" name="slide"></input>
+  <input type="radio" id="slideCheckbox6" name="slide"></input>
   <div class="slide">
     <div class="slide__content">
       <h1>Future</h1>

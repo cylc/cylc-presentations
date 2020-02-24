@@ -103,7 +103,7 @@ input {
   .slide__html {
     display: none; }
   .slide:nth-child(6) {
-    background: url("GraphQL.png");
+    background: url("GraphQL.svg");
     background-repeat: no-repeat;
     background-size: 100%;
     background-position: center; }
@@ -119,7 +119,7 @@ input {
   .slide__html {
     display: none; }
   .slide:nth-child(8) {
-    background: url("Data-Store.png");
+    background: url("Data-Store.svg");
     background-repeat: no-repeat;
     background-size: 100%;
     background-position: center; }
