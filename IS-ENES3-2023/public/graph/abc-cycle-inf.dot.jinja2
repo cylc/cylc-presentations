@@ -1,0 +1,24 @@
+{% set cycles = 40 %}
+
+digraph {
+{% for cycle in range(cycles) %}
+    subgraph cluster_{{ cycle }} {
+        style="dashed"
+        label="{{ cycle }}"
+
+        a_{{ cycle }} -> b_{{ cycle }} -> d_{{ cycle }} -> f_{{ cycle }}
+        b_{{ cycle }} -> c_{{ cycle }}
+        e_{{ cycle }} -> f_{{ cycle }}
+
+        a_{{ cycle }} [label="a"]
+        b_{{ cycle }} [label="b"]
+        c_{{ cycle }} [label="c"]
+        d_{{ cycle }} [label="d"]
+        e_{{ cycle }} [label="e"]
+        f_{{ cycle }} [label="f"]
+    }
+
+    b_{{ cycle }} -> b_{{ cycle + 1 }} [color="blue"]
+    f_{{ cycle }} -> e_{{ cycle + 1 }} [color="blue"]
+{% endfor %}
+}

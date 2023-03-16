@@ -1,0 +1,14 @@
+/*
+ * These styles make hyperlinks stand out which is useful for distributing
+ * the slides.
+ * For presenting you might want to comment this out.
+ */
+
+a {
+    text-decoration-line: underline!important;
+    text-decoration-style: dashed!important;
+}
+
+a:hover {
+    color: #55c3e5ff;
+}

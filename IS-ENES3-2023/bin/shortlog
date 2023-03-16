@@ -1,0 +1,77 @@
+#!/bin/bash
+#
+# Get numbers for presentation
+# Turns out to be annoyingly difficult to get this info via GH GraphQL interface.
+
+set -eu
+
+declare -A contributors
+
+# obtain initial commits (cylc 8)
+CYLC_FLOW_IC='0dac0c9d6711e9b87860ea4a59660658fac6bb75'
+CYLC_ROSE_IC="$(git -C ~/cylc-rose rev-list --max-parents=0 HEAD)"
+CYLC_UI_IC="$(git -C ~/cylc-ui rev-list --max-parents=0 HEAD)"
+CYLC_UIS_IC="$(git -C ~/cylc-uiserver rev-list --max-parents=0 HEAD)"
+
+# version ranges
+CYLC_FLOW_VR="${CYLC_FLOW_IC}..upstream/master"
+CYLC_ROSE_VR="${CYLC_ROSE_IC}..upstream/master"
+CYLC_UI_VR="${CYLC_UI_IC}..upstream/master"
+CYLC_UIS_VR="${CYLC_UIS_IC}..upstream/master"
+
+
+# echo 'CONTRIBUTORS:'
+# python3 -c '
+# import re
+# import sys
+# PATTERN=re.compile("(\d+)\s+(\w.*)")
+# users = {}
+# line = sys.stdin.readline()
+# while line != "":
+#     number, user = PATTERN.match(line.strip()).groups()
+#     if "[bot]" not in user and user != "Renovate Bot":
+#         users.setdefault(user, 0)
+#         users[user] += int(number)
+#     line = sys.stdin.readline()
+# for user, number in sorted(users.items(), key=lambda x: x[1], reverse=True):
+#     print(user, number)
+# ' <<< "$(
+#     git -C ~/cylc-flow shortlog -ns "${CYLC_FLOW_VR}"
+#     git -C ~/cylc-rose shortlog -ns "${CYLC_ROSE_VR}"
+#     git -C ~/cylc-ui shortlog -ns "${CYLC_UI_VR}"
+#     git -C ~/cylc-uiserver shortlog -ns "${CYLC_UIS_VR}"
+# )"
+
+
+echo -e '\n\nCOMMITS:'
+python3 -c '
+import re
+import sys
+PATTERN = re.compile("(\d+) files changed, (\d+) insertions...(?:, (\d+))?")
+line = sys.stdin.readline()
+ins_ = 0
+del_ = 0
+while line != "":
+    groups = PATTERN.match(line.strip()).groups()
+    if len(groups) == 2:
+        _, insertions = groups
+        deletions = None
+    else:
+        _, insertions, deletions = groups
+    if not deletions:
+        deletions = "0"
+    print(insertions, deletions)
+    ins_ += int(insertions)
+    del_ += int(deletions)
+    line = sys.stdin.readline()
+print(f"grand total: +{ins_} -{del_}")
+' <<< "$(
+    git -c diff.renameLimit=3000 -C ~/cylc-flow \
+        diff --shortstat "${CYLC_FLOW_IC}" upstream/master
+    git -c diff.renameLimit=3000 -C ~/cylc-rose \
+        diff --shortstat "${CYLC_ROSE_IC}" upstream/master
+    git -c diff.renameLimit=3000 -C ~/cylc-ui \
+        diff --shortstat "${CYLC_UI_IC}" upstream/master
+    git -c diff.renameLimit=3000 -C ~/cylc-uiserver \
+        diff --shortstat "${CYLC_UIS_IC}" upstream/master
+)"

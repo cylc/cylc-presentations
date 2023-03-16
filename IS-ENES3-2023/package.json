@@ -1,0 +1,16 @@
+{
+    "name": "isenes3-talk",
+    "scripts": {
+        "dev": "slidev",
+        "build": "slidev build --watch"
+    },
+    "dependencies": {
+        "@iconify-json/logos": "^1.1.23",
+        "@mdi/js": "^7.1.96",
+        "@slidev/cli": "latest",
+        "@slidev/theme-default": "latest",
+        "jquery": "^3.6.3",
+        "vite-plugin-windicss": "^1.8.10",
+        "windicss": "^3.5.6"
+    }
+}
