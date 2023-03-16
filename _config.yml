@@ -1,1 +1,4 @@
-exclude: ['IS-ENES3-2023']
+exclude: [
+  'IS-ENES3-2023/slides.md',
+  'IS-ENES3-2023/extra-slides.md'
+]
