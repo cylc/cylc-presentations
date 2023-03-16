@@ -1,0 +1,765 @@
+
+
+digraph {
+
+    subgraph cluster_0 {
+        style="dashed"
+        label="0"
+
+        a_0 -> b_0 -> d_0 -> f_0
+        b_0 -> c_0
+        e_0 -> f_0
+
+        a_0 [label="a"]
+        b_0 [label="b"]
+        c_0 [label="c"]
+        d_0 [label="d"]
+        e_0 [label="e"]
+        f_0 [label="f"]
+    }
+
+    b_0 -> b_1 [color="blue"]
+    f_0 -> e_1 [color="blue"]
+
+    subgraph cluster_1 {
+        style="dashed"
+        label="1"
+
+        a_1 -> b_1 -> d_1 -> f_1
+        b_1 -> c_1
+        e_1 -> f_1
+
+        a_1 [label="a"]
+        b_1 [label="b"]
+        c_1 [label="c"]
+        d_1 [label="d"]
+        e_1 [label="e"]
+        f_1 [label="f"]
+    }
+
+    b_1 -> b_2 [color="blue"]
+    f_1 -> e_2 [color="blue"]
+
+    subgraph cluster_2 {
+        style="dashed"
+        label="2"
+
+        a_2 -> b_2 -> d_2 -> f_2
+        b_2 -> c_2
+        e_2 -> f_2
+
+        a_2 [label="a"]
+        b_2 [label="b"]
+        c_2 [label="c"]
+        d_2 [label="d"]
+        e_2 [label="e"]
+        f_2 [label="f"]
+    }
+
+    b_2 -> b_3 [color="blue"]
+    f_2 -> e_3 [color="blue"]
+
+    subgraph cluster_3 {
+        style="dashed"
+        label="3"
+
+        a_3 -> b_3 -> d_3 -> f_3
+        b_3 -> c_3
+        e_3 -> f_3
+
+        a_3 [label="a"]
+        b_3 [label="b"]
+        c_3 [label="c"]
+        d_3 [label="d"]
+        e_3 [label="e"]
+        f_3 [label="f"]
+    }
+
+    b_3 -> b_4 [color="blue"]
+    f_3 -> e_4 [color="blue"]
+
+    subgraph cluster_4 {
+        style="dashed"
+        label="4"
+
+        a_4 -> b_4 -> d_4 -> f_4
+        b_4 -> c_4
+        e_4 -> f_4
+
+        a_4 [label="a"]
+        b_4 [label="b"]
+        c_4 [label="c"]
+        d_4 [label="d"]
+        e_4 [label="e"]
+        f_4 [label="f"]
+    }
+
+    b_4 -> b_5 [color="blue"]
+    f_4 -> e_5 [color="blue"]
+
+    subgraph cluster_5 {
+        style="dashed"
+        label="5"
+
+        a_5 -> b_5 -> d_5 -> f_5
+        b_5 -> c_5
+        e_5 -> f_5
+
+        a_5 [label="a"]
+        b_5 [label="b"]
+        c_5 [label="c"]
+        d_5 [label="d"]
+        e_5 [label="e"]
+        f_5 [label="f"]
+    }
+
+    b_5 -> b_6 [color="blue"]
+    f_5 -> e_6 [color="blue"]
+
+    subgraph cluster_6 {
+        style="dashed"
+        label="6"
+
+        a_6 -> b_6 -> d_6 -> f_6
+        b_6 -> c_6
+        e_6 -> f_6
+
+        a_6 [label="a"]
+        b_6 [label="b"]
+        c_6 [label="c"]
+        d_6 [label="d"]
+        e_6 [label="e"]
+        f_6 [label="f"]
+    }
+
+    b_6 -> b_7 [color="blue"]
+    f_6 -> e_7 [color="blue"]
+
+    subgraph cluster_7 {
+        style="dashed"
+        label="7"
+
+        a_7 -> b_7 -> d_7 -> f_7
+        b_7 -> c_7
+        e_7 -> f_7
+
+        a_7 [label="a"]
+        b_7 [label="b"]
+        c_7 [label="c"]
+        d_7 [label="d"]
+        e_7 [label="e"]
+        f_7 [label="f"]
+    }
+
+    b_7 -> b_8 [color="blue"]
+    f_7 -> e_8 [color="blue"]
+
+    subgraph cluster_8 {
+        style="dashed"
+        label="8"
+
+        a_8 -> b_8 -> d_8 -> f_8
+        b_8 -> c_8
+        e_8 -> f_8
+
+        a_8 [label="a"]
+        b_8 [label="b"]
+        c_8 [label="c"]
+        d_8 [label="d"]
+        e_8 [label="e"]
+        f_8 [label="f"]
+    }
+
+    b_8 -> b_9 [color="blue"]
+    f_8 -> e_9 [color="blue"]
+
+    subgraph cluster_9 {
+        style="dashed"
+        label="9"
+
+        a_9 -> b_9 -> d_9 -> f_9
+        b_9 -> c_9
+        e_9 -> f_9
+
+        a_9 [label="a"]
+        b_9 [label="b"]
+        c_9 [label="c"]
+        d_9 [label="d"]
+        e_9 [label="e"]
+        f_9 [label="f"]
+    }
+
+    b_9 -> b_10 [color="blue"]
+    f_9 -> e_10 [color="blue"]
+
+    subgraph cluster_10 {
+        style="dashed"
+        label="10"
+
+        a_10 -> b_10 -> d_10 -> f_10
+        b_10 -> c_10
+        e_10 -> f_10
+
+        a_10 [label="a"]
+        b_10 [label="b"]
+        c_10 [label="c"]
+        d_10 [label="d"]
+        e_10 [label="e"]
+        f_10 [label="f"]
+    }
+
+    b_10 -> b_11 [color="blue"]
+    f_10 -> e_11 [color="blue"]
+
+    subgraph cluster_11 {
+        style="dashed"
+        label="11"
+
+        a_11 -> b_11 -> d_11 -> f_11
+        b_11 -> c_11
+        e_11 -> f_11
+
+        a_11 [label="a"]
+        b_11 [label="b"]
+        c_11 [label="c"]
+        d_11 [label="d"]
+        e_11 [label="e"]
+        f_11 [label="f"]
+    }
+
+    b_11 -> b_12 [color="blue"]
+    f_11 -> e_12 [color="blue"]
+
+    subgraph cluster_12 {
+        style="dashed"
+        label="12"
+
+        a_12 -> b_12 -> d_12 -> f_12
+        b_12 -> c_12
+        e_12 -> f_12
+
+        a_12 [label="a"]
+        b_12 [label="b"]
+        c_12 [label="c"]
+        d_12 [label="d"]
+        e_12 [label="e"]
+        f_12 [label="f"]
+    }
+
+    b_12 -> b_13 [color="blue"]
+    f_12 -> e_13 [color="blue"]
+
+    subgraph cluster_13 {
+        style="dashed"
+        label="13"
+
+        a_13 -> b_13 -> d_13 -> f_13
+        b_13 -> c_13
+        e_13 -> f_13
+
+        a_13 [label="a"]
+        b_13 [label="b"]
+        c_13 [label="c"]
+        d_13 [label="d"]
+        e_13 [label="e"]
+        f_13 [label="f"]
+    }
+
+    b_13 -> b_14 [color="blue"]
+    f_13 -> e_14 [color="blue"]
+
+    subgraph cluster_14 {
+        style="dashed"
+        label="14"
+
+        a_14 -> b_14 -> d_14 -> f_14
+        b_14 -> c_14
+        e_14 -> f_14
+
+        a_14 [label="a"]
+        b_14 [label="b"]
+        c_14 [label="c"]
+        d_14 [label="d"]
+        e_14 [label="e"]
+        f_14 [label="f"]
+    }
+
+    b_14 -> b_15 [color="blue"]
+    f_14 -> e_15 [color="blue"]
+
+    subgraph cluster_15 {
+        style="dashed"
+        label="15"
+
+        a_15 -> b_15 -> d_15 -> f_15
+        b_15 -> c_15
+        e_15 -> f_15
+
+        a_15 [label="a"]
+        b_15 [label="b"]
+        c_15 [label="c"]
+        d_15 [label="d"]
+        e_15 [label="e"]
+        f_15 [label="f"]
+    }
+
+    b_15 -> b_16 [color="blue"]
+    f_15 -> e_16 [color="blue"]
+
+    subgraph cluster_16 {
+        style="dashed"
+        label="16"
+
+        a_16 -> b_16 -> d_16 -> f_16
+        b_16 -> c_16
+        e_16 -> f_16
+
+        a_16 [label="a"]
+        b_16 [label="b"]
+        c_16 [label="c"]
+        d_16 [label="d"]
+        e_16 [label="e"]
+        f_16 [label="f"]
+    }
+
+    b_16 -> b_17 [color="blue"]
+    f_16 -> e_17 [color="blue"]
+
+    subgraph cluster_17 {
+        style="dashed"
+        label="17"
+
+        a_17 -> b_17 -> d_17 -> f_17
+        b_17 -> c_17
+        e_17 -> f_17
+
+        a_17 [label="a"]
+        b_17 [label="b"]
+        c_17 [label="c"]
+        d_17 [label="d"]
+        e_17 [label="e"]
+        f_17 [label="f"]
+    }
+
+    b_17 -> b_18 [color="blue"]
+    f_17 -> e_18 [color="blue"]
+
+    subgraph cluster_18 {
+        style="dashed"
+        label="18"
+
+        a_18 -> b_18 -> d_18 -> f_18
+        b_18 -> c_18
+        e_18 -> f_18
+
+        a_18 [label="a"]
+        b_18 [label="b"]
+        c_18 [label="c"]
+        d_18 [label="d"]
+        e_18 [label="e"]
+        f_18 [label="f"]
+    }
+
+    b_18 -> b_19 [color="blue"]
+    f_18 -> e_19 [color="blue"]
+
+    subgraph cluster_19 {
+        style="dashed"
+        label="19"
+
+        a_19 -> b_19 -> d_19 -> f_19
+        b_19 -> c_19
+        e_19 -> f_19
+
+        a_19 [label="a"]
+        b_19 [label="b"]
+        c_19 [label="c"]
+        d_19 [label="d"]
+        e_19 [label="e"]
+        f_19 [label="f"]
+    }
+
+    b_19 -> b_20 [color="blue"]
+    f_19 -> e_20 [color="blue"]
+
+    subgraph cluster_20 {
+        style="dashed"
+        label="20"
+
+        a_20 -> b_20 -> d_20 -> f_20
+        b_20 -> c_20
+        e_20 -> f_20
+
+        a_20 [label="a"]
+        b_20 [label="b"]
+        c_20 [label="c"]
+        d_20 [label="d"]
+        e_20 [label="e"]
+        f_20 [label="f"]
+    }
+
+    b_20 -> b_21 [color="blue"]
+    f_20 -> e_21 [color="blue"]
+
+    subgraph cluster_21 {
+        style="dashed"
+        label="21"
+
+        a_21 -> b_21 -> d_21 -> f_21
+        b_21 -> c_21
+        e_21 -> f_21
+
+        a_21 [label="a"]
+        b_21 [label="b"]
+        c_21 [label="c"]
+        d_21 [label="d"]
+        e_21 [label="e"]
+        f_21 [label="f"]
+    }
+
+    b_21 -> b_22 [color="blue"]
+    f_21 -> e_22 [color="blue"]
+
+    subgraph cluster_22 {
+        style="dashed"
+        label="22"
+
+        a_22 -> b_22 -> d_22 -> f_22
+        b_22 -> c_22
+        e_22 -> f_22
+
+        a_22 [label="a"]
+        b_22 [label="b"]
+        c_22 [label="c"]
+        d_22 [label="d"]
+        e_22 [label="e"]
+        f_22 [label="f"]
+    }
+
+    b_22 -> b_23 [color="blue"]
+    f_22 -> e_23 [color="blue"]
+
+    subgraph cluster_23 {
+        style="dashed"
+        label="23"
+
+        a_23 -> b_23 -> d_23 -> f_23
+        b_23 -> c_23
+        e_23 -> f_23
+
+        a_23 [label="a"]
+        b_23 [label="b"]
+        c_23 [label="c"]
+        d_23 [label="d"]
+        e_23 [label="e"]
+        f_23 [label="f"]
+    }
+
+    b_23 -> b_24 [color="blue"]
+    f_23 -> e_24 [color="blue"]
+
+    subgraph cluster_24 {
+        style="dashed"
+        label="24"
+
+        a_24 -> b_24 -> d_24 -> f_24
+        b_24 -> c_24
+        e_24 -> f_24
+
+        a_24 [label="a"]
+        b_24 [label="b"]
+        c_24 [label="c"]
+        d_24 [label="d"]
+        e_24 [label="e"]
+        f_24 [label="f"]
+    }
+
+    b_24 -> b_25 [color="blue"]
+    f_24 -> e_25 [color="blue"]
+
+    subgraph cluster_25 {
+        style="dashed"
+        label="25"
+
+        a_25 -> b_25 -> d_25 -> f_25
+        b_25 -> c_25
+        e_25 -> f_25
+
+        a_25 [label="a"]
+        b_25 [label="b"]
+        c_25 [label="c"]
+        d_25 [label="d"]
+        e_25 [label="e"]
+        f_25 [label="f"]
+    }
+
+    b_25 -> b_26 [color="blue"]
+    f_25 -> e_26 [color="blue"]
+
+    subgraph cluster_26 {
+        style="dashed"
+        label="26"
+
+        a_26 -> b_26 -> d_26 -> f_26
+        b_26 -> c_26
+        e_26 -> f_26
+
+        a_26 [label="a"]
+        b_26 [label="b"]
+        c_26 [label="c"]
+        d_26 [label="d"]
+        e_26 [label="e"]
+        f_26 [label="f"]
+    }
+
+    b_26 -> b_27 [color="blue"]
+    f_26 -> e_27 [color="blue"]
+
+    subgraph cluster_27 {
+        style="dashed"
+        label="27"
+
+        a_27 -> b_27 -> d_27 -> f_27
+        b_27 -> c_27
+        e_27 -> f_27
+
+        a_27 [label="a"]
+        b_27 [label="b"]
+        c_27 [label="c"]
+        d_27 [label="d"]
+        e_27 [label="e"]
+        f_27 [label="f"]
+    }
+
+    b_27 -> b_28 [color="blue"]
+    f_27 -> e_28 [color="blue"]
+
+    subgraph cluster_28 {
+        style="dashed"
+        label="28"
+
+        a_28 -> b_28 -> d_28 -> f_28
+        b_28 -> c_28
+        e_28 -> f_28
+
+        a_28 [label="a"]
+        b_28 [label="b"]
+        c_28 [label="c"]
+        d_28 [label="d"]
+        e_28 [label="e"]
+        f_28 [label="f"]
+    }
+
+    b_28 -> b_29 [color="blue"]
+    f_28 -> e_29 [color="blue"]
+
+    subgraph cluster_29 {
+        style="dashed"
+        label="29"
+
+        a_29 -> b_29 -> d_29 -> f_29
+        b_29 -> c_29
+        e_29 -> f_29
+
+        a_29 [label="a"]
+        b_29 [label="b"]
+        c_29 [label="c"]
+        d_29 [label="d"]
+        e_29 [label="e"]
+        f_29 [label="f"]
+    }
+
+    b_29 -> b_30 [color="blue"]
+    f_29 -> e_30 [color="blue"]
+
+    subgraph cluster_30 {
+        style="dashed"
+        label="30"
+
+        a_30 -> b_30 -> d_30 -> f_30
+        b_30 -> c_30
+        e_30 -> f_30
+
+        a_30 [label="a"]
+        b_30 [label="b"]
+        c_30 [label="c"]
+        d_30 [label="d"]
+        e_30 [label="e"]
+        f_30 [label="f"]
+    }
+
+    b_30 -> b_31 [color="blue"]
+    f_30 -> e_31 [color="blue"]
+
+    subgraph cluster_31 {
+        style="dashed"
+        label="31"
+
+        a_31 -> b_31 -> d_31 -> f_31
+        b_31 -> c_31
+        e_31 -> f_31
+
+        a_31 [label="a"]
+        b_31 [label="b"]
+        c_31 [label="c"]
+        d_31 [label="d"]
+        e_31 [label="e"]
+        f_31 [label="f"]
+    }
+
+    b_31 -> b_32 [color="blue"]
+    f_31 -> e_32 [color="blue"]
+
+    subgraph cluster_32 {
+        style="dashed"
+        label="32"
+
+        a_32 -> b_32 -> d_32 -> f_32
+        b_32 -> c_32
+        e_32 -> f_32
+
+        a_32 [label="a"]
+        b_32 [label="b"]
+        c_32 [label="c"]
+        d_32 [label="d"]
+        e_32 [label="e"]
+        f_32 [label="f"]
+    }
+
+    b_32 -> b_33 [color="blue"]
+    f_32 -> e_33 [color="blue"]
+
+    subgraph cluster_33 {
+        style="dashed"
+        label="33"
+
+        a_33 -> b_33 -> d_33 -> f_33
+        b_33 -> c_33
+        e_33 -> f_33
+
+        a_33 [label="a"]
+        b_33 [label="b"]
+        c_33 [label="c"]
+        d_33 [label="d"]
+        e_33 [label="e"]
+        f_33 [label="f"]
+    }
+
+    b_33 -> b_34 [color="blue"]
+    f_33 -> e_34 [color="blue"]
+
+    subgraph cluster_34 {
+        style="dashed"
+        label="34"
+
+        a_34 -> b_34 -> d_34 -> f_34
+        b_34 -> c_34
+        e_34 -> f_34
+
+        a_34 [label="a"]
+        b_34 [label="b"]
+        c_34 [label="c"]
+        d_34 [label="d"]
+        e_34 [label="e"]
+        f_34 [label="f"]
+    }
+
+    b_34 -> b_35 [color="blue"]
+    f_34 -> e_35 [color="blue"]
+
+    subgraph cluster_35 {
+        style="dashed"
+        label="35"
+
+        a_35 -> b_35 -> d_35 -> f_35
+        b_35 -> c_35
+        e_35 -> f_35
+
+        a_35 [label="a"]
+        b_35 [label="b"]
+        c_35 [label="c"]
+        d_35 [label="d"]
+        e_35 [label="e"]
+        f_35 [label="f"]
+    }
+
+    b_35 -> b_36 [color="blue"]
+    f_35 -> e_36 [color="blue"]
+
+    subgraph cluster_36 {
+        style="dashed"
+        label="36"
+
+        a_36 -> b_36 -> d_36 -> f_36
+        b_36 -> c_36
+        e_36 -> f_36
+
+        a_36 [label="a"]
+        b_36 [label="b"]
+        c_36 [label="c"]
+        d_36 [label="d"]
+        e_36 [label="e"]
+        f_36 [label="f"]
+    }
+
+    b_36 -> b_37 [color="blue"]
+    f_36 -> e_37 [color="blue"]
+
+    subgraph cluster_37 {
+        style="dashed"
+        label="37"
+
+        a_37 -> b_37 -> d_37 -> f_37
+        b_37 -> c_37
+        e_37 -> f_37
+
+        a_37 [label="a"]
+        b_37 [label="b"]
+        c_37 [label="c"]
+        d_37 [label="d"]
+        e_37 [label="e"]
+        f_37 [label="f"]
+    }
+
+    b_37 -> b_38 [color="blue"]
+    f_37 -> e_38 [color="blue"]
+
+    subgraph cluster_38 {
+        style="dashed"
+        label="38"
+
+        a_38 -> b_38 -> d_38 -> f_38
+        b_38 -> c_38
+        e_38 -> f_38
+
+        a_38 [label="a"]
+        b_38 [label="b"]
+        c_38 [label="c"]
+        d_38 [label="d"]
+        e_38 [label="e"]
+        f_38 [label="f"]
+    }
+
+    b_38 -> b_39 [color="blue"]
+    f_38 -> e_39 [color="blue"]
+
+    subgraph cluster_39 {
+        style="dashed"
+        label="39"
+
+        a_39 -> b_39 -> d_39 -> f_39
+        b_39 -> c_39
+        e_39 -> f_39
+
+        a_39 [label="a"]
+        b_39 [label="b"]
+        c_39 [label="c"]
+        d_39 [label="d"]
+        e_39 [label="e"]
+        f_39 [label="f"]
+    }
+
+    b_39 -> b_40 [color="blue"]
+    f_39 -> e_40 [color="blue"]
+
+}

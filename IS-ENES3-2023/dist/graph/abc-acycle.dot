@@ -1,0 +1,15 @@
+digraph {
+    a_1 -> b_1 -> d_1 -> f_1
+    b_1 -> c_1
+    e_1 -> f_1
+
+    a_1 [label="a"]
+    b_1 [label="b"]
+    c_1 [label="c"]
+    d_1 [label="d"]
+    e_1 [label="e"]
+    f_1 [label="f"]
+
+    b_1 -> b_1 [color="blue"]
+    f_1 -> e_1 [color="blue"]
+}

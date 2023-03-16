@@ -1,0 +1,38 @@
+digraph {
+    a -> x1 -> x2 -> b
+    a -> y1 -> y2 -> b
+    a -> z1 -> z2 -> b
+
+    subgraph cluster_x {
+        style="dashed"
+        label="case: x"
+        color="#f75f5fff"
+        fontcolor="#f75f5fff"
+        fontsize=10
+
+        x1
+        x2
+    }
+
+    subgraph cluster_y {
+        style="dashed"
+        label="case: y"
+        color="#f0c84bff"
+        fontcolor="#f0c84bff"
+        fontsize=10
+
+        y1
+        y2
+    }
+
+    subgraph cluster_z {
+        style="dashed"
+        label="case: z"
+        color="#64c77eff"
+        fontcolor="#64c77eff"
+        fontsize=10
+
+        z1
+        z2
+    }
+}
