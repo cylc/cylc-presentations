@@ -12,19 +12,19 @@ $ yarn install
 
 ### Build
 
-To rebuild resources (e.g. graphs):
+#### To rebuild resources (e.g. graphs):
 
 ```shell
 $ make all
 ```
 
-For development:
+#### For development:
 
 ```shell
 $ yarn slidev
 ```
 
-For production:
+#### For production:
 
 ```shell
 $ yarn build
@@ -34,11 +34,23 @@ $ python -m http.server --directory dist/
 > Note: the Python web server can open the index page, but doesn't like the slide
 navigation.
 
-For GitHub Pages:
+#### For GitHub Pages:
 
 ```shell
 $ yarn gh-pages
 ```
+
+Slidev creates a resource with a name which starts with an underscore.
+Jekyll will filter underscore-prefixed files out. I've tried adding an
+exception in the `_config.yml` file, but I just can't get it to let this file
+pass through so here's a really nasty hack:
+
+```shell
+$ sed -i 's/_commonjsHelpers-28e086c5.js/-commonjsHelpers-28e086c5.js/g' $(git grep --name-only _commonjsHelpers-28e086c5.js)
+$ mv dist/assets/_commonjsHelpers-28e086c5.js dist/assets/-commonjsHelpers-28e086c5.js
+```
+
+Apologies to future me when reading this :(
 
 ### Notes for presenting
 
