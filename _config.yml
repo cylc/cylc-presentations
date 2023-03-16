@@ -2,7 +2,8 @@ exclude: [
   'IS-ENES3-2023/slides.md',
   'IS-ENES3-2023/extra-slides.md'
 ]
-include: [
+keep_files: [
+  'IS-ENES3-2023/dist/',
   'IS-ENES3-2023/dist/_redirects',
   'IS-ENES3-2023/dist/assets/_commonjsHelpers-28e086c5.js'
 ]
