@@ -31,8 +31,14 @@ $ yarn build
 $ python -m http.server --directory dist/
 ```
 
-Note, the Python web server can open the index page, but doesn't like the slide
+> Note: the Python web server can open the index page, but doesn't like the slide
 navigation.
+
+For GitHub Pages:
+
+```shell
+$ yarn gh-pages
+```
 
 ### Notes for presenting
 
