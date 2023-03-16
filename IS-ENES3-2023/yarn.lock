@@ -633,7 +633,7 @@
     estree-walker "^2.0.2"
     picomatch "^2.3.1"
 
-"@slidev/cli@40.0.3":
+"@slidev/cli@latest":
   version "0.40.3"
   resolved "https://registry.yarnpkg.com/@slidev/cli/-/cli-0.40.3.tgz#7dfa8c2f4d41df2bdf69a5de55b6f4b2e03021c1"
   integrity sha512-vDdtqNSbzlRoK1EgCX+PQDl9Rg+hXnp7Lr/vQ2B+wDCN1Vcu+uk9G1iP6HnYAAedwDL23i1vreqeiDOJtIs5IQ==
@@ -3316,9 +3316,9 @@ unctx@^2.1.1:
     unplugin "^1.0.0"
 
 undici@^5.12.0:
-  version "5.18.0"
-  resolved "https://registry.yarnpkg.com/undici/-/undici-5.18.0.tgz#e88a77a74d991a30701e9a6751e4193a26fabda9"
-  integrity sha512-1iVwbhonhFytNdg0P4PqyIAXbdlVZVebtPDvuM36m66mRw4OGrCm2MYynJv/UENFLdP13J1nPVQzVE2zTs1OeA==
+  version "5.21.0"
+  resolved "https://registry.yarnpkg.com/undici/-/undici-5.21.0.tgz#b00dfc381f202565ab7f52023222ab862bb2494f"
+  integrity sha512-HOjK8l6a57b2ZGXOcUsI5NLfoTrfmbOl90ixJDl0AEFG4wgHNDQxtZy15/ZQp7HhjkpaGlp/eneMgtsu1dIlUA==
   dependencies:
     busboy "^1.6.0"
 
