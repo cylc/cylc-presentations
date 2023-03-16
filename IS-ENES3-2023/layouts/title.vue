@@ -14,21 +14,13 @@
 </template>
 
 <script>
-// import { computed } from 'vue'
-// 
-// const props = defineProps({
-//   background: {
-//     type: String,
-//     default: 'rgb(50, 50, 50)'
-//   }
-// })
-// 
-// const style = computed(() => {
-//   if (props.image) {
-//     return `background-image: url(${props.image});`
-//   }
-//   return 'background: rgb(50, 50, 50);'
-// })
+export function resolveAssetUrl(url) {
+  if (url.startsWith('/')) {
+    return import.meta.env.BASE_URL + '/' + url.slice(1)
+  }
+  return url
+}
+
 export default {
   props: {
     image: {
@@ -44,14 +36,14 @@ export default {
     style () {
       if (this.image && this.logo) {
         return `
-          background-image: url(${this.logo}), url(${this.image});
+          background-image: url(${resolveAssetUrl(this.logo)}), url(${resolveAssetUrl(this.image)});
           background-size: 25%, cover;
           background-position: 5% 90%, top left;
           background-repeat: no-repeat, no-repeat;
         `
       }
       else if (this.image) {
-        return `background-image: url(${this.image}); background-size: cover;`
+        return `background-image: url(${resolveAssetUrl(this.image)}); background-size: cover;`
       }
       return 'background: rgb(50, 50, 50);'
     },

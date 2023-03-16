@@ -7,6 +7,7 @@
 a {
     text-decoration-line: underline!important;
     text-decoration-style: dashed!important;
+    border: none!important;
 }
 
 a:hover {

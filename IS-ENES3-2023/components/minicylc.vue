@@ -11,6 +11,13 @@
 <script>
 import $ from "jquery"
 
+export function resolveAssetUrl(url) {
+  if (url.startsWith('/')) {
+    return import.meta.env.BASE_URL + '/' + url.slice(1)
+  }
+  return url
+}
+
 // Default Cylc colour theme.
 var minicylc_default_theme = {
     'waiting_fill': 'none',
@@ -611,7 +618,7 @@ export default {
         .data('stepTime', this.stepTime)
         .data('dependencies', this.deps.join('//'))
         //.attr('src', this.svg)[0]
-        .attr('data', this.svg)[0]
+        .attr('data', resolveAssetUrl(this.svg))[0]
       // $('#infinite-cycling').append(infininte_animation)
       return infininte_animation
     },
