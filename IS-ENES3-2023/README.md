@@ -2,8 +2,8 @@
 
 ### IS-ENES3 Webinar - 2023-03-16
 
-[IS-ENES page](https://is.enes.org/training-detailed/#cylc-webinar)
+🌐 [IS-ENES page](https://is.enes.org/training-detailed/#cylc-webinar)
 
-[Slides](dist/index.html)
+➦ [Slides](dist/index.html)
 
-The recording will be linked once it has been uploaded
+▶️  [Recording](https://www.youtube.com/watch?v=MHC-PCuy_94)
